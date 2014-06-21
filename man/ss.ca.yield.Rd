@@ -1,0 +1,49 @@
+\name{ss.ca.yield}
+\alias{ss.ca.yield}
+\title{Main calculations regarding The Voice of the Process in SixSigma: Yield, FTY, RTY,
+DPMO}
+\usage{
+ss.ca.yield(defects = 0, rework = 0, opportunities = 1)
+}
+\arguments{
+  \item{defects}{A vector with the number of defects in
+  each product/batch, ...}
+
+  \item{rework}{A vector with the number of items/parts
+  reworked}
+
+  \item{opportunities}{A numeric value with the size or
+  length of the product/batch}
+}
+\value{
+\item{Yield }{Number of good stuff / Total items} \item{FTY
+}{(Total - scrap - rework) / Total } \item{RTY }{prod(FTY)}
+\item{DPMO}{Defects per Million Opportunities}
+}
+\description{
+Computes the Yield, First Time Yield, Rolled Throughput
+Yield and Defects per Million Opportunities of a process.
+}
+\details{
+The three arguments must have the same length.
+}
+\examples{
+ss.ca.yield(c(3,5,12),c(1,2,4),1915)
+}
+\author{
+Emilio L. Cano
+}
+\references{
+Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres.
+2012. \emph{Six Sigma with {R}. Statistical Engineering for
+Process Improvement}, Use R!, vol. 36. Springer, New York.
+\url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+
+Gygi C, DeCarlo N, Williams B (2005) \emph{Six sigma for
+dummies}. --For dummies, Wiley Pub.
+}
+\keyword{DPMO}
+\keyword{FTY}
+\keyword{RTY}
+\keyword{Yield}
+

@@ -1,0 +1,18 @@
+citHeader("To cite package 'SixSigma' in publications use:")
+
+     ## R >= 2.8.0 passes package metadata to citation().
+     if(!exists("meta") || is.null(meta)) meta <- packageDescription("SixSigma")
+     year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
+     vers <- paste("R package version", meta$Version)
+
+     citEntry(entry="Manual",
+              title = "SixSigma: Tools for Six Sigma quality management methodology",
+              author = personList(as.person("Emilio Lopez Cano"),
+                                  as.person("Andres Redchuk"),
+                                  as.person("Javier M.Moguerza"),
+				  person("Rey Juan Carlos University (Madrid)")),
+              year = year,
+              note = vers,
+              textVersion =
+              paste("Emilio Lopez, Andres Redchuk, Mariano Prieto, (",
+                    year,"). SixSigma: Tools for Six Sigma quality management methodology ", vers, ".", sep=""))

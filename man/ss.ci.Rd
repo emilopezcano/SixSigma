@@ -1,0 +1,80 @@
+\name{ss.ci}
+\alias{ss.ci}
+\title{Confidence Interval for the mean}
+\usage{
+ss.ci(x, sigma2 = NA, alpha = 0.05, data = NA, xname = "x",
+  approx.z = FALSE, main = "Confidence Interval for the Mean", digits = 3,
+  sub = "", ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD",
+  "#EEEEEE"))
+}
+\arguments{
+  \item{x}{A numeric vector with the variable data}
+
+  \item{sigma2}{The population variance, if known}
+
+  \item{alpha}{The eqn{\\alpha} error used to compute the
+  \eqn{100*(1-\\alpha)\%} confidence interval}
+
+  \item{data}{The data frame containing the vector}
+
+  \item{xname}{The name of the variable to be shown in the
+  graph}
+
+  \item{approx.z}{If TRUE it uses z statistic instead of t
+  when sigma is unknown and sample size is greater than 30.
+  The default is FALSE, change only if you want to compare
+  with results obtained with the old-fashioned method
+  mentioned in some books.}
+
+  \item{main}{The main title for the graph}
+
+  \item{digits}{Significant digits for output}
+
+  \item{sub}{The subtitle for the graph (recommended: six
+  sigma project name)}
+
+  \item{ss.col}{A vector with colors}
+}
+\value{
+The confidence Interval.\cr A graph with the figures, the
+Shapiro-Wilks test, and a histogram.
+}
+\description{
+Computes a confidence interval for the mean of the variable
+(parameter or feature of the process), and prints the data,
+a histogram with a density line, the result of the
+Shapiro-Wilks normality test and a quantile-quantile plot.
+}
+\details{
+When the population variance is known, or the size is
+greater than 30, it uses z statistic. Otherwise, it is uses
+t statistic.\cr If the sample size is lower than 30, a
+warning is displayed so as to verify normality.
+}
+\note{
+Thanks to the kind comments and suggestions from the
+anonymous reviewer of a tentative article.
+}
+\examples{
+ss.ci(len, data=ss.data.strings, alpha = 0.05,
+  sub = "Guitar Strings Test | String Length",
+  xname = "Length")
+}
+\author{
+EL Cano
+}
+\references{
+Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres.
+2012. \emph{Six Sigma with {R}. Statistical Engineering for
+Process Improvement}, Use R!, vol. 36. Springer, New York.
+\url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+}
+\seealso{
+\code{\link{ss.data.rr}}
+}
+\keyword{confidence}
+\keyword{interval}
+\keyword{mean}
+\keyword{normality}
+\keyword{test}
+

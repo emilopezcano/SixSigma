@@ -1,9 +1,29 @@
 Package: SixSigma
 Type: Package
-Title: What the package does (short line)
-Version: 1.0
-Date: 2014-06-21
-Author: Who wrote it
-Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
-License: What license is it under?
+Title: Six Sigma Tools for Quality and Process Improvement
+Version: 0.8-1
+Date: 2014-02-22
+Encoding: UTF-8
+Author: Emilio L. Cano, Javier M. Moguerza and Andrés Redchuk
+Maintainer: Emilio L. Cano <emilio.lopez@urjc.es>
+Description: This package contains functions and utilities to perform
+    Statistical Analyses in the Six Sigma way.
+    Through the DMAIC cycle (Define, Measure, Analyze, Improve, Control),
+    you can manage several Quality Management studies:
+    Gage R&R, Capability Analysis, Control Charts, Loss Function Analysis,
+    etc. Data frames used in the book "Six Sigma with R" (Springer, 2012)
+    are also included in the package.
+URL: http://www.sixsigmawithr.com
+License: GPL (>= 2)
+Depends:
+    R (>= 2.14.0)
+Imports:
+    qcc,
+    lattice,
+    grid,
+    ggplot2,
+    reshape2,
+    nortest,
+    testthat
+LazyLoad: yes
+LazyData: yes

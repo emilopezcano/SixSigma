@@ -1,0 +1,70 @@
+% 
+\documentclass[a4paper]{article}
+\usepackage[OT1]{fontenc}
+\usepackage{Sweave}
+%\VignetteIndexEntry{HelicopterInstructions}
+
+\begin{document}
+
+\title{Design of the Paper Helicopter}
+\author{Emilio Lopez}
+
+\maketitle
+
+
+\section{Obtaining the Helicopter}
+The paper helicopter is a widely used example for training in Quality 
+Methodologies. It was first mentioned in \cite{gbox1991}. 
+
+A pdf document with a template of the paper helicopter design 
+(see Fig. \ref{fig:template})
+is located in the 
+folder \texttt{doc} of the \texttt{SixSigma} package. 
+It can be also obtained with the command \texttt{vignette("HelicopterInstructions")}.
+
+Print it in A4 paper 
+without adjusting to the paper size to get the correct dimensions.
+
+You can also generate a copy of the pdf document in your working directory
+with the function \texttt{ss.heli()}:
+
+<<results=hide, eval=FALSE>>=
+	library(SixSigma)
+	ss.heli()
+@
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.6\textwidth]{helicopterDesign}
+\caption{Paper Helicopter template.}
+\label{fig:template}
+\end{center}
+\end{figure}
+
+
+\section{Assembling the Helicopter}
+
+Follow the instructions in the template (Fig. \ref{fig:diag}): fold by 
+the continuous lines and
+cut the discontinuous lines, depending on the prototype you want to build.
+
+The yellow strips are for tape, the green strip is for paper clip. These 
+materials are optional.
+
+\begin{figure}
+\begin{center}
+	\includegraphics[width=0.6\textwidth]{helides}
+\caption{Paper Helicopter Diagram.}
+\label{fig:diag}
+\end{center}
+\end{figure}
+
+\begin{thebibliography}{1}
+\bibitem[Box(1992)]{gbox1991}
+George Box.
+\newblock Teaching engineers experimental design with a paper helicopter.
+\newblock \emph{Quality Engineering}, 4\penalty0 (3):\penalty0 453--459, 1992.
+
+\end{thebibliography}
+
+\end{document}

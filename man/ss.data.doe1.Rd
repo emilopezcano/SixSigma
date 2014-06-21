@@ -1,0 +1,42 @@
+\docType{data}
+\name{ss.data.doe1}
+\alias{ss.data.doe1}
+\title{Pizza dough example data}
+\format{A data frame with 16 observations on the following 6 variables.
+  \describe{
+    \item{\code{repl}}{Replication id}
+    \item{\code{flour}}{Level of flour in the recipe (\code{-} \code{+})}
+    \item{\code{salt}}{Level of salt in the recipe (\code{-} \code{+})}
+    \item{\code{bakPow}}{Level of Baking Powder in the recipe (\code{-} \code{+})}
+    \item{\code{score}}{Scored assigned to the recipe}
+    \item{\code{ord}}{Randomized order}
+  }}
+\source{
+See references.
+}
+\usage{
+data(ss.data.doe1)
+}
+\description{
+Experimental data for the scores given to a set of pizza
+doughs.
+}
+\note{
+This data set is used in chapter 11 of the book ``Six Sigma
+with R'' (see References).
+}
+\examples{
+data(ss.data.doe1)
+summary(ss.data.doe1)
+library(lattice)
+bwplot(score ~ flour | salt + bakPow , data = ss.data.doe1)
+}
+\references{
+Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés.
+2012. \emph{Six Sigma with {R}. Statistical Engineering for
+Process Improvement}, Use R!, vol. 36. Springer, New York.
+\url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
+}
+\keyword{data}
+\keyword{doe}
+

@@ -1,0 +1,41 @@
+\docType{data}
+\name{ss.data.pastries}
+\alias{ss.data.pastries}
+\title{Pastries data}
+\format{A data frame with 18 observations on the following 4 variables.
+  \describe{
+    \item{\code{lab}}{laboratory: a factor with levels \code{1} \code{2} \code{3}}
+    \item{\code{batch}}{batch: a factor with levels \code{1} \code{2} \code{3}}
+    \item{\code{run}}{identifies the run: a factor with levels \code{1} \code{2}}
+    \item{\code{comp}}{proportion of the compound in the pastry: a numeric vector}
+  }}
+\source{
+See references.
+}
+\usage{
+data(ss.data.pastries)
+}
+\description{
+A data frame with 18 observations of the amount of the CTQ
+compound in some pastries from a bakery. There are two runs
+for each combination of two factors (laboratory and batch).
+}
+\note{
+This data set is used in chapter 5 exercises of the book
+``Six Sigma with R'' (see References).
+}
+\examples{
+data(ss.data.pastries)
+summary(ss.data.pastries)
+library(lattice)
+xyplot(comp ~ lab | batch, data = ss.data.pastries)
+}
+\references{
+Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés.
+2012. \emph{Six Sigma with {R}. Statistical Engineering for
+Process Improvement}, Use R!, vol. 36. Springer, New York.
+\url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
+}
+\keyword{data}
+\keyword{msa}
+
