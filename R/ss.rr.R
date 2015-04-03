@@ -59,8 +59,7 @@
 ss.rr <- function(var, part, appr,
                   lsl= NA, usl= NA, sigma = 5.15,        
                   data = "stop('Data' is required for lattice graphics)", 
-                  main = "Six Sigma Gage R&R Study", sub = "",
-                  boxplot = FALSE){
+                  main = "Six Sigma Gage R&R Study", sub = ""){
     
     ##Figures and facts
     if (is.data.frame(data)){
