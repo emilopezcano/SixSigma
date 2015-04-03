@@ -119,7 +119,7 @@ ss.rr <- function(var, part, appr,
     cat(paste("\nGage R&R\n"))
     print(varComp[, 1:2])
     cat("\n")
-    if (!is.na(usl) || !is.na(lsl)) {  #Check that both tolerances were entered. 
+    if (!is.na(usl) && !is.na(lsl)) {  #Check that both tolerances were entered. 
         print(varComp[, 3:6])
     }
     else {
@@ -139,7 +139,7 @@ ss.rr <- function(var, part, appr,
     
     # Check for tolerances before printing component of variation barchart.
     # If both tolerances werent input ignore %Tolerance in barchart.
-    if (!is.na(usl) || !is.na(lsl)) {
+    if (!is.na(usl) && !is.na(lsl)) {
         databar <- cbind(varComp[c(1, 2, 3, 6), 2],
                          varComp[c(1,2, 3, 6), 5], 
                          varComp[c(1,2, 3, 6), 6])
