@@ -275,18 +275,19 @@ hist <- qqp + geom_histogram(aes(y = ..density..),
 				binwidth = binwST,
 				fill = "steelblue", 
 				stat = "bin")
+xST_density <- density(xST, bw = binwST)
 if (!is.na(LSL)){
 	hist <- hist +
 		annotate(geom = "text", 
 				x = LSL, 
-				y = 0.2, 
+				y = max(xST_density$y), 
 				label = "LSL", 
 				hjust = -0.1, 
 				size = 5) 
 } 
 hist <- hist +	annotate(geom = "text",
 				x = Target, 
-				y = 0.4, 
+				y = max(xST_density$y), 
 				label = "Target",
 				hjust = -0.1,
 				size = 5)
@@ -294,7 +295,7 @@ if (!is.na(USL)){
 	hist <- hist + 
 		annotate(geom = "text",
 				x = USL, 
-				y = 0.2, 
+				y = max(xST_density$y), 
 				label = "USL",
 				hjust = 1.1, 
 				size = 5) 
