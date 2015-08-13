@@ -142,7 +142,10 @@ NULL
 #' data(ss.data.doe1)
 #' summary(ss.data.doe1)
 #' library(lattice)
-#' bwplot(score ~ flour | salt + bakPow , data = ss.data.doe1)
+#' bwplot(score ~ flour | salt + bakPow , 
+#'  data = ss.data.doe1, 
+#'  xlab = "Flour", 
+#'  strip = function(..., style) strip.default(..., strip.names=c(TRUE,TRUE)))
 #' 
 NULL
 
