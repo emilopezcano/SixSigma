@@ -1,5 +1,6 @@
 SixSigma 0.8-2
 --------------
+* Fixed hard-coded axis limits and positions in `ss.study.ca`
 * CRAN policy fixes
 
 SixSigma 0.8-1
