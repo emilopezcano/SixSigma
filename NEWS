@@ -1,3 +1,7 @@
+SixSigma 0.8-2
+--------------
+* CRAN policy fixes
+
 SixSigma 0.8-1
 --------------
 * Fixed NOTES not accepted by CRAN CHECK

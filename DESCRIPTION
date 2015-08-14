@@ -1,8 +1,8 @@
 Package: SixSigma
 Type: Package
 Title: Six Sigma Tools for Quality and Process Improvement
-Version: SixSigma-dev
-Date: 2015-01-14
+Version: 0.8-2
+Date: 2015-08-14
 Encoding: UTF-8
 Author: Emilio L. Cano, Javier M. Moguerza and Andrés Redchuk
 Maintainer: Emilio L. Cano <emilio.lopez@urjc.es>
