@@ -16,3 +16,15 @@ citHeader("To cite package 'SixSigma' in publications use:")
               textVersion =
               paste("Emilio L. Cano, Javier M. Moguerza and Andres Redchuk (2012)",
                     "Six Sigma with R. Springer, New York", sep=""))
+     
+     citEntry(entry="Book",
+              title = "Quality Control with R",
+              author = "Emilio L. Cano and Javier M. Moguerza and Mariano {Prieto Corcoba}",
+              year = "2015",
+              publisher = "Springer",
+              address = "New York",
+              series = "Use R!",
+              textVersion =
+              paste("Emilio L. Cano, Javier M. Moguerza and Mariano Prieto Corcoba (2015)",
+                    "Quality Control with R. Springer, New York", sep=""))
+                    

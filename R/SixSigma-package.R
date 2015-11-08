@@ -1,9 +1,4 @@
 NULL
-# 
-# 
-# Author: EL Cano
-###############################################################################
-
 #' Six Sigma Tools for Quality and Process Improvement
 #'
 #' This package contains functions and utilities to perform Statistical Analyses in the Six Sigma way. 
@@ -21,6 +16,7 @@ NULL
 #'  Control: Moving Average Control Chart\cr
 #'  Soon: further functions
 #'  
+#'    
 #' @note  
 #' The current version includes Loss Function Analysis, Gage R&R Study, 
 #' confidence intervals,
@@ -39,10 +35,9 @@ NULL
 #' @docType package
 #' @name SixSigma
 #' @title Six Sigma Tools for Quality and Process Improvement
-#' @author Emilio L. Cano, Javier M. Moguerza and Andrés Redchuk; 
+#' @author Emilio L. Cano, Javier M. Moguerza, Mariano Prieto Corcoba and Andrés Redchuk; 
 #' 
-#' Maintainer: Emilio L. Cano \email{emilio.lopez@@urjc.es}
-#' @keywords package SixSigma quality
+#' Maintainer: Emilio L. Cano \email{emilio.lopez@urjc.es}
 #' @seealso \code{\link{ss.pMap}}, \code{\link{ss.rr}}, \code{\link{ss.ceDiag}},
 #' \code{\link{ss.ci}}, \code{\link{ss.heli}}, \code{\link{ss.lfa}}
 #' @references 
@@ -59,6 +54,9 @@ NULL
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
 #'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #' 
+#' #' Cano, Emilio L., Moguerza, Javier M. and Prieto Corcoba, Andrés. 2015.
+#' \emph{Quality Control with {R}. An ISO Standards approach}, Use R!, Springer, New York.
+#'   
 #' Chambers, J. M. (2008) \emph{Software for data analysis. Programming with
 #'   R} New York: Springer.
 #' 
@@ -80,16 +78,7 @@ NULL
 #' example(ss.ca.cp)
 #' example(ss.ca.cpk)
 #' example(ss.cc)
-#' @import grid lattice ggplot2 qcc
+#' @import grid lattice ggplot2 qcc testthat xtable
 NULL
 
-#' Internal - .onLoad function 
-#' 
-#' Welcome message
-#' 
-#' @param library 
-#' @param pkg 
-#' 
-#' @author emilio
-#' @keywords internal
 

@@ -50,8 +50,7 @@
 #' @author EL Cano with contributions by Kevin C Limburg
 #' 
 #' @examples 
-#' data(ss.data.rr)
-#' ss.rr(time1, prototype, operator, data=ss.data.rr, 
+#' ss.rr(time1, prototype, operator, data = ss.data.rr, 
 #' 	sub="Six Sigma Paper Helicopter Project")
 #' 
 #' @export
@@ -151,8 +150,8 @@ ss.rr <- function(var, part, appr,
                                              par.main.text = list(cex = 0.85)), 
                          ylab = list("Percent", fontsize = 8), 
                          panel = function(...) {
-                                          panel.barchart(...)
-                                          panel.abline(h = 0)
+                                          lattice::panel.barchart(...)
+                                          lattice::panel.abline(h = 0)
                          }, 
                          auto.key = list(text = c("%Contribution", "%Study Var", "%Tolerance"), 
                                          cex = 0.8, columns = 2, space = "bottom", cex = 0.8, 
@@ -172,8 +171,8 @@ ss.rr <- function(var, part, appr,
                                              par.main.text = list(cex = 0.85)), 
                          ylab = list("Percent", fontsize = 8),
                          panel = function(...) {
-                                          panel.barchart(...)
-                                          panel.abline(h = 0)
+                                          lattice::panel.barchart(...)
+                                          lattice::panel.abline(h = 0)
                          }, 
                          auto.key = list(text = c("%Contribution", "%Study Var"), 
                                          cex = 0.8, columns = 2, space = "bottom", cex = 0.8, 
@@ -217,7 +216,7 @@ ss.rr <- function(var, part, appr,
     pushViewport(vp.Interact)
     
     #Interaction
-    data.xbar<-aggregate(data=ss.data.rr,var~appr+part,mean)
+    data.xbar <- aggregate(var ~ appr + part, data = data, mean)
     plot<-stripplot(var~part,
                     groups=appr,
                     data=data.xbar,
@@ -233,8 +232,8 @@ ss.rr <- function(var, part, appr,
     popViewport()
     
     #Control Charts
-    data.xrange <- aggregate(data = ss.data.rr, 
-                             var ~ appr + part,
+    data.xrange <- aggregate(var ~ appr + part,
+                             data = data,
                              function(x) {
                                       max(x) - min(x)
                              })
@@ -258,10 +257,10 @@ ss.rr <- function(var, part, appr,
                                 xbar <- mean(var,na.rm=TRUE)
                                 ucl <- xbar + (3/(ss.cc.getd2(n)*sqrt(n)))*ar
                                 lcl <- xbar - (3/(ss.cc.getd2(n)*sqrt(n)))*ar
-                                panel.xyplot(...)
-                                panel.abline(h=xbar, lty=2)
-                                panel.abline(h=ucl)
-                                panel.abline(h=lcl)
+                                lattice::panel.xyplot(...)
+                                lattice::panel.abline(h=xbar, lty=2)
+                                lattice::panel.abline(h=ucl)
+                                lattice::panel.abline(h=lcl)
                  }
     )
     print(plot,newpage=FALSE)
@@ -284,10 +283,10 @@ ss.rr <- function(var, part, appr,
                  panel=function(...) {
                                 this.d3 <- ss.cc.getd3(n)
                                 this.d2 <- ss.cc.getd2(n)
-                                panel.xyplot(...)
-                                panel.abline(h=ar, lty=2)
-                                panel.abline(h=ar*(1+(this.d3/(this.d2))))
-                                panel.abline(h=ar*(1-(this.d3/(this.d2))))
+                                lattice::panel.xyplot(...)
+                                lattice::panel.abline(h=ar, lty=2)
+                                lattice::panel.abline(h=ar*(1+(this.d3/(this.d2))))
+                                lattice::panel.abline(h=ar*(1-(this.d3/(this.d2))))
                  }
     )
     print(plot,newpage=FALSE)
