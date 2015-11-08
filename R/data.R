@@ -141,11 +141,10 @@ NULL
 #' @examples
 #' data(ss.data.doe1)
 #' summary(ss.data.doe1)
-#' library(lattice)
-#' bwplot(score ~ flour | salt + bakPow , 
+#' lattice::bwplot(score ~ flour | salt + bakPow , 
 #'  data = ss.data.doe1, 
 #'  xlab = "Flour", 
-#'  strip = function(..., style) strip.default(..., strip.names=c(TRUE,TRUE)))
+#'  strip = function(..., style) lattice::strip.default(..., strip.names=c(TRUE,TRUE)))
 #' 
 NULL
 
@@ -185,8 +184,7 @@ NULL
 #' @examples
 #' data(ss.data.doe2)
 #' summary(ss.data.doe2)
-#' library(lattice)
-#' bwplot(score ~ temp | time, data = ss.data.doe2)
+#' lattice::bwplot(score ~ temp | time, data = ss.data.doe2)
 #' 
 NULL
 
@@ -224,8 +222,7 @@ NULL
 #' @examples
 #' data(ss.data.pastries)
 #' summary(ss.data.pastries)
-#' library(lattice)
-#' xyplot(comp ~ lab | batch, data = ss.data.pastries)
+#' lattice::xyplot(comp ~ lab | batch, data = ss.data.pastries)
 #' 
 NULL
 
@@ -565,4 +562,179 @@ NULL
 #' data(ss.data.strings)
 #' summary(ss.data.strings)
 #' 
+NULL
+#' Errors in bills data set
+#' 
+#' This data set contains the number of errors detected in a set of bills and
+#' the name of the person in charge of the bill.
+#' 
+#' This data set illustrates concepts in the book ``Quality Control with R''.
+#' 
+#' @name ss.data.bills
+#' @docType data
+#' @usage data("ss.data.bills")
+#' @format A data frame with 32 observations on the following 3 variables.
+#' \describe{ \item{nbill}{a numeric vector identifying a given bill}
+#' \item{clerk}{a character vector for the clerk responsible for the
+#' bill} \item{errors}{a character vector with the number of errors in
+#' the bill} }
+#' @references Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
+#' \emph{Quality Control with R. An ISO Standards Approach}. Springer.
+#' @source Table 6.1 in the reference below.
+#' @keywords datasets
+#' @examples
+#' 
+#' data(ss.data.bills)
+#' str(ss.data.bills) 
+#' barplot(table(ss.data.bills$clerk), 
+#'     main = "number of invoices")
+#' aggregate(errors ~ clerk, ss.data.bills, sum)
+#' 
+NULL
+#' Pellets density
+#' 
+#' This data set contains the density for 24 pellets.
+#' 
+#' This data set illustrates concepts in the book ``Quality Control with R''.
+#' Note that, in the book, the vector named \code{pdensity} is directly created
+#' and then used in the examples.
+#' 
+#' @name ss.data.density
+#' @docType data
+#' @usage data("ss.data.density")
+#' @format A vector with 24 items for the density of a set of pellets
+#' (\emph{gr/cm}$^3$).
+#' @references Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
+#' \emph{Quality Control with R. An ISO Standards Approach}. Springer.
+#' @source Table 1.2 in the reference below.
+#' @keywords datasets
+#' @examples
+#' 
+#' data(ss.data.density)
+#' str(ss.data.density) 
+#' library(qcc)
+#' qcc(ss.data.density,
+#'     type = "xbar.one")
+#' 
+NULL
+#' Metal Plates Thickness
+#' 
+#' This data set contains the thickness and additional data for 24 metal
+#' plates.
+#' 
+#' This data set illustrates concepts in the book ``Quality Control with R''.
+#' Note that, in the book, the data set is named \code{plates} and it is
+#' created sequentially throughout the examples.
+#' 
+#' @name ss.data.thickness
+#' @docType data
+#' @usage data("ss.data.thickness")
+#' @format A data frame with 24 observations on the following 5 variables.
+#' \describe{ \item{thickness}{a numeric vector with the thickness
+#' (\emph{in})} \item{day}{a factor with the day (two days)}
+#' \item{shift}{a factor with the shift (two shifts)}
+#' \item{dayshift}{a factor with the day-shift combination}
+#' \item{position}{a factor with the position of the thickness with
+#' respect to the nominal value of 0.75 \emph{in}} }
+#' @references Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
+#' \emph{Quality Control with R. An ISO Standards Approach}. Springer.
+#' @source Table 5.1 in the reference below.
+#' @keywords datasets
+#' @examples
+#' 
+#' data(ss.data.thickness)
+#' str(ss.data.thickness) 
+#' lattice::bwplot(thickness ~ shift | day,
+#'     data = ss.data.thickness)
+#' 
+NULL
+#' Metal Plates thickness (extended)
+#' 
+#' This data set contains the thickness and additional data for 84 metal
+#' plates.
+#' 
+#' This data set illustrates concepts in the book ``Quality Control with R''.
+#' 
+#' @name ss.data.thickness2
+#' @docType data
+#' @usage data("ss.data.thickness2")
+#' @format A data frame with 84 observations on the following 5 variables.
+#' \describe{ \item{day}{a factor with the day (seven days)}
+#' \item{shift}{a factor with the shift (two shifts)}
+#' \item{thickness}{a numeric vector with the thickness (\emph{in})}
+#' \item{ushift}{a factor with the day-shift combination}
+#' \item{flaws}{an integer vector with the number of flaws on the
+#' surface of sampled plates} }
+#' @references Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
+#' \emph{Quality Control with R. An ISO Standards Approach}. Springer.
+#' @source Examples 8.1 and 9.9 in the reference below.
+#' @keywords datasets
+#' @examples
+#' 
+#' data(ss.data.thickness2)
+#' str(ss.data.thickness2) 
+#' lattice::dotplot(thickness ~ shift | day,
+#'     data = ss.data.thickness2,
+#'     layout = c(7, 1))
+#' 
+NULL
+#' Woodboard location for profiles
+#' 
+#' This data set contains the 500 locations at which the density of a
+#' 0.5\emph{in}-thick engineered woodboard is measured, i.e., 0.001 \emph{in}
+#' apart
+#' 
+#' This data set illustrates concepts in the book ``Quality Control with R''.
+#' This data set should be used along with the \code{\link{ss.data.wby}} data
+#' set.
+#' 
+#' @name ss.data.wbx
+#' @docType data
+#' @usage data("ss.data.wbx")
+#' @format A vector with 500 items for the locations (\emph{in}).
+#' @seealso \code{\link{ss.data.wby}}
+#' @references Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
+#' \emph{Quality Control with R. An ISO Standards Approach}. Springer.
+#' 
+#' Walker, E. amd Wright, W (2002) Comparing curves with additive models.
+#' \emph{J. Qual. Technol.} \bold{34}(1), 118--129
+#' @source Example 10.1 in the reference below. It is a variation of the one
+#' introduced by Walker (2002).
+#' @keywords datasets
+#' @examples
+#' 
+#' data(ss.data.wbx)
+#' data(ss.data.wby)
+#' plotProfiles(profiles = ss.data.wby,
+#'     x = ss.data.wbx)
+#' 
+NULL
+#' Woodboard profiles
+#' 
+#' This data set contains 50 profiles corresponding to the density measurements
+#' of 50 0.5\emph{in}-thick engineered woodboard, measured in 500 locations.
+#' 
+#' This data set illustrates concepts in the book ``Quality Control with R''.
+#' This data set should be used along with the \code{\link{ss.data.wbx}} data
+#' set.
+#' 
+#' @name ss.data.wby
+#' @docType data
+#' @usage data("ss.data.wby")
+#' @format A matrix with 500 rows (locations) and 50 columns (woodboard).
+#' @seealso \code{\link{ss.data.wbx}}
+#' @references Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
+#' \emph{Quality Control with R. An ISO Standards Approach}. Springer.
+#' 
+#' Walker, E. amd Wright, W (2002) Comparing curves with additive models.
+#' \emph{J. Qual. Technol.} \bold{34}(1), 118--129
+#' @source Example 10.1 in the reference below. It is a variation of the one
+#' introduced by Walker (2002).
+#' @keywords datasets
+#' @examples
+#' 
+#' data(ss.data.wbx)
+#' data(ss.data.wby)
+#' plotProfiles(profiles = ss.data.wby,
+#'     x = ss.data.wbx)
 NULL

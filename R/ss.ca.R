@@ -33,7 +33,6 @@ if(getRversion() >= '2.15.1') utils::globalVariables(c("..density..", "value"))
 #' @export
 #' @examples 
 #' ss.ca.yield(c(3,5,12),c(1,2,4),1915)
-#' @keywords Yield RTY FTY DPMO
 ss.ca.yield <- function(defects = 0, rework = 0, opportunities = 1){
 	Yield <- (opportunities - sum(defects)) / opportunities
 	FTY <- (opportunities - sum(defects) - sum(rework)) / opportunities
@@ -211,7 +210,6 @@ ss.ca.cpk <- function(x, LSL = NA, USL = NA,
 #' 	ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
 #' 		LSL = 740, USL = 760, T = 750, alpha = 0.05, 
 #'  			f.sub = "Winery Project")
-#' @keywords capability
 ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA, 
 		Target = NA, alpha = 0.05, 
 		f.na.rm = TRUE,

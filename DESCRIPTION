@@ -1,17 +1,18 @@
 Package: SixSigma
 Type: Package
-Title: Six Sigma Tools for Quality and Process Improvement
-Version: 0.8-2
-Date: 2015-08-14
+Title: Six Sigma Tools for Quality Control and Improvement
+Version: 0.9-0
+Date: 2015-11-08
 Encoding: UTF-8
-Author: Emilio L. Cano, Javier M. Moguerza and Andrés Redchuk
+Author: Emilio L. Cano, Javier M. Moguerza, Mariano Prieto and Andrés Redchuk
 Maintainer: Emilio L. Cano <emilio.lopez@urjc.es>
 Description: This package contains functions and utilities to perform
     Statistical Analyses in the Six Sigma way.
     Through the DMAIC cycle (Define, Measure, Analyze, Improve, Control),
     you can manage several Quality Management studies:
     Gage R&R, Capability Analysis, Control Charts, Loss Function Analysis,
-    etc. Data frames used in the book "Six Sigma with R" (Springer, 2012)
+    etc. Data frames used in the books "Six Sigma with R" (Springer, 2012)
+    and "Quality Control with R" (Springer, 2015)
     are also included in the package.
 URL: http://www.sixsigmawithr.com
 License: GPL (>= 2)
@@ -19,11 +20,15 @@ Depends:
     R (>= 2.14.0)
 Imports:
     qcc,
-    lattice,
     grid,
+    lattice,
     ggplot2,
     reshape2,
     nortest,
-    testthat
+    e1071,
+    scales,
+    testthat,
+    xtable
 LazyLoad: yes
 LazyData: yes
+RoxygenNote: 5.0.0
