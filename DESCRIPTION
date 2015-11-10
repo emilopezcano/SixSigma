@@ -6,7 +6,7 @@ Date: 2015-11-08
 Encoding: UTF-8
 Author: Emilio L. Cano, Javier M. Moguerza, Mariano Prieto and Andrés Redchuk
 Maintainer: Emilio L. Cano <emilio.lopez@urjc.es>
-Description: This package contains functions and utilities to perform
+Description: Functions and utilities to perform
     Statistical Analyses in the Six Sigma way.
     Through the DMAIC cycle (Define, Measure, Analyze, Improve, Control),
     you can manage several Quality Management studies:
@@ -19,6 +19,9 @@ License: GPL (>= 2)
 Depends:
     R (>= 2.14.0)
 Imports:
+    grDevices,
+    stats,
+    graphics,
     qcc,
     grid,
     lattice,
