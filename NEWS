@@ -1,5 +1,6 @@
 SixSigma 0.9-1
 --------------
+* ss.study.ca: fix issue and warning with ggplot2
 * ss.rr: allow character strings as input
 
 SixSigma 0.9-0

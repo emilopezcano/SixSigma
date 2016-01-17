@@ -316,7 +316,6 @@ if (!is.na(USL)){
 				size = 1) +
 		stat_density(geom="path", 
 				position="identity", 
-				binwidth = binwST,
 				size = 1) +
 		stat_function( 
 				fun = dnorm, 
@@ -331,8 +330,7 @@ if (is.numeric(xLT)){
 	hist <- hist + 
 		stat_density(geom="path",
 				data = ggdataLT, 
-				position = "identity", 
-				binwidth = binwLT) + 
+				position = "identity") + 
 		stat_function(
 				fun = dnorm, 
 				args = with(ggdataLT, 
@@ -354,7 +352,7 @@ if (is.numeric(xLT)){
 	pushViewport(vp.qq)
 #grid.rect()##########
 
-	qqp <- qplot(sample = xST, stat="qq") + 
+	qqp <- qplot(sample = xST) + 
 			xlab(NULL) + ylab(NULL) +
 			theme(axis.text.x = element_blank(), 
               axis.text.y = element_blank()) 
