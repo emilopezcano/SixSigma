@@ -2,7 +2,7 @@
 % Please edit documentation in R/ss.rr.R
 \name{ss.rr}
 \alias{ss.rr}
-\title{Gage R & R (Measure System Assessment)}
+\title{Gage R & R (Measurement System Assessment)}
 \usage{
 ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 5.15,
   data = "stop('Data' is required for lattice graphics)",
@@ -36,7 +36,7 @@ Analysis of Variance Table. Variance composition and \%Study Var. Graphics.
 \item{ncat}{Number of distinct categories}
 }
 \description{
-Performs Gage R&R analysis for the assessment of the measure 
+Performs Gage R&R analysis for the assessment of the measurement 
 system of a process. Related to the Measure phase of the DMAIC
 strategy of Six Sigma.
 }
@@ -44,7 +44,7 @@ strategy of Six Sigma.
 Performs an R&R study for the measured variable, taking into account
   part and appraiser factors. It outputs the sources of Variability, and
   six graphs: bar chart with the sources of Variability, plots by
-  appraiser, part and interaction and x-mean and R control charts.
+  appraiser, part and interaction and x-bar and R control charts.
 }
 \examples{
 ss.rr(time1, prototype, operator, data = ss.data.rr, 

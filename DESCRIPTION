@@ -23,7 +23,6 @@ Imports:
     stats,
     graphics,
     qcc,
-    grid,
     lattice,
     ggplot2,
     reshape2,
@@ -34,4 +33,4 @@ Imports:
     xtable
 LazyLoad: yes
 LazyData: yes
-RoxygenNote: 5.0.0
+RoxygenNote: 5.0.1

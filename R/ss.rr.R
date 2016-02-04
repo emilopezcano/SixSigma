@@ -137,11 +137,11 @@ ss.rr <- function(var, part, appr,
   
   ##graph
   .ss.prepCanvas(main, sub)
-  vp.plots<-viewport(name="plots",
-                     layout=grid.layout(3,2))
-  pushViewport(vp.plots)
-  vp.bar<-viewport(name="barplot", layout.pos.row=1, layout.pos.col=1)
-  pushViewport(vp.bar)
+  vp.plots<-grid::viewport(name="plots",
+                     layout=grid::grid.layout(3,2))
+  grid::pushViewport(vp.plots)
+  vp.bar<-grid::viewport(name="barplot", layout.pos.row=1, layout.pos.col=1)
+  grid::pushViewport(vp.bar)
   
   # Check for tolerances before printing component of variation barchart.
   # If both tolerances werent input ignore %Tolerance in barchart.
@@ -191,9 +191,9 @@ ss.rr <- function(var, part, appr,
   }
   
   print(plot, newpage = FALSE)
-  popViewport()
-  vp.varByPart<-viewport(name="varByPart",layout.pos.row=1, layout.pos.col=2)
-  pushViewport(vp.varByPart)
+  grid::popViewport()
+  vp.varByPart<-grid::viewport(name="varByPart",layout.pos.row=1, layout.pos.col=2)
+  grid::pushViewport(vp.varByPart)
   #Var by part
   plot<-stripplot(var~part,
                   data=data, 
@@ -205,9 +205,9 @@ ss.rr <- function(var, part, appr,
                   main="Var by Part",
                   type=c("p","a"))
   print(plot,newpage=FALSE)
-  popViewport()
-  vp.varByAppr<-viewport(name="varByAppr",layout.pos.row=2, layout.pos.col=2)
-  pushViewport(vp.varByAppr)
+  grid::popViewport()
+  vp.varByAppr<-grid::viewport(name="varByAppr",layout.pos.row=2, layout.pos.col=2)
+  grid::pushViewport(vp.varByAppr)
   #var by appraiser
   plot<-stripplot(var~appr,
                   data=data, 
@@ -219,9 +219,9 @@ ss.rr <- function(var, part, appr,
                   main="Var by appraiser",
                   type=c("p","a"))
   print(plot,newpage=FALSE)
-  popViewport()
-  vp.Interact<-viewport(name="Interact",layout.pos.row=3, layout.pos.col=2)
-  pushViewport(vp.Interact)
+  grid::popViewport()
+  vp.Interact<-grid::viewport(name="Interact",layout.pos.row=3, layout.pos.col=2)
+  grid::pushViewport(vp.Interact)
   
   #Interaction
   data.xbar <- aggregate(var ~ appr + part, data = data, mean)
@@ -237,7 +237,7 @@ ss.rr <- function(var, part, appr,
                                   columns = 2, space = "bottom", cex = 0.5,
                                   lines = TRUE, points = FALSE, adj = 1))
   print(plot,newpage=FALSE)
-  popViewport()
+  grid::popViewport()
   
   #Control Charts
   data.xrange <- aggregate(var ~ appr + part,
@@ -247,8 +247,8 @@ ss.rr <- function(var, part, appr,
                            })
   ar <- mean(data.xrange$var)
   #Mean
-  vp.ccMean<-viewport(name="ccMean",layout.pos.row=3, layout.pos.col=1)
-  pushViewport(vp.ccMean)
+  vp.ccMean<-grid::viewport(name="ccMean",layout.pos.row=3, layout.pos.col=1)
+  grid::pushViewport(vp.ccMean)
   plot<-xyplot(data=data.xbar, 
                var~part|appr,
                pch=16,
@@ -272,10 +272,10 @@ ss.rr <- function(var, part, appr,
                }
   )
   print(plot,newpage=FALSE)
-  popViewport()
+  grid::popViewport()
   ##Range
-  vp.ccRange<-viewport(name="ccRange", layout.pos.row=2, layout.pos.col=1)
-  pushViewport(vp.ccRange)
+  vp.ccRange<-grid::viewport(name="ccRange", layout.pos.row=2, layout.pos.col=1)
+  grid::pushViewport(vp.ccRange)
   plot<-xyplot(data=data.xrange,
                var~part|appr,
                pch=16,
@@ -298,7 +298,7 @@ ss.rr <- function(var, part, appr,
                }
   )
   print(plot,newpage=FALSE)
-  popViewport()
+  grid::popViewport()
   invisible(list(anovaTable=model,
                  varComp=varComp[,1:2],
                  studyVar=varComp[,3:6], 
