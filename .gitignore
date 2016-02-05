@@ -6,3 +6,5 @@ Read-and-delete-me
 SixSigma.Rproj
 .Rproj.user
 elc_utils
+cran-comments.md
+.gitignore
