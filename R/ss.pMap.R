@@ -94,156 +94,156 @@ function(steps, inputs.overall, outputs.overall,
 			rep(0.90, 4), 0.7, 0.3)
 		y <-c (0.10, 0.37, 0.64, rep(0.91, 4),
 			0.64, 0.37, rep(0.1, 3))
-		grid.xspline(x, y,
+		grid::grid.xspline(x, y,
 			shape = c(1, 1, 1, 1, 1, 1),
 			open = FALSE,
-			gp = gpar(fill = ss.col[4], 
+			gp = grid::gpar(fill = ss.col[4], 
 				lwd = 3, col = ss.col[2])
 			)
 	}
 
 #ProcessMap container
-	vp.map <- viewport(name = "map", 
+	vp.map <- grid::viewport(name = "map", 
 			layout.pos.col = 1:3, 
 			layout.pos.row = 2,
-			layout = grid.layout(3, nsteps, 
+			layout = grid::grid.layout(3, nsteps, 
 					heights = c(0.2, 0.6, 0.2)))	##
-	pushViewport(vp.map)
+	grid::pushViewport(vp.map)
 
 #overall inputs
-	vp.inputs <- viewport(layout.pos.col = 1, 
+	vp.inputs <- grid::viewport(layout.pos.col = 1, 
 			layout.pos.row = 1, 
 			name = "inputs")
-	pushViewport(vp.inputs)
+	grid::pushViewport(vp.inputs)
 	paintBox()
-	grid.text("INPUTS\nX")
-	grid.move.to(x = 0.5, y = 0.1)
-	upViewport()
-	vp.inputsText <- viewport(layout.pos.col = 2:nsteps, 
+	grid::grid.text("INPUTS\nX")
+	grid::grid.move.to(x = 0.5, y = 0.1)
+	grid::upViewport()
+	vp.inputsText <- grid::viewport(layout.pos.col = 2:nsteps, 
 		layout.pos.row = 1, name = "inputst")
-	pushViewport(vp.inputsText)
+	grid::pushViewport(vp.inputsText)
 	for (i in 1:length(inputs.overall)){
-		grid.text(x = unit(0.5, "cm"),
+		grid::grid.text(x = unit(0.5, "cm"),
 			y = unit(1, "npc") - unit(i,"lines"),
 			paste(inputs.overall[i],"\n"),
 			just = c("left","top"), 
 			name="inputst")
 	}
-	upViewport()
+	grid::upViewport()
 
 #Processes
 	for (i in 1:nsteps){
-		vp.proc <- viewport(layout.pos.col = i,
+		vp.proc <- grid::viewport(layout.pos.col = i,
 			layout.pos.row = 2)
-		pushViewport(vp.proc)
-		pushViewport(viewport(y = 1, 
+		grid::pushViewport(vp.proc)
+		grid::pushViewport(grid::viewport(y = 1, 
 				height = 0.5, 
 				just = c("center", "top")))
 		paintBox()
-		grid.lines(x = c(0.1, 0.9), 
+		grid::grid.lines(x = c(0.1, 0.9), 
 			y = c(0.74, 0.74), 
-			gp = gpar(lwd = 3, col = ss.col[2]))
-		grid.text(steps[i], 
+			gp = grid::gpar(lwd = 3, col = ss.col[2]))
+		grid::grid.text(steps[i], 
 			y = 0.85, 
 			just = c("center", "top"))
-		grid.text("INPUTS", 
+		grid::grid.text("INPUTS", 
 			rot = 90, 
 			x = 0.20, 
 			y = 0.20,
-			just = c("left", "bottom"), gp = gpar(fontsize = 8, col = ss.col[1]))
+			just = c("left", "bottom"), gp = grid::gpar(fontsize = 8, col = ss.col[1]))
 		for (j in 1:length(input.output[[i]])){
-			grid.text(input.output[[i]][j], 
+			grid::grid.text(input.output[[i]][j], 
 				y = unit(0.7, "npc") - unit(j-1, "lines"),
 				just = c("center","top"))
 		}
 		if (i==1){
-			grid.line.to(x = 0.5, y = 0.91,
+			grid::grid.line.to(x = 0.5, y = 0.91,
 				arrow = arrow(angle = 30, 
 					length = unit(0.15, "inches"),
 				ends = "last", 
 				type = "open"), 
-			gp = gpar(lwd = 6, col = ss.col[1]))
+			gp = grid::gpar(lwd = 6, col = ss.col[1]))
 		}
 		if (i > 1){
-			grid.line.to(x = 0.1, y = 0.5,
+			grid::grid.line.to(x = 0.1, y = 0.5,
 				arrow = arrow(angle = 30, length = unit(0.15, "inches"),
 				ends = "last", type = "open"), 
-				gp=gpar(lwd=6, col=ss.col[1]))
+				gp=grid::gpar(lwd=6, col=ss.col[1]))
 		}
-		grid.move.to(x = 0.9, y = 0.5)
+		grid::grid.move.to(x = 0.9, y = 0.5)
 		if (i == nsteps){
-			grid.move.to(x = 0.7, y = 0.1)
+			grid::grid.move.to(x = 0.7, y = 0.1)
 		}
-		upViewport()
-		pushViewport(viewport(y = 0.5, 
+		grid::upViewport()
+		grid::pushViewport(grid::viewport(y = 0.5, 
 				height = 0.5, 
 				just = c("center","top")))
-		grid.text("Param.(x): ", 
+		grid::grid.text("Param.(x): ", 
 			y = unit(1,"npc") - unit(2,"mm"), 
-			gp = gpar(fontsize = 8),
+			gp = grid::gpar(fontsize = 8),
 			x = unit(0,"npc") + unit(2,"mm"),
 			just = c("left", "top"))
 		for (j in 1:length(x.parameters[[i]])){
-			grid.text(paste(x.parameters[[i]][[j]][1], x.parameters[[i]][[j]][2]),
+			grid::grid.text(paste(x.parameters[[i]][[j]][1], x.parameters[[i]][[j]][2]),
 				y = unit(1,"npc") - unit(2,"mm") - unit(j-1,"lines"),
 				x = unit(1,"strwidth","Param.(x):   "),
-				gp = gpar(fontsize = 8), just = c("left", "top"))
+				gp = grid::gpar(fontsize = 8), just = c("left", "top"))
 		}
-		grid.text("Featur.(y): ",
+		grid::grid.text("Featur.(y): ",
 			y = unit(1, "npc") - 
 					unit(2, "mm") - 
 					unit(length(x.parameters[[i]]), "lines"),
 			x = unit(0, "npc") + unit(2, "mm"),
-			gp = gpar(fontsize = 8),
+			gp = grid::gpar(fontsize = 8),
 			just = c("left", "top"))
 		for (j in 1:length(y.features[[i]])){
-			grid.text(y.features[[i]][[j]],
+			grid::grid.text(y.features[[i]][[j]],
 				y = unit(1,"npc") - 
 						unit(2,"mm") -
 						unit(j - 1 + length(x.parameters[[i]]),	"lines"),
 				x = unit(1, "strwidth", "Featur.(y):   "),
-				gp = gpar(fontsize = 8), 
+				gp = grid::gpar(fontsize = 8), 
 				just = c("left", "top"))
 		}
-		upViewport()
-		upViewport()
+		grid::upViewport()
+		grid::upViewport()
 	}
 
 #overalloutputs
-	vp.outputs <- viewport(layout.pos.col = nsteps, 
+	vp.outputs <- grid::viewport(layout.pos.col = nsteps, 
 			layout.pos.row = 3, name = "outputs")
-	pushViewport(vp.outputs)
+	grid::pushViewport(vp.outputs)
 	paintBox()
-	grid.text("OUTPUTS\nY")
-	grid.line.to(x = 0.7, 
+	grid::grid.text("OUTPUTS\nY")
+	grid::grid.line.to(x = 0.7, 
 		y = 0.91, 
 		arrow = arrow(angle = 30, length = unit(0.15, "inches"),
 		ends = "last", type = "open"), 
-		gp = gpar(lwd = 6, col = ss.col[1]))
-	upViewport()
-	vp.outputsText <- viewport(layout.pos.col = 1:(nsteps-1), 
+		gp = grid::gpar(lwd = 6, col = ss.col[1]))
+	grid::upViewport()
+	vp.outputsText <- grid::viewport(layout.pos.col = 1:(nsteps-1), 
 		layout.pos.row = 3, 
 		name="outputst")
-	pushViewport(vp.outputsText)
+	grid::pushViewport(vp.outputsText)
 	for (i in 1:length(outputs.overall)){
-		grid.text(x = unit(1, "npc") - unit(0.5, "cm"),
+		grid::grid.text(x = unit(1, "npc") - unit(0.5, "cm"),
 			y = unit(1, "npc") - unit(i, "lines"), 
 			paste(outputs.overall[i],"\n"),
 			just = c("right", "top"), 
 			name="outputst")
 	}
-	vp.legend<-viewport(x = unit(0.2, "cm"),
+	vp.legend<-grid::viewport(x = unit(0.2, "cm"),
 		y = unit(0.2, "cm"),
 		just = c("left", "bottom"),
 		height = unit(1, "npc") - unit(0.4, "cm"),
 		width = 0.3)
-	pushViewport(vp.legend)
-	grid.rect(gp = gpar(fill = ss.col[3]))
-	grid.text("LEGEND\n\t(C)ontrollable\n\t(Cr)itical\n\t(N)oise\n\t(P)rocedure",
+	grid::pushViewport(vp.legend)
+	grid::grid.rect(gp = grid::gpar(fill = ss.col[3]))
+	grid::grid.text("LEGEND\n\t(C)ontrollable\n\t(Cr)itical\n\t(N)oise\n\t(P)rocedure",
 		y = unit(1, "npc") - unit(0.2, "cm") , 
 		x = unit(0, "npc") + unit(0.2,"cm"),
 		just = c("left", "top"),
-		gp = gpar(fontsize = 8))
-	upViewport()
-	upViewport()
+		gp = grid::gpar(fontsize = 8))
+	grid::upViewport()
+	grid::upViewport()
 }

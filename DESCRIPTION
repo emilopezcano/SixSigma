@@ -1,8 +1,8 @@
 Package: SixSigma
 Type: Package
 Title: Six Sigma Tools for Quality Control and Improvement
-Version: 0.9-0
-Date: 2015-11-08
+Version: 0.9-2
+Date: 2016-02-05
 Encoding: UTF-8
 Author: Emilio L. Cano, Javier M. Moguerza, Mariano Prieto and Andrés Redchuk
 Maintainer: Emilio L. Cano <emilio.lopez@urjc.es>
@@ -23,7 +23,6 @@ Imports:
     stats,
     graphics,
     qcc,
-    grid,
     lattice,
     ggplot2,
     reshape2,
@@ -34,4 +33,4 @@ Imports:
     xtable
 LazyLoad: yes
 LazyData: yes
-RoxygenNote: 5.0.0
+RoxygenNote: 5.0.1

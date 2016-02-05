@@ -83,16 +83,16 @@ ss.lfa <- function(lfa.data, lfa.ctq, lfa.Delta, lfa.Y0, lfa.L0,
   
   if (lfa.output %in% c("both", "plot")){
     .ss.prepCanvas(main = "Loss Function Analysis", sub = lfa.sub)
-    vp.function <- viewport(name = "Taguchi", 
-      layout = grid.layout(2, 2,
+    vp.function <- grid::viewport(name = "Taguchi", 
+      layout = grid::grid.layout(2, 2,
         heights = c(0.9, 0.1), 
         widths = c(0.8, 0.2)))
-    pushViewport(vp.function)
-    vp.plot <- viewport(name = "plot", 
+    grid::pushViewport(vp.function)
+    vp.plot <- grid::viewport(name = "plot", 
       layout.pos.row = 1, 
       layout.pos.col = 1)
     #plot
-    pushViewport(vp.plot)
+    grid::pushViewport(vp.plot)
     ggdata <- reshape2::melt(with(lfa.data, get(lfa.ctq)))
     qqp <- ggplot(ggdata, aes(x = value))
     qqp <- qqp + stat_function(fun = function(x) {
@@ -145,71 +145,71 @@ ss.lfa <- function(lfa.data, lfa.ctq, lfa.Delta, lfa.Y0, lfa.L0,
         linetype = 1, size = 1) 
     }
     print(qqp, newpage = FALSE)
-    popViewport()
+    grid::popViewport()
     
     #function
-    vp.fun <- viewport(name = "fun", 
+    vp.fun <- grid::viewport(name = "fun", 
       layout.pos.row = 2, 
       layout.pos.col = 1:2)
-    pushViewport(vp.fun)
-    grid.rect(width = 0.95, 
-      gp = gpar(lty = 0, fill = "#DDDDDD"))
-    grid.text(lfa.lf)
-    popViewport()
+    grid::pushViewport(vp.fun)
+    grid::grid.rect(width = 0.95, 
+      gp = grid::gpar(lty = 0, fill = "#DDDDDD"))
+    grid::grid.text(lfa.lf)
+    grid::popViewport()
     
     #data
-    vp.data <- viewport(name = "data", 
+    vp.data <- grid::viewport(name = "data", 
       layout.pos.row = 1:2, 
       layout.pos.col = 2)
-    pushViewport(vp.data)
-    vp.data.input <- viewport(name="input", 
+    grid::pushViewport(vp.data)
+    vp.data.input <- grid::viewport(name="input", 
       layout.pos.row = 2, 
       layout.pos.col = 1)
-    pushViewport(vp.data.input)
-    grid.rect(y = 0.95, 
+    grid::pushViewport(vp.data.input)
+    grid::grid.rect(y = 0.95, 
       width = 0.99, 
       just = "top", 
       height=0.7)
     my.margin <- 0.9
-    grid.text(expression(bold(Data)), 
+    grid::grid.text(expression(bold(Data)), 
       y = my.margin, 
       just = "top")
-    grid.text(paste("CTQ:", eval(lfa.ctq)),
+    grid::grid.text(paste("CTQ:", eval(lfa.ctq)),
       y = unit(my.margin, "npc") - unit(2, "lines"),
       just = "top",
-      gp = gpar(cex = 0.8))
-    grid.text(bquote(Y[0]==.(lfa.Y0)),
+      gp = grid::gpar(cex = 0.8))
+    grid::grid.text(bquote(Y[0]==.(lfa.Y0)),
       y = unit(my.margin, "npc") - unit(3, "lines"),
       just = "top")
-    grid.text(bquote(Delta==.(lfa.Delta)),
+    grid::grid.text(bquote(Delta==.(lfa.Delta)),
       y = unit(my.margin, "npc") - unit(4, "lines"),
       just = "top")
-    grid.text(bquote(L[0]==.(lfa.L0)),
+    grid::grid.text(bquote(L[0]==.(lfa.L0)),
       y = unit(my.margin,"npc") - unit(5, "lines"),
       just = "top")
     if (is.numeric(lfa.size)){
       size.exists = 1
-      grid.text(bquote(Size==.(lfa.size)),
+      grid::grid.text(bquote(Size==.(lfa.size)),
         y = unit(my.margin, "npc") - unit(6, "lines"),
         just = "top")
     }
-    grid.lines(y = unit(my.margin, "npc") - unit(8, "lines"))
+    grid::grid.lines(y = unit(my.margin, "npc") - unit(8, "lines"))
     
-    grid.text(bquote(Mean==.(round(with(lfa.data, mean(get(lfa.ctq))), 
+    grid::grid.text(bquote(Mean==.(round(with(lfa.data, mean(get(lfa.ctq))), 
             digits = 4))),
       y = unit(my.margin,"npc") - unit(10, "lines"),
       just = "top")
-    grid.text(bquote(k==.(lfa.k)),
+    grid::grid.text(bquote(k==.(lfa.k)),
       y = unit(my.margin,"npc") - unit(11, "lines"),
       just = "top")
-    grid.text(bquote(MSD==.(round(lfa.MSD, digits = 4))),
+    grid::grid.text(bquote(MSD==.(round(lfa.MSD, digits = 4))),
       y = unit(my.margin, "npc") - unit(12, "lines"),
       just = "top")
-    grid.text(bquote(Av.Loss==.(round(lfa.avLoss, digits = 4))),
+    grid::grid.text(bquote(Av.Loss==.(round(lfa.avLoss, digits = 4))),
       y = unit(my.margin, "npc") - unit(13, "lines"),
       just = "top")
     if (is.numeric(lfa.size)){
-      grid.text(bquote(Loss==.(round(lfa.Loss, digits = 4))),
+      grid::grid.text(bquote(Loss==.(round(lfa.Loss, digits = 4))),
         y = unit(my.margin, "npc") - unit(14, "lines"),
         just = "top")
     }
