@@ -78,6 +78,8 @@ NULL
 #' example(ss.ca.cp)
 #' example(ss.ca.cpk)
 #' example(ss.cc)
+#' example(plotProfiles)
+#' example(plotControlProfiles)
 #' @import grDevices stats graphics lattice ggplot2 qcc testthat xtable
 NULL
 
