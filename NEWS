@@ -1,3 +1,8 @@
+SixSigma 0.9-3
+--------------
+* Improvements in function ss.rr: allow arguments errorTerm and alphaLim; changes in computations for compliance with AIAG MSA.
+* Add profiles examples to package help file
+
 SixSigma 0.9-2
 --------------
 * Fix all issues and warnings with ggplot2
