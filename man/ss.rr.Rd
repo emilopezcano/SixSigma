@@ -4,8 +4,7 @@
 \alias{ss.rr}
 \title{Gage R & R (Measurement System Assessment)}
 \usage{
-ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 6,
-  data = "stop('Data' is required for lattice graphics)",
+ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 6, data,
   main = "Six Sigma Gage R&R Study", sub = "", alphaLim = 0.05,
   errorTerm = "interaction", digits = 4)
 }
