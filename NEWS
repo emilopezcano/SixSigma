@@ -1,6 +1,10 @@
 SixSigma 0.9-3
 --------------
 * Improvements in function ss.rr: allow arguments errorTerm and alphaLim; changes in computations for compliance with AIAG MSA.
+* By default, error term in ANOVA table of ss.rr is interaction, so results with
+the default values may differ from the ones obtained in previous versions
+* Default value of sigma in ss.rr is 6 instead of 5.15
+* Control limits of the range control chart in ss.rr are now correctly computed
 * Add profiles examples to package help file
 
 SixSigma 0.9-2
