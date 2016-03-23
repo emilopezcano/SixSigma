@@ -77,7 +77,7 @@
 #' @keywords reproducibility repeatability Gauge R&R MSA
 ss.rr <- function(var, part, appr,
                   lsl = NA, usl = NA, sigma = 6,        
-                  data = "stop('Data' is required for lattice graphics)", 
+                  data, 
                   main = "Six Sigma Gage R&R Study", sub = "",
                   alphaLim = 0.05,
                   errorTerm = "interaction",
@@ -85,26 +85,30 @@ ss.rr <- function(var, part, appr,
   ## Figures and facts
   ## Get character strings for column names
   if (is.data.frame(data)){
-    if (deparse(substitute(var)) %in% names(data)) {
+    if (deparse(substitute(var)) %in% names(data)){
       var <- deparse(substitute(var))
-    } else{
-      stop(var, "is not a valid column name for", data)
     }
-    if (deparse(substitute(part)) %in% names(data)) {
+    if (!(var %in% names(data))) {
+      stop(var, "is not a valid column name for", deparse(substitute(data)))
+    }
+    if (deparse(substitute(part)) %in% names(data)){
       part <- deparse(substitute(part))
+    }
+    if (deparse(substitute(appr)) %in% names(data)){
+      appr <- deparse(substitute(appr))
+    }
+    if (part %in% names(data)) {
       data[[part]] <- factor(data[[part]])
     } else{
       stop(part, "is not a valid column name for", data)
     }
-    if (deparse(substitute(appr)) %in% names(data)) {
-      appr <- deparse(substitute(appr))
+    if (appr %in% names(data)) {
       data[[appr]] <- factor(data[[appr]])
     } else{
       stop(appr, "is not a valid column name for", data)
     }
-    # part <- data[[part]]
-    # appr <- data[[appr]]
-    # var <- data[[var]]
+  } else {
+    stop("A data.frame object is needed as data argument")
   }
   
   ## Number of observations by part, appraisal
