@@ -4,9 +4,9 @@
 \alias{ss.rr}
 \title{Gage R & R (Measurement System Assessment)}
 \usage{
-ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 5.15,
-  data = "stop('Data' is required for lattice graphics)",
-  main = "Six Sigma Gage R&R Study", sub = "")
+ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 6, data,
+  main = "Six Sigma Gage R&R Study", sub = "", alphaLim = 0.05,
+  errorTerm = "interaction", digits = 4)
 }
 \arguments{
 \item{var}{Measured variable}
@@ -21,15 +21,23 @@ ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 5.15,
 
 \item{sigma}{Numeric value for number of std deviations to use in calculating Study Variation}
 
-\item{data}{Data frame containing the variates}
+\item{data}{Data frame containing the variables}
 
 \item{main}{Main title for the graphic output}
 
 \item{sub}{Subtitle for the graphic output (recommended the name of the project)}
+
+\item{alphaLim}{Limit to take into account interaction}
+
+\item{errorTerm}{Which term of the model should be used as error term (for the model with interation)}
+
+\item{digits}{Number of decimal digits for output}
 }
 \value{
-Analysis of Variance Table. Variance composition and \%Study Var. Graphics.
+Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.
 \item{anovaTable}{The ANOVA table of the model}
+\item{anovaRed}{The ANOVA table of the reduced model (without interaction, only
+if interaction not significant)}
 \item{varComp}{A matrix with the contribution of each component to the 
 	total variation}
 \item{studyVar}{A matrix with the contribution to the study variation}
@@ -46,19 +54,34 @@ Performs an R&R study for the measured variable, taking into account
   six graphs: bar chart with the sources of Variability, plots by
   appraiser, part and interaction and x-bar and R control charts.
 }
+\note{
+The F test for the main effects in the ANOVA table is usually made 
+taken the operator/appraisal
+interaction as the error term (repeated measures model), thereby computing F as
+$MS_{factor}/MS_{interaction}$, e.g. in appendix A of AIAG MSA manual, 
+in Montgomery (2009) and by statistical software such as Minitab.
+However, in the example provided in page 127 of the AIAG MSA Manual, the
+F test is performed as $MS_{factor}/MS_{equipment}$, i.e., repeatability.
+Thus, since version 0.9-3 of the SixSigma package, a new argument
+\code{errorTerm} controls which term should be used as error Term, one of 
+"interaction", "repeatability". 
+
+Argument \code{alphaLim} is used as upper limit to use the full model, i.e.,
+with interaction. Above this value for the interaction effect, the 
+ANOVA table without the interaction effect is also obtained, and the variance
+components are computed pooling the interaction term with the repeatibility.
+}
 \examples{
 ss.rr(time1, prototype, operator, data = ss.data.rr, 
-	sub="Six Sigma Paper Helicopter Project")
+	sub = "Six Sigma Paper Helicopter Project", 
+	alphaLim = 0.05,
+	errorTerm = "interaction")
 
 }
 \author{
 EL Cano with contributions by Kevin C Limburg
 }
 \references{
-Allen, T. T. (2010). Introduction to Engineering Statistics and Lean 
-Six Sigma - Statistical Quality Control and Design of Experiments and 
-Systems (Second Edition ed.). London: Springer.
-
 Automotive Industry Action Group. (2010). Measurement Systems Analysis
 (Fourth Edition). AIAG.
 
@@ -67,8 +90,8 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
   Improvement}, Use R!, vol. 36. Springer, New York.
   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
 
-Montgomery, D. C. (2008). Introduction to Statistical Quality Control
-(Sixtth Edition ed.). New York: Wiley & Sons, Inc.
+Montgomery, D. C. (2009). Introduction to Statistical Quality Control
+(Sixth Edition ed.). New York: Wiley & Sons, Inc.
 }
 \seealso{
 \code{\link{ss.data.rr}}

@@ -51,6 +51,8 @@ example(ss.ca.z)
 example(ss.ca.cp)
 example(ss.ca.cpk)
 example(ss.cc)
+example(plotProfiles)
+example(plotControlProfiles)
 }
 \author{
 Emilio L. Cano, Javier M. Moguerza, Mariano Prieto Corcoba and Andrés Redchuk; 
