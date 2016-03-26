@@ -54,7 +54,7 @@ NULL
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
 #'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #' 
-#' #' Cano, Emilio L., Moguerza, Javier M. and Prieto Corcoba, Andrés. 2015.
+#' Cano, Emilio L., Moguerza, Javier M. and Prieto Corcoba, Andrés. 2015.
 #' \emph{Quality Control with {R}. An ISO Standards approach}, Use R!, Springer, New York.
 #'   
 #' Chambers, J. M. (2008) \emph{Software for data analysis. Programming with

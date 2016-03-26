@@ -1,5 +1,9 @@
 SixSigma 0.9-3
 --------------
+* Fix stray reference in the package manual
+
+SixSigma 0.9-3
+--------------
 * Improvements in function ss.rr: allow arguments errorTerm and alphaLim; changes in computations for compliance with AIAG MSA.
 * By default, error term in ANOVA table of ss.rr is interaction, so results with
 the default values may differ from the ones obtained in previous versions
