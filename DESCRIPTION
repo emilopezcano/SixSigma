@@ -5,7 +5,7 @@ Version: 0.9-4
 Date: 2016-03-26
 Encoding: UTF-8
 Author: Emilio L. Cano, Javier M. Moguerza, Mariano Prieto and Andrés Redchuk
-Maintainer: Emilio L. Cano <emilio.lopez@urjc.es>
+Maintainer: Emilio L. Cano <emilio.lcano@uclm.es>
 Description: Functions and utilities to perform
     Statistical Analyses in the Six Sigma way.
     Through the DMAIC cycle (Define, Measure, Analyze, Improve, Control),
@@ -33,4 +33,4 @@ Imports:
     xtable
 LazyLoad: yes
 LazyData: yes
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1

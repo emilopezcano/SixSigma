@@ -1,3 +1,8 @@
+SixSigma 0.9-4
+--------------
+* Correct %Tolerance column in R&R study (ss.rr function)
+* Show %Tolerance in the output of the ss.rr function
+
 SixSigma 0.9-3
 --------------
 * Fix stray reference in the package manual

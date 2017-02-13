@@ -71,7 +71,9 @@
 #' ss.rr(time1, prototype, operator, data = ss.data.rr, 
 #' 	sub = "Six Sigma Paper Helicopter Project", 
 #' 	alphaLim = 0.05,
-#' 	errorTerm = "interaction")
+#' 	errorTerm = "interaction",
+#' 	lsl = 0.7,
+#' 	usl = 1.8)
 #' 
 #' @export
 #' @keywords reproducibility repeatability Gauge R&R MSA
@@ -223,7 +225,7 @@ ss.rr <- function(var, part, appr,
   varComp[, 3] <- sqrt(varComp[, 1])  #StdDev
   varComp[, 4] <- varComp[, 3] * sigma  #Study Variation edited from 5.15 to variable
   varComp[, 5] <- round(100 * (varComp[, 3]/varComp[7, 3]), 2)
-  varComp[, 6] <- round(100 * (varComp[, 3]/(usl - lsl)), 2)
+  varComp[, 6] <- round(100 * (varComp[, 4]/(usl - lsl)), 2)
   
   ncat <- max(c(1, floor((varComp[6, 4]/varComp[1, 4])*1.41)))
   
@@ -239,7 +241,7 @@ ss.rr <- function(var, part, appr,
   print(varComp[, 1:2])
   cat("\n")
   if (!is.na(usl) && !is.na(lsl)) {  #Check that both tolerances were entered. 
-    print(varComp[, c(1, 3:5)])
+    print(varComp[, c(1, 3:6)])
   } else {
     print(varComp[, 3:5])  #if both tolerances werent input ignore %tolerance column when outputting results
   }
