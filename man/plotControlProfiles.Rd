@@ -31,11 +31,10 @@ wb.out.phase2 <- outProfiles(profiles = wby.phase2,
     tol = 0.8)
 plotControlProfiles(wb.out.phase2$pOut, tol = 0.8)
 }
-\author{
-Javier M. Moguerza and Emilio L. Cano
-}
 \references{
 Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
 \emph{Quality Control with R. An ISO Standards Approach}. Springer.
 }
-
+\author{
+Javier M. Moguerza and Emilio L. Cano
+}

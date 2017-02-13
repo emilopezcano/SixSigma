@@ -54,11 +54,6 @@ example(ss.cc)
 example(plotProfiles)
 example(plotControlProfiles)
 }
-\author{
-Emilio L. Cano, Javier M. Moguerza, Mariano Prieto Corcoba and Andrés Redchuk; 
-
-Maintainer: Emilio L. Cano \email{emilio.lopez@urjc.es}
-}
 \references{
 Allen, T. T. (2010) \emph{Introduction to Engineering Statistics and Lean
   Six Sigma - Statistical Quality Control and Design of Experiments and
@@ -73,7 +68,7 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
   Improvement}, Use R!, vol. 36. Springer, New York.
   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
 
-#' Cano, Emilio L., Moguerza, Javier M. and Prieto Corcoba, Andrés. 2015.
+Cano, Emilio L., Moguerza, Javier M. and Prieto Corcoba, Andrés. 2015.
 \emph{Quality Control with {R}. An ISO Standards approach}, Use R!, Springer, New York.
   
 Chambers, J. M. (2008) \emph{Software for data analysis. Programming with
@@ -88,4 +83,8 @@ Wikipedia, \url{http://en.wikipedia.org/wiki/Six_Sigma}
 \code{\link{ss.pMap}}, \code{\link{ss.rr}}, \code{\link{ss.ceDiag}},
 \code{\link{ss.ci}}, \code{\link{ss.heli}}, \code{\link{ss.lfa}}
 }
+\author{
+Emilio L. Cano, Javier M. Moguerza, Mariano Prieto Corcoba and Andrés Redchuk; 
 
+Maintainer: Emilio L. Cano \email{emilio.lopez@urjc.es}
+}

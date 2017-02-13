@@ -48,9 +48,6 @@ ss.lfa(ss.data.bolts, "diameter", 0.5, 10, 0.001,
 		lfa.sub = "10 mm. Bolts Project", 
 		lfa.size = 100000, lfa.output = "both")
 }
-\author{
-EL Cano
-}
 \references{
 Taguchi G, Chowdhury S,Wu Y (2005) \emph{Taguchi's quality engineering handbook}. John
 Wiley\cr
@@ -63,7 +60,9 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \seealso{
 \code{\link{ss.lf}}, \code{\link{ss.data.bolts}}.
 }
+\author{
+EL Cano
+}
 \keyword{Taguchi}
 \keyword{function}
 \keyword{loss}
-

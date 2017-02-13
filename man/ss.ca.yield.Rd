@@ -30,9 +30,6 @@ The three arguments must have the same length.
 \examples{
 ss.ca.yield(c(3,5,12),c(1,2,4),1915)
 }
-\author{
-Emilio L. Cano
-}
 \references{
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
@@ -42,4 +39,6 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 Gygi C, DeCarlo N, Williams B (2005) \emph{Six sigma for dummies}. --For dummies,
   Wiley Pub.
 }
-
+\author{
+Emilio L. Cano
+}

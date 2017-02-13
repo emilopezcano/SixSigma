@@ -51,9 +51,6 @@ causes[6] <- list(c("calibrate", "model"))
 ss.ceDiag(effect, causes.gr, causes, sub = "Paper Helicopter Project")
 
 }
-\author{
-EL Cano
-}
 \references{
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
@@ -65,5 +62,7 @@ Wikipedia, \url{http://en.wikipedia.org/wiki/Ishikawa_diagram}
 \seealso{
 \code{\link{ss.pMap}}
 }
+\author{
+EL Cano
+}
 \keyword{cause-and-effect}
-

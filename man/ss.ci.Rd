@@ -56,9 +56,6 @@ ss.ci(len, data=ss.data.strings, alpha = 0.05,
   sub = "Guitar Strings Test | String Length", 
   xname = "Length")
 }
-\author{
-EL Cano
-}
 \references{
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
@@ -68,9 +65,11 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \seealso{
 \code{\link{ss.data.rr}}
 }
+\author{
+EL Cano
+}
 \keyword{confidence}
 \keyword{interval}
 \keyword{mean}
 \keyword{normality}
 \keyword{test}
-

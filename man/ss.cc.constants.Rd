@@ -24,9 +24,6 @@ ss.cc.getd2(20)
 ss.cc.getd3(20)
 ss.cc.getc4(20)
 }
-\author{
-EL Cano
-}
 \references{
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
@@ -36,7 +33,9 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \seealso{
 ss.cc
 }
+\author{
+EL Cano
+}
 \keyword{charts}
 \keyword{constants}
 \keyword{control}
-

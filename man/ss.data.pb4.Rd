@@ -35,4 +35,3 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 }
 \keyword{cc}
 \keyword{data}
-

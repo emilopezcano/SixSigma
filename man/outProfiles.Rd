@@ -47,4 +47,3 @@ plotProfiles(wby.phase2,
 Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
 \emph{Quality Control with R. An ISO Standards Approach}. Springer.
 }
-

@@ -39,4 +39,3 @@ Walker, E. amd Wright, W (2002) Comparing curves with additive models.
 \code{\link{ss.data.wbx}}
 }
 \keyword{datasets}
-
