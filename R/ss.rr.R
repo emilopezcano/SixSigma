@@ -145,6 +145,7 @@ ss.rr <- function(var, part, appr,
                                 modelm[[1]][1:2, 1], 
                                 modelm[[1]][3, 1], lower.tail = FALSE)
     }
+    
     rownames(modelm[[1]])[4] <- "Repeatability"
     modelm[[1]] <- rbind(modelm[[1]], 
                          c(colSums(modelm[[1]][, 1:2]), rep(NA, 3)))
@@ -220,7 +221,7 @@ ss.rr <- function(var, part, appr,
       varComp[7, 1] <- varComp[1, 1] + varComp[6, 1]  # Total Variation
     }
   }
-  varComp[, 1] <- round(varComp[, 1], 7)  #varComp
+  # varComp[, 1] <- round(varComp[, 1], 7)  #varComp
   varComp[, 2] <- round(100 * (varComp[, 1]/varComp[7, 1]), 2)  #%Contrib
   varComp[, 3] <- sqrt(varComp[, 1])  #StdDev
   varComp[, 4] <- varComp[, 3] * sigma  #Study Variation edited from 5.15 to variable
