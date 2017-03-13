@@ -1,3 +1,13 @@
+SixSigma 0.9-4
+--------------
+* Avoid rounding of variance component to zero in ss.rr function
+* Correct %Tolerance column in R&R study (ss.rr function)
+* Show %Tolerance in the output of the ss.rr function
+
+SixSigma 0.9-3
+--------------
+* Fix stray reference in the package manual
+
 SixSigma 0.9-3
 --------------
 * Improvements in function ss.rr: allow arguments errorTerm and alphaLim; changes in computations for compliance with AIAG MSA.

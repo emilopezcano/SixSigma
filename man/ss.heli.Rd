@@ -23,9 +23,6 @@ See the \code{vignette("HelicopterInstructions")} to see assembling instructions
 ss.heli()
 vignette("HelicopterInstructions")
 }
-\author{
-EL Cano
-}
 \references{
 George Box.
 Teaching engineers experimental design with a paper helicopter.
@@ -36,4 +33,6 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
   Improvement}, Use R!, vol. 36. Springer, New York.
   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
 }
-
+\author{
+EL Cano
+}

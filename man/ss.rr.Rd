@@ -75,11 +75,10 @@ components are computed pooling the interaction term with the repeatibility.
 ss.rr(time1, prototype, operator, data = ss.data.rr, 
 	sub = "Six Sigma Paper Helicopter Project", 
 	alphaLim = 0.05,
-	errorTerm = "interaction")
+	errorTerm = "interaction",
+	lsl = 0.7,
+	usl = 1.8)
 
-}
-\author{
-EL Cano with contributions by Kevin C Limburg
 }
 \references{
 Automotive Industry Action Group. (2010). Measurement Systems Analysis
@@ -96,9 +95,11 @@ Montgomery, D. C. (2009). Introduction to Statistical Quality Control
 \seealso{
 \code{\link{ss.data.rr}}
 }
+\author{
+EL Cano with contributions by Kevin C Limburg
+}
 \keyword{Gauge}
 \keyword{MSA}
 \keyword{R&R}
 \keyword{repeatability}
 \keyword{reproducibility}
-

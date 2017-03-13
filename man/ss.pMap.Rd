@@ -86,9 +86,6 @@ ss.pMap(steps, inputs.overall, outputs.overall,
         sub="Paper Helicopter Project")
 
 }
-\author{
-EL Cano
-}
 \references{
 \url{http://en.wikipedia.org/wiki/Business_Process_Mapping}\cr
  
@@ -100,6 +97,8 @@ EL Cano
 \seealso{
 \code{\link{ss.ceDiag}}
 }
+\author{
+EL Cano
+}
 \keyword{map}
 \keyword{process}
-

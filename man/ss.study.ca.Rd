@@ -40,9 +40,6 @@ Capability Indices.
 		LSL = 740, USL = 760, T = 750, alpha = 0.05, 
  			f.sub = "Winery Project")
 }
-\author{
-EL Cano
-}
 \references{
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
@@ -55,4 +52,6 @@ Montgomery, DC (2008) \emph{Introduction to Statistical Quality Control}
 \seealso{
 \code{\link{ss.ca.cp}}
 }
-
+\author{
+EL Cano
+}

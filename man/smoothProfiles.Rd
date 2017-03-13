@@ -35,11 +35,10 @@ wby.smooth <- smoothProfiles(profiles = ss.data.wby,
 plotProfiles(profiles = wby.smooth,
     x = ss.data.wbx)     
 }
-\author{
-Javier M. Moguerza and Emilio L. Cano
-}
 \references{
 Cano, E.L. and Moguerza, J.M. and Prieto Corcoba, M. (2015)
 \emph{Quality Control with R. An ISO Standards Approach}. Springer.
 }
-
+\author{
+Javier M. Moguerza and Emilio L. Cano
+}

@@ -28,9 +28,6 @@ is from the target.
 #Example bolts: evaluate LF at 10.5 if Target=10, Tolerance=0.5, L_0=0.001
 ss.lf(10.5, 0.5, 10, 0.001)
 }
-\author{
-EL Cano
-}
 \references{
 Taguchi G, Chowdhury S,Wu Y (2005) \emph{Taguchi's quality engineering handbook}. John
 Wiley
@@ -43,7 +40,9 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \seealso{
 \code{\link{ss.lfa}}
 }
+\author{
+EL Cano
+}
 \keyword{Taguchi}
 \keyword{function}
 \keyword{loss}
-

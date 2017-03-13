@@ -56,9 +56,6 @@ testout[31,] <- list(31,17)
 ss.cc("mr", testout, CTQ = "pb.humidity")
 
 }
-\author{
-EL Cano
-}
 \references{
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
@@ -68,4 +65,6 @@ Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \seealso{
 \code{\link{ss.cc.constants}}
 }
-
+\author{
+EL Cano
+}
