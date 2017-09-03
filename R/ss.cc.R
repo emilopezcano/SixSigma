@@ -39,7 +39,7 @@ ss.cc.getc4 <- function(n = NA){
 
 ss.cc.getd2 <- function (n = NA){
   if (is.na(n) | n < 2 | abs(n-round(n))!=0){
-    stop("Invalid sample size")
+    stop("Invalid sample size (", n, ")")
   }
   f <- function(x){
     1 - ptukey(x, n, Inf)
