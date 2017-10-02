@@ -1,3 +1,7 @@
+SixSigma 0.9-5
+--------------
+* Include ISBNs in the DESCRIPTION file
+
 SixSigma 0.9-4
 --------------
 * Avoid rounding of variance component to zero in ss.rr function

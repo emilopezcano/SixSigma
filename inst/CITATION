@@ -19,7 +19,7 @@ citHeader("To cite package 'SixSigma' in publications use:")
      
      citEntry(entry="Book",
               title = "Quality Control with R",
-              author = "Emilio L. Cano and Javier M. Moguerza and Mariano {Prieto Corcoba}",
+              author = "Emilio L. Cano and Javier M. Moguerza and Mariano Prieto Corcoba",
               year = "2015",
               publisher = "Springer",
               address = "New York",
