@@ -1,7 +1,7 @@
 Package: SixSigma
 Type: Package
 Title: Six Sigma Tools for Quality Control and Improvement
-Version: 0.9-5
+Version: 0.9-51
 Encoding: UTF-8
 Author: Emilio L. Cano, Javier M. Moguerza, Mariano Prieto and Andrés Redchuk
 Maintainer: Emilio L. Cano <emilio.lcano@uclm.es>
@@ -10,8 +10,8 @@ Description: Functions and utilities to perform
     Through the DMAIC cycle (Define, Measure, Analyze, Improve, Control),
     you can manage several Quality Management studies:
     Gage R&R, Capability Analysis, Control Charts, Loss Function Analysis,
-    etc. Data frames used in the books "Six Sigma with R", Cano et al (2012) [ISBN 978-1-4614-3652-2]
-    and "Quality Control with R", Cano et al (2015) [ISBN 978-3-319-24046-6], 
+    etc. Data frames used in the books "Six Sigma with R" [ISBN 978-1-4614-3652-2]
+    and "Quality Control with R" [ISBN 978-3-319-24046-6], 
     are also included in the package.
 URL: http://www.sixsigmawithr.com
 License: GPL (>= 2)
