@@ -38,22 +38,6 @@ confidence intervals,
   \item Control
     }
 }
-\examples{
-example(ss.ci)
-example(ss.study.ca)
-example(ss.rr)
-example(ss.lf)
-example(ss.lfa)
-example(ss.ceDiag)
-example(ss.pMap)
-example(ss.ca.yield)
-example(ss.ca.z)
-example(ss.ca.cp)
-example(ss.ca.cpk)
-example(ss.cc)
-example(plotProfiles)
-example(plotControlProfiles)
-}
 \references{
 Allen, T. T. (2010) \emph{Introduction to Engineering Statistics and Lean
   Six Sigma - Statistical Quality Control and Design of Experiments and
