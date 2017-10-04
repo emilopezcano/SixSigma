@@ -65,21 +65,6 @@ NULL
 #' 
 #' Wikipedia, \url{http://en.wikipedia.org/wiki/Six_Sigma}
 #'
-#' @examples 
-#' example(ss.ci)
-#' example(ss.study.ca)
-#' example(ss.rr)
-#' example(ss.lf)
-#' example(ss.lfa)
-#' example(ss.ceDiag)
-#' example(ss.pMap)
-#' example(ss.ca.yield)
-#' example(ss.ca.z)
-#' example(ss.ca.cp)
-#' example(ss.ca.cpk)
-#' example(ss.cc)
-#' example(plotProfiles)
-#' example(plotControlProfiles)
 #' @import grDevices stats graphics lattice ggplot2 qcc testthat xtable
 NULL
 
