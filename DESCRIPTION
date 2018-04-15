@@ -1,7 +1,7 @@
 Package: SixSigma
 Type: Package
 Title: Six Sigma Tools for Quality Control and Improvement
-Version: 0.9-51
+Version: 0.9-52
 Encoding: UTF-8
 Author: Emilio L. Cano, Javier M. Moguerza, Mariano Prieto and Andrés Redchuk
 Maintainer: Emilio L. Cano <emilio.lcano@uclm.es>

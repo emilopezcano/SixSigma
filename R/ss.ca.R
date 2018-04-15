@@ -107,7 +107,7 @@ ss.ca.z <- function(x, LSL = NA, USL = NA,
 		else {
 			z <- min(zul, zll)
 		}
-		if (LT == FALSE){
+		if (LT != FALSE){
 			z <- z - 1.5
 		} 
 		return(as.vector(z))	
@@ -474,15 +474,19 @@ if (is.numeric(xLT)){
 	grid::grid.text(expression(bold("Mean: ")), y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.8))
-	grid::grid.text(sprintf("%.4f",mLT), y=unit(.95,"npc")-unit(1.5,"lines"), 
-			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+	if(!is.na(mLT)){
+	  grid::grid.text(sprintf("%.4f",mLT), y=unit(.95,"npc")-unit(1.5,"lines"), 
+	                  just=c("left","top"),
+	                  gp=grid::gpar(cex=.8))
+	}
 	grid::grid.text(expression(bold("SD: ")), y=unit(.95,"npc")-unit(2.5,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.8))
-	grid::grid.text(sprintf("%.4f",sLT), y=unit(.95,"npc")-unit(2.5,"lines"), 
-			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+	if(!is.na(sLT)){
+	  grid::grid.text(sprintf("%.4f",sLT), y = unit(.95,"npc") - unit(2.5, "lines"), 
+	                  just = c("left", "top"),
+	                  gp = grid::gpar(cex = .8))
+	}
 	grid::grid.text(expression(bold("n: ")), y=unit(.95,"npc")-unit(3.5,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.8))
@@ -548,31 +552,40 @@ grid::grid.lines(x=c(0,1), y=c(1,1), gp=grid::gpar(col="#BBBBBB",lwd=2))
 	grid::grid.text(expression(bold(P[p]*": ")), y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.8))
-	grid::grid.text(sprintf("%.4f",cpLT), y=unit(.95,"npc")-unit(1.5,"lines"), 
-			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+	if(!is.na(cpLT)){
+	  grid::grid.text(sprintf("%.4f", cpLT), y = unit(.95, "npc") - unit(1.5, "lines"), 
+	                  just = c("left", "top"),
+	                  gp = grid::gpar(cex = .8))
+	}
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(3,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.7))
-	grid::grid.text(paste("[",paste(sprintf("%.1f",cpiLT[1]),sep=""),
-					",",sprintf("%.1f",cpiLT[2]),"]",sep=""), 
-			y=unit(.95,"npc")-unit(3,"lines"), 
-			just=c("left","top"),
-			gp=grid::gpar(cex=.7))
+	if(!is.na(cpiLT)){
+	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpiLT[1]), sep = ""),
+	                        ",", sprintf("%.1f", cpiLT[2]),"]", sep = ""), 
+	                  y = unit(.95,"npc") - unit(3, "lines"), 
+	                  just = c("left", "top"),
+	                  gp = grid::gpar(cex = .7))
+	}
 	grid::grid.text(expression(bold(P[pk]*": ")), y=unit(.95,"npc")-unit(4.5,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.8))
-	grid::grid.text(sprintf("%.4f",cpkLT), y=unit(.95,"npc")-unit(4.5,"lines"), 
-			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+	if(!is.na(cpkLT)){
+	  grid::grid.text(sprintf("%.4f", cpkLT), y = unit(.95, "npc") - unit(4.5, "lines"), 
+	                  just = c("left", "top"),
+	                  gp = grid::gpar(cex = .8))
+	}
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(6.5,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.7))
-	grid::grid.text(paste("[",paste(sprintf("%.1f",cpkiLT[1]),sep=""),
-					",",sprintf("%.1f",cpkiLT[2]),"]",sep=""), 
-			y=unit(.95,"npc")-unit(6.5,"lines"), 
-			just=c("left","top"),
-			gp=grid::gpar(cex=.7))
+	## TODO: see one-side specs
+	if(!is.na(cpkiLT)){
+	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpkiLT[1]), sep = ""),
+	                        ",", sprintf("%.1f", cpkiLT[2]), "]", sep = ""), 
+	                  y = unit(.95,"npc") - unit(6.5, "lines"), 
+	                  just = c("left", "top"),
+	                  gp = grid::gpar(cex = .7))
+	}
 	grid::popViewport()
 	grid::popViewport()
 	
