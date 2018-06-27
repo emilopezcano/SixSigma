@@ -6,7 +6,7 @@
 \usage{
 ss.study.ca(xST, xLT = NA, LSL = NA, USL = NA, Target = NA, 
   alpha = 0.05, f.na.rm = TRUE, f.main = "Six Sigma Capability Analysis Study", 
-  f.sub = "")
+  f.sub = "", f.colours = c("#4682B4","#d1d1e0","#000000","#00C800","#FF0000"))
 }
 \arguments{
 \item{xST}{Short Term process performance data}
@@ -26,6 +26,8 @@ ss.study.ca(xST, xLT = NA, LSL = NA, USL = NA, Target = NA,
 \item{f.main}{Main Title for the graphic output}
 
 \item{f.sub}{Subtitle for the graphic output}
+
+\item{f.colours}{Vector of colours fot the graphic output}
 }
 \value{
 Figures and plot for Capability Analysis
@@ -35,10 +37,22 @@ Plots a Histogram with density lines about the data of a process. Check normalit
 with qqplot and normality tests. Shows the Specification Limits and the 
 Capability Indices.
 }
+\note{
+The argument \code{f.colours} takes a vector of colours for the graphical outputs. The order of 
+the elements are, first the colour for histogram bars, then Density ST lines, Density LT 
+lines, Target, and Specification limits. It can be partially specified.
+}
 \examples{
-	ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
+
+ ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
 		LSL = 740, USL = 760, T = 750, alpha = 0.05, 
  			f.sub = "Winery Project")
+ 			
+ ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
+		LSL = 740, USL = 760, T = 750, alpha = 0.05, 
+ 			f.sub = "Winery Project", 
+ 			f.colours = c("#990000", "#007700", "#002299"))
+ 			
 }
 \references{
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
