@@ -67,5 +67,5 @@ Montgomery, DC (2008) \emph{Introduction to Statistical Quality Control}
 \code{\link{ss.ca.cp}}
 }
 \author{
-EL Cano
+Main author: Emilio L. Cano. Contributions by Manu Alfaro.
 }

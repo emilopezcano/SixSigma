@@ -211,7 +211,7 @@ ss.ca.cpk <- function(x, LSL = NA, USL = NA,
 #'   (Sixth Edition). New York: Wiley&Sons
 #' 
 #' @seealso \code{\link{ss.ca.cp}}
-#' @author EL Cano
+#' @author Main author: Emilio L. Cano. Contributions by Manu Alfaro.
 #' @export
 #' @examples
 #' 
