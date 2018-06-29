@@ -119,12 +119,12 @@ ss.rr <- function(var, part, appr,
   n <- nrow(data)/(a*b)
   options(show.signif.stars = FALSE)
   
-  ## Check design balance, if not balnced abort
+  ## Checks design balance, if not balanced abort
   if(abs(n-round(n)) != 0) {
     stop("The design is not balanced.")
   }
   
-  ##Check design replication
+  ##Checks design replication
   if(n < 2) {
     stop("The design has no replications.")
   }
