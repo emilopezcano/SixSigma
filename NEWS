@@ -1,3 +1,7 @@
+SixSigma 0.9-53
+--------------
+* Add option f.colours to ss.study.ca
+
 SixSigma 0.9-52
 --------------
 * Fix bug on computation of Z_lt
