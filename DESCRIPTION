@@ -8,7 +8,7 @@ Authors@R: c(person("Emilio L.", "Cano", email = "emilio.lcano@uclm.es",
              person("Javier M.", "Moguerza", role = c("aut")),
              person("Mariano", "Prieto", role = c("aut")),
              person("Andrés", "Redchuk", role = c("aut")),
-             person("Manuel", "Alfaro", role = c("ctb"))
+             person("Manuel", "Alfaro", role = c("ctb")))
 Maintainer: Emilio L. Cano <emilio.lcano@uclm.es>
 Description: Functions and utilities to perform
     Statistical Analyses in the Six Sigma way.
