@@ -1,9 +1,14 @@
 Package: SixSigma
 Type: Package
 Title: Six Sigma Tools for Quality Control and Improvement
-Version: 0.9-52
+Version: 0.9-53
 Encoding: UTF-8
-Author: Emilio L. Cano, Javier M. Moguerza, Mariano Prieto and Andrés Redchuk
+Authors@R: c(person("Emilio L.", "Cano", email = "emilio.lcano@uclm.es", 
+                  role = c("aut", "cre")),
+             person("Javier M.", "Moguerza", role = c("aut")),
+             person("Mariano", "Prieto", role = c("aut")),
+             person("Andrés", "Redchuk", role = c("aut")),
+             person("Manuel", "Alfaro", role = c("ctb"))
 Maintainer: Emilio L. Cano <emilio.lcano@uclm.es>
 Description: Functions and utilities to perform
     Statistical Analyses in the Six Sigma way.
