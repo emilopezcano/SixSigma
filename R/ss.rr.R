@@ -78,7 +78,8 @@
 #' @export
 #' @keywords reproducibility repeatability Gauge R&R MSA
 ss.rr <- function(var, part, appr,
-                  lsl = NA, usl = NA, sigma = 6,        
+                  lsl = NA, usl = NA, sigma = 6,
+                  tolerance = usl - lsl,
                   data, 
                   main = "Six Sigma Gage R&R Study", sub = "",
                   alphaLim = 0.05,
@@ -252,7 +253,7 @@ ss.rr <- function(var, part, appr,
     varComp[, 3] <- sqrt(varComp[, 1])  #StdDev
     varComp[, 4] <- varComp[, 3] * sigma  #Study Variation edited from 5.15 to variable
     varComp[, 5] <- round(100 * (varComp[, 3]/varComp[7, 3]), 2)
-    varComp[, 6] <- round(100 * (varComp[, 4]/(usl - lsl)), 2)
+    varComp[, 6] <- round(100 * (varComp[, 4]/(tolerance)), 2)
     
     ncat <- max(c(1, floor((varComp[6, 4]/varComp[1, 4])*1.41)))
     
@@ -267,7 +268,7 @@ ss.rr <- function(var, part, appr,
     cat(paste("\nGage R&R\n\n"))
     print(varComp[, 1:2])
     cat("\n")
-    if (!is.na(usl) && !is.na(lsl)) {  #Check that both tolerances were entered. 
+    if ((!is.na(usl) && !is.na(lsl)) || !is.na(tolerance)) {  #Check that both tolerances were entered. 
       print(varComp[, c(1, 3:6)])
     } else {
       print(varComp[, 3:5])  #if both tolerances werent input ignore %tolerance column when outputting results
@@ -353,7 +354,7 @@ ss.rr <- function(var, part, appr,
     varComp[, 3] <- sqrt(varComp[, 1])  #StdDev
     varComp[, 4] <- varComp[, 3] * sigma  #Study Variation edited from 5.15 to variable
     varComp[, 5] <- round(100 * (varComp[, 3]/varComp[5, 3]), 2)
-    varComp[, 6] <- round(100 * (varComp[, 4]/(usl - lsl)), 2)
+    varComp[, 6] <- round(100 * (varComp[, 4]/(tolerance)), 2)
     
     ncat <- max(c(1, floor((varComp[4, 4]/varComp[1, 4])*1.41)))
     
@@ -364,7 +365,7 @@ ss.rr <- function(var, part, appr,
     cat(paste("\nGage R&R\n\n"))
     print(varComp[, 1:2])
     cat("\n")
-    if (!is.na(usl) && !is.na(lsl)) {  #Check that both tolerances were entered. 
+    if ((!is.na(usl) && !is.na(lsl)) || !is.na(tolerance)) {  #Check that both tolerances were entered. 
       print(varComp[, c(1, 3:6)])
     } else {
       print(varComp[, 3:5])  #if both tolerances werent input ignore %tolerance column when outputting results
@@ -410,7 +411,7 @@ ss.rr <- function(var, part, appr,
     }
   }
   ## If both tolerances werent input ignore %Tolerance in barchart.
-  if (!is.na(usl) & !is.na(lsl)) {
+  if ((!is.na(usl) && !is.na(lsl)) || !is.na(tolerance)) {
     colstoplot <- c(2, 5, 6)
     klabels <- c("%Contribution", "%Study Var", "%Tolerance")
   } else{
