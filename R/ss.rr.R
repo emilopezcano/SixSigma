@@ -313,6 +313,7 @@ ss.rr <- function(var, part, appr,
       print(modelm)
       cat("\nalpha for removing interaction:", alphaLim, "\n")
       
+      modelrm <- NULL
     }
     
     ##
@@ -484,27 +485,32 @@ ss.rr <- function(var, part, appr,
   grid::popViewport()
   
   ## Interaction
-  vp.Interact <- grid::viewport(name = "Interact", layout.pos.row = 3, 
-                                layout.pos.col = 2)
-  grid::pushViewport(vp.Interact)
+  if (method == "crossed") {
+    vp.Interact <- grid::viewport(name = "Interact", layout.pos.row = 3, 
+                                  layout.pos.col = 2)
+    grid::pushViewport(vp.Interact)
+    
+    data.xbar <- aggregate(as.formula(paste(var, "~", appr, "+", part)), 
+                           data = data, mean)
+    plot <- lattice::stripplot(as.formula(paste(var, "~", part)),
+                               groups = get(appr),
+                               data = data.xbar,
+                               pch = 16,
+                               grid = TRUE,
+                               par.settings = list(par.main.text = list(cex = 0.9)),
+                               main = paste0(part, ":", appr, " Interaction"),
+                               type = c("p", "a"),
+                               auto.key = list(text = levels(data[[appr]]),
+                                               columns = nlevels(data[[appr]]), 
+                                               space = "bottom", 
+                                               cex = 0.5, lines = TRUE, 
+                                               points = FALSE, adj = 1))
+    print(plot, newpage = FALSE)
+    grid::popViewport()
+  }
   
   data.xbar <- aggregate(as.formula(paste(var, "~", appr, "+", part)), 
                          data = data, mean)
-  plot <- lattice::stripplot(as.formula(paste(var, "~", part)),
-                             groups = get(appr),
-                             data = data.xbar,
-                             pch = 16,
-                             grid = TRUE,
-                             par.settings = list(par.main.text = list(cex = 0.9)),
-                             main = paste0(part, ":", appr, " Interaction"),
-                             type = c("p", "a"),
-                             auto.key = list(text = levels(data[[appr]]),
-                                             columns = nlevels(data[[appr]]), 
-                                             space = "bottom", 
-                                             cex = 0.5, lines = TRUE, 
-                                             points = FALSE, adj = 1))
-  print(plot, newpage = FALSE)
-  grid::popViewport()
   
   ## Control Charts
   data.xrange <- aggregate(as.formula(paste(var, "~", appr, "+", part)),
@@ -535,7 +541,11 @@ ss.rr <- function(var, part, appr,
                           grid = TRUE,
                           layout = c(b, 1),
                           type = "b",
-                          ylim = glimits,
+                          axs = "r",
+                          scales = list(alternating = FALSE, x = list(relation= 'free')),
+                          prepanel = function(x, y, subscripts) { 
+                            list(xlim = c(min(as.numeric(as.character(x))), max(as.numeric(as.character(x)))), ylim = glimits)
+                          },
                           panel = function(...) {
                             lattice::panel.xyplot(...)
                             lattice::panel.abline(h = xbar, lty = 2)
@@ -557,25 +567,34 @@ ss.rr <- function(var, part, appr,
   glimits <- c(min(range(data.xrange[[var]])[1], rlimits[1]),
                max(range(data.xrange[[var]])[2], rlimits[2])) +
     c(-1, 1)*0.1*diff(range(data.xrange[[var]]))
+
+
   plot <- lattice::xyplot(as.formula(paste(var, "~", part, "|", appr)),
                           data = data.xrange, pch = 16,
                           par.settings = list(axis.text = list(cex = 0.6),
                                               par.xlab.text = list(cex = 0.8),
                                               par.ylab.text = list(cex = 0.8),
-                                              par.main.text = list(cex = 0.9)),
+                                              par.main.text = list(cex = 0.9),
+                                              layout.widths = list(axis.panel = c(1, 0, 0))),
                           par.strip.text = list(cex = 0.6),
                           main = paste("R Chart by", appr),
                           grid = TRUE,
                           layout = c(b, 1),
                           type = "b",
-                          ylim = glimits,
+                          axs = "r",
+                          scales = list(alternating = FALSE, x = list(relation= 'free')),
+                          prepanel = function(x, y, subscripts) { 
+                            list(xlim = c(min(as.numeric(as.character(x))), max(as.numeric(as.character(x)))), ylim = glimits)
+                          }, 
                           panel = function(...) {
                             lattice::panel.xyplot(...)
                             lattice::panel.abline(h = ar, lty = 2)
                             lattice::panel.abline(h = rlimits[1], col = "red3")
                             lattice::panel.abline(h = rlimits[2], col = "red3")
                           }
+                          
   )
+  
   print(plot,newpage = FALSE)
   grid::popViewport()
   
