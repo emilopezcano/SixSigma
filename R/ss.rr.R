@@ -18,9 +18,11 @@
 #' @param lsl Numeric value of lower specification limit used with USL to calculate Study Variation as \%Tolerance
 #' @param usl Numeric value of upper specification limit used with LSL to calculate Study Variation as \%Tolerance
 #' @param sigma Numeric value for number of std deviations to use in calculating Study Variation
+#' @param tolerance Numeric value for the tolerance
 #' @param alphaLim Limit to take into account interaction
 #' @param errorTerm Which term of the model should be used as error term (for the model with interation)
 #' @param digits Number of decimal digits for output
+#' @param method Character to specify the type of analysis to perform, \code{"crossed"} or \code{"nested"} 
 #' 
 #' @return 
 #' Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.
@@ -49,6 +51,13 @@
 #' ANOVA table without the interaction effect is also obtained, and the variance
 #' components are computed pooling the interaction term with the repeatibility.
 #' 
+#' \code{Tolerance} can be calculaten from usl and lsl values or specified by hand.
+#' 
+#' The type of analysis to perform can be specified with the parameter method, \code{"crossed"} or \code{"nested"}. 
+#' Be sure to select the correct one and to have the data prepare for such type of analysis.
+#' If you don't know wich one is for you check it before. It is really important to perform the correct one.
+#' Otherwise results have no sense.
+#' 
 #' @references 
 #' Automotive Industry Action Group. (2010). Measurement Systems Analysis
 #' (Fourth Edition). AIAG.
@@ -73,7 +82,8 @@
 #' 	alphaLim = 0.05,
 #' 	errorTerm = "interaction",
 #' 	lsl = 0.7,
-#' 	usl = 1.8)
+#' 	usl = 1.8,
+#' 	method = "crossed")
 #' 
 #' @export
 #' @keywords reproducibility repeatability Gauge R&R MSA
@@ -112,6 +122,11 @@ ss.rr <- function(var, part, appr,
     }
   } else {
     stop("A data.frame object is needed as data argument")
+  }
+  
+  if(method == "nested") {
+    data[part] = paste(data[[appr]], data[[part]], sep="-")
+    data[[part]] <- factor(data[[part]])
   }
   
   ## Number of observations by part, appraisal
@@ -280,6 +295,7 @@ ss.rr <- function(var, part, appr,
     #   NESTED METHOD
     #
     ## Single or multiple appraisers
+    
     if (b == 1){ 
       modelf <- as.formula(paste(var, "~", part))
       model <- aov(modelf, data = data)
@@ -428,6 +444,7 @@ ss.rr <- function(var, part, appr,
   plot <- lattice::barchart(databar, 
                             freq = FALSE, 
                             grid = TRUE,
+                            scales = list(x = list(rot=45)),
                             par.settings = list(axis.text = list(cex = 0.6), 
                                                 par.ylab.text = list(cex = 0.8), 
                                                 par.main.text = list(cex = 0.85)), 
@@ -461,6 +478,7 @@ ss.rr <- function(var, part, appr,
   plot <- lattice::stripplot(as.formula(paste(var, "~", part)),
                              data = data,
                              grid = TRUE,
+                             scales = list(x = list(rot=45)),
                              par.settings = list(axis.text = list(cex = 0.6),
                                                  par.xlab.text = list(cex = 0.8),
                                                  par.ylab.text = list(cex = 0.8),
@@ -476,6 +494,7 @@ ss.rr <- function(var, part, appr,
   plot <- lattice::stripplot(as.formula(paste(var, "~", appr)),
                              data = data,
                              grid = TRUE,
+                             scales = list(x = list(rot=45)),
                              par.settings = list(axis.text = list(cex = 0.6),
                                                  par.xlab.text = list(cex = 0.8),
                                                  par.ylab.text = list(cex = 0.8),
@@ -543,10 +562,8 @@ ss.rr <- function(var, part, appr,
                           layout = c(b, 1),
                           type = "b",
                           axs = "r",
-                          scales = list(alternating = FALSE, x = list(relation= 'free')),
-                          prepanel = function(x, y, subscripts) { 
-                            list(xlim = c(min(as.numeric(as.character(x))), max(as.numeric(as.character(x)))), ylim = glimits)
-                          },
+                          ylim = glimits,
+                          scales = list(alternating = FALSE, x = list(relation= 'free', rot=45)),
                           panel = function(...) {
                             lattice::panel.xyplot(...)
                             lattice::panel.abline(h = xbar, lty = 2)
@@ -583,10 +600,8 @@ ss.rr <- function(var, part, appr,
                           layout = c(b, 1),
                           type = "b",
                           axs = "r",
-                          scales = list(alternating = FALSE, x = list(relation= 'free')),
-                          prepanel = function(x, y, subscripts) { 
-                            list(xlim = c(min(as.numeric(as.character(x))), max(as.numeric(as.character(x)))), ylim = glimits)
-                          }, 
+                          ylim = glimits,
+                          scales = list(alternating = FALSE, x = list(relation= 'free', rot=45)),
                           panel = function(...) {
                             lattice::panel.xyplot(...)
                             lattice::panel.abline(h = ar, lty = 2)
