@@ -6,7 +6,7 @@
 \usage{
 ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 6, tolerance = usl -
   lsl, data, main = "Six Sigma Gage R&R Study", sub = "", alphaLim = 0.05,
-  errorTerm = "interaction", digits = 4, method)
+  errorTerm = "interaction", digits = 4, method = "crossed")
 }
 \arguments{
 \item{var}{Measured variable}
@@ -35,7 +35,7 @@ ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 6, tolerance = usl -
 
 \item{digits}{Number of decimal digits for output}
 
-\item{method}{Character to specify the type of analysis to perform, \code{"crossed"} or \code{"nested"}}
+\item{method}{Character to specify the type of analysis to perform, \code{"crossed"} (default) or \code{"nested"}}
 }
 \value{
 Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.

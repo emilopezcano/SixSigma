@@ -22,7 +22,7 @@
 #' @param alphaLim Limit to take into account interaction
 #' @param errorTerm Which term of the model should be used as error term (for the model with interation)
 #' @param digits Number of decimal digits for output
-#' @param method Character to specify the type of analysis to perform, \code{"crossed"} or \code{"nested"} 
+#' @param method Character to specify the type of analysis to perform, \code{"crossed"} (default) or \code{"nested"} 
 #' 
 #' @return 
 #' Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.
