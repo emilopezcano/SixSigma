@@ -94,7 +94,7 @@ ss.rr <- function(var, part, appr,
                   main = "Six Sigma Gage R&R Study", sub = "",
                   alphaLim = 0.05,
                   errorTerm = "interaction",
-                  digits = 4, method){
+                  digits = 4, method = "crossed"){
   ## Figures and facts
   ## Get character strings for column names
   if (is.data.frame(data)){
@@ -406,16 +406,9 @@ ss.rr <- function(var, part, appr,
                            layout.pos.col = 1)
   grid::pushViewport(vp.bar)
   
-  ## Data for the chart
+  ## Data for the chart ----
   ## Control which rows to plot
-  if (b == 1){
-    rowstoplot <- c(1, 2, 3)
-  } else if (pint > alphaLim){
-    rowstoplot <- c(1, 2, 3, 5)
-  } else{
-    rowstoplot <- c(1, 2, 3, 6)
-  }
-  if (b == 1){
+   if (b == 1){
     rowstoplot <- c(1, 2, 3)
   } else if (method == "nested"){
     rowstoplot <- c(1, 2, 3, 4)
