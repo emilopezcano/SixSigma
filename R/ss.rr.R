@@ -311,8 +311,8 @@ ss.rr <- function(var, part, appr,
     else{        
       ## Complete model (with interaction)
       modelf <- as.formula(paste(var, "~", appr, "/", part)) 
-      modelfm <- as.formula(paste(var, "~", part, "/", appr, 
-                                  "+ Error(", part, "/", appr, ")")) 
+      modelfm <- as.formula(paste(var, "~", appr, "/", part, 
+                                  "+ Error(", appr, "/", part, ")")) 
       model <- aov(modelf, data = data)
       modelm <- summary(model)
       if (errorTerm == "interaction"){
