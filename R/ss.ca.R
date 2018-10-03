@@ -297,22 +297,22 @@ xST_density <- density(xST, bw = binwST)
 if (!is.na(LSL)){
 	hist <- hist +
 		annotate(geom = "text", 
-				x = LSL, 
+				x = LSL - 5, 
 				y = max(xST_density$y), 
 				label = "LSL", 
-				hjust = -0.1, 
+				hjust = -0.5, 
 				size = 5) 
 } 
 hist <- hist +	annotate(geom = "text",
-				x = Target, 
-				y = max(xST_density$y), 
+				x = USL + 1, 
+				y = max(xST_density$y) + 0.1,
 				label = "Target",
 				hjust = -0.1,
 				size = 5)
 if (!is.na(USL)){
 	hist <- hist + 
 		annotate(geom = "text",
-				x = USL, 
+				x = USL + 4, 
 				y = max(xST_density$y), 
 				label = "USL",
 				hjust = 1.1, 
