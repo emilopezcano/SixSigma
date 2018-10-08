@@ -589,7 +589,7 @@ grid::grid.lines(x=c(0,1), y=c(1,1), gp=grid::gpar(col="#BBBBBB",lwd=2))
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(3,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.7))
-	if(!is.na(cpiLT)){
+	if(!is.na(cpiLT[1])){
 	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpiLT[1]), sep = ""),
 	                        ",", sprintf("%.1f", cpiLT[2]),"]", sep = ""), 
 	                  y = unit(.95,"npc") - unit(3, "lines"), 
@@ -608,7 +608,7 @@ grid::grid.lines(x=c(0,1), y=c(1,1), gp=grid::gpar(col="#BBBBBB",lwd=2))
 			just=c("right","top"),
 			gp=grid::gpar(cex=.7))
 	## TODO: see one-side specs
-	if(!is.na(cpkiLT)){
+	if(!is.na(cpkiLT[1])){
 	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpkiLT[1]), sep = ""),
 	                        ",", sprintf("%.1f", cpkiLT[2]), "]", sep = ""), 
 	                  y = unit(.95,"npc") - unit(6.5, "lines"), 
