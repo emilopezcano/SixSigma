@@ -23,6 +23,7 @@
 #' @param errorTerm Which term of the model should be used as error term (for the model with interation)
 #' @param digits Number of decimal digits for output
 #' @param method Character to specify the type of analysis to perform, \code{"crossed"} (default) or \code{"nested"} 
+#' @param print_plot if TRUE (default) the plots are printed. Change to FALSE to avoid printing plots.
 #' 
 #' @return 
 #' Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.
@@ -94,7 +95,9 @@ ss.rr <- function(var, part, appr,
                   main = "Six Sigma Gage R&R Study", sub = "",
                   alphaLim = 0.05,
                   errorTerm = "interaction",
-                  digits = 4, method = "crossed"){
+                  digits = 4, 
+                  method = "crossed",
+                  print_plot = TRUE){
   ## Figures and facts
   ## Get character strings for column names
   if (is.data.frame(data)){
@@ -390,222 +393,224 @@ ss.rr <- function(var, part, appr,
     cat(paste("\nNumber of Distinct Categories =", ncat, "\n"))
     pint <- 0
   }
-              
   
   
-  ## Charts
-  ## Prepare Canvas and layout
-  .ss.prepCanvas(main, sub)
-  vp.plots <- grid::viewport(name = "plots",
-                             layout = grid::grid.layout(3, 2))
-  grid::pushViewport(vp.plots)
-  
-  ## Barplot components of variation
-  vp.bar <- grid::viewport(name = "barplot", 
-                           layout.pos.row = 1, 
-                           layout.pos.col = 1)
-  grid::pushViewport(vp.bar)
-  
-  ## Data for the chart ----
-  ## Control which rows to plot
-   if (b == 1){
-    rowstoplot <- c(1, 2, 3)
-  } else if (method == "nested"){
-    rowstoplot <- c(1, 2, 3, 4)
-  } else if (method == "crossed"){
-    if (pint > alphaLim) {
-      rowstoplot <- c(1, 2, 3, 5)
-    } else {
-      rowstoplot <- c(1, 2, 3, 6)
+  if(print_plot){
+    
+    ## Charts
+    ## Prepare Canvas and layout
+    .ss.prepCanvas(main, sub)
+    vp.plots <- grid::viewport(name = "plots",
+                               layout = grid::grid.layout(3, 2))
+    grid::pushViewport(vp.plots)
+    
+    ## Barplot components of variation
+    vp.bar <- grid::viewport(name = "barplot", 
+                             layout.pos.row = 1, 
+                             layout.pos.col = 1)
+    grid::pushViewport(vp.bar)
+    
+    ## Data for the chart ----
+    ## Control which rows to plot
+    if (b == 1){
+      rowstoplot <- c(1, 2, 3)
+    } else if (method == "nested"){
+      rowstoplot <- c(1, 2, 3, 4)
+    } else if (method == "crossed"){
+      if (pint > alphaLim) {
+        rowstoplot <- c(1, 2, 3, 5)
+      } else {
+        rowstoplot <- c(1, 2, 3, 6)
+      }
     }
-  }
-  ## If both tolerances werent input ignore %Tolerance in barchart.
-  if ((!is.na(usl) && !is.na(lsl)) || !is.na(tolerance)) {
-    colstoplot <- c(2, 5, 6)
-    klabels <- c("%Contribution", "%Study Var", "%Tolerance")
-  } else{
-    colstoplot <- c(2, 5)
-    klabels <- c("%Contribution", "%Study Var")
-  }
-  
-  databar <- varComp[rowstoplot, colstoplot]
-  if (b == 1){
-    rownames(databar) <- c("G.R&R", "Repeat", "Part2Part")
-  } else{
-    rownames(databar) <- c("G.R&R", "Repeat", "Reprod", "Part2Part")
-  }
-  plot <- lattice::barchart(databar, 
-                            freq = FALSE, 
-                            grid = TRUE,
-                            scales = list(x = list(rot=45)),
-                            par.settings = list(axis.text = list(cex = 0.6), 
-                                                par.ylab.text = list(cex = 0.8), 
-                                                par.main.text = list(cex = 0.85)), 
-                            ylab = list("Percent", fontsize = 8), 
-                            panel = function(...) {
-                              lattice::panel.barchart(...)
-                              lattice::panel.abline(h = 0)
-                              lattice::panel.abline(h = c(10, 30), 
-                                                    lty = 2, 
-                                                    col = "gray")
-                            }, 
-                            auto.key = list(text = klabels,
-                                            cex = 0.8,
-                                            columns = length(colstoplot),
-                                            space = "bottom",
-                                            rectangles = TRUE,
-                                            points = FALSE, adj = 1,
-                                            rep = FALSE),
-                            stack = FALSE,
-                            horizontal = FALSE, 
-                            main = list("Components of Variation", fontsize = 14))
-  
-  
-  print(plot, newpage = FALSE)
-  grid::popViewport()
-  
-  ## Variable by part
-  vp.varByPart <- grid::viewport(name = "varByPart", layout.pos.row = 1, 
-                                 layout.pos.col = 2)
-  grid::pushViewport(vp.varByPart)
-  plot <- lattice::stripplot(as.formula(paste(var, "~", part)),
-                             data = data,
-                             grid = TRUE,
-                             scales = list(x = list(rot=45)),
-                             par.settings = list(axis.text = list(cex = 0.6),
-                                                 par.xlab.text = list(cex = 0.8),
-                                                 par.ylab.text = list(cex = 0.8),
-                                                 par.main.text = list(cex = 0.9)),
-                             main = paste(var, "by", part),
-                             type = c("p", "a"))
-  print(plot, newpage = FALSE)
-  grid::popViewport()
-  ## Variable by appraiser
-  vp.varByAppr <- grid::viewport(name = "varByAppr", layout.pos.row = 2, 
-                                 layout.pos.col = 2)
-  grid::pushViewport(vp.varByAppr)
-  plot <- lattice::stripplot(as.formula(paste(var, "~", appr)),
-                             data = data,
-                             grid = TRUE,
-                             scales = list(x = list(rot=45)),
-                             par.settings = list(axis.text = list(cex = 0.6),
-                                                 par.xlab.text = list(cex = 0.8),
-                                                 par.ylab.text = list(cex = 0.8),
-                                                 par.main.text = list(cex = 0.9)),
-                             main = paste(var, "by", appr),
-                             type = c("p", "a"))
-  print(plot, newpage = FALSE)
-  grid::popViewport()
-  
-  ## Interaction
-  if (method == "crossed") {
-    vp.Interact <- grid::viewport(name = "Interact", layout.pos.row = 3, 
-                                  layout.pos.col = 2)
-    grid::pushViewport(vp.Interact)
+    ## If both tolerances werent input ignore %Tolerance in barchart.
+    if ((!is.na(usl) && !is.na(lsl)) || !is.na(tolerance)) {
+      colstoplot <- c(2, 5, 6)
+      klabels <- c("%Contribution", "%Study Var", "%Tolerance")
+    } else{
+      colstoplot <- c(2, 5)
+      klabels <- c("%Contribution", "%Study Var")
+    }
+    
+    databar <- varComp[rowstoplot, colstoplot]
+    if (b == 1){
+      rownames(databar) <- c("G.R&R", "Repeat", "Part2Part")
+    } else{
+      rownames(databar) <- c("G.R&R", "Repeat", "Reprod", "Part2Part")
+    }
+    plot <- lattice::barchart(databar, 
+                              freq = FALSE, 
+                              grid = TRUE,
+                              scales = list(x = list(rot=45)),
+                              par.settings = list(axis.text = list(cex = 0.6), 
+                                                  par.ylab.text = list(cex = 0.8), 
+                                                  par.main.text = list(cex = 0.85)), 
+                              ylab = list("Percent", fontsize = 8), 
+                              panel = function(...) {
+                                lattice::panel.barchart(...)
+                                lattice::panel.abline(h = 0)
+                                lattice::panel.abline(h = c(10, 30), 
+                                                      lty = 2, 
+                                                      col = "gray")
+                              }, 
+                              auto.key = list(text = klabels,
+                                              cex = 0.8,
+                                              columns = length(colstoplot),
+                                              space = "bottom",
+                                              rectangles = TRUE,
+                                              points = FALSE, adj = 1,
+                                              rep = FALSE),
+                              stack = FALSE,
+                              horizontal = FALSE, 
+                              main = list("Components of Variation", fontsize = 14))
+    
+    
+    print(plot, newpage = FALSE)
+    grid::popViewport()
+    
+    ## Variable by part
+    vp.varByPart <- grid::viewport(name = "varByPart", layout.pos.row = 1, 
+                                   layout.pos.col = 2)
+    grid::pushViewport(vp.varByPart)
+    plot <- lattice::stripplot(as.formula(paste(var, "~", part)),
+                               data = data,
+                               grid = TRUE,
+                               scales = list(x = list(rot=45)),
+                               par.settings = list(axis.text = list(cex = 0.6),
+                                                   par.xlab.text = list(cex = 0.8),
+                                                   par.ylab.text = list(cex = 0.8),
+                                                   par.main.text = list(cex = 0.9)),
+                               main = paste(var, "by", part),
+                               type = c("p", "a"))
+    print(plot, newpage = FALSE)
+    grid::popViewport()
+    ## Variable by appraiser
+    vp.varByAppr <- grid::viewport(name = "varByAppr", layout.pos.row = 2, 
+                                   layout.pos.col = 2)
+    grid::pushViewport(vp.varByAppr)
+    plot <- lattice::stripplot(as.formula(paste(var, "~", appr)),
+                               data = data,
+                               grid = TRUE,
+                               scales = list(x = list(rot=45)),
+                               par.settings = list(axis.text = list(cex = 0.6),
+                                                   par.xlab.text = list(cex = 0.8),
+                                                   par.ylab.text = list(cex = 0.8),
+                                                   par.main.text = list(cex = 0.9)),
+                               main = paste(var, "by", appr),
+                               type = c("p", "a"))
+    print(plot, newpage = FALSE)
+    grid::popViewport()
+    
+    ## Interaction
+    if (method == "crossed") {
+      vp.Interact <- grid::viewport(name = "Interact", layout.pos.row = 3, 
+                                    layout.pos.col = 2)
+      grid::pushViewport(vp.Interact)
+      
+      data.xbar <- aggregate(as.formula(paste(var, "~", appr, "+", part)), 
+                             data = data, mean)
+      plot <- lattice::stripplot(as.formula(paste(var, "~", part)),
+                                 groups = get(appr),
+                                 data = data.xbar,
+                                 pch = 16,
+                                 grid = TRUE,
+                                 par.settings = list(par.main.text = list(cex = 0.9)),
+                                 main = paste0(part, ":", appr, " Interaction"),
+                                 type = c("p", "a"),
+                                 auto.key = list(text = levels(data[[appr]]),
+                                                 columns = nlevels(data[[appr]]), 
+                                                 space = "bottom", 
+                                                 cex = 0.5, lines = TRUE, 
+                                                 points = FALSE, adj = 1))
+      print(plot, newpage = FALSE)
+      grid::popViewport()
+    }
     
     data.xbar <- aggregate(as.formula(paste(var, "~", appr, "+", part)), 
                            data = data, mean)
-    plot <- lattice::stripplot(as.formula(paste(var, "~", part)),
-                               groups = get(appr),
-                               data = data.xbar,
-                               pch = 16,
-                               grid = TRUE,
-                               par.settings = list(par.main.text = list(cex = 0.9)),
-                               main = paste0(part, ":", appr, " Interaction"),
-                               type = c("p", "a"),
-                               auto.key = list(text = levels(data[[appr]]),
-                                               columns = nlevels(data[[appr]]), 
-                                               space = "bottom", 
-                                               cex = 0.5, lines = TRUE, 
-                                               points = FALSE, adj = 1))
+    
+    ## Control Charts
+    data.xrange <- aggregate(as.formula(paste(var, "~", appr, "+", part)),
+                             data = data,
+                             function(x) {
+                               max(x) - min(x)
+                             })
+    ar <- mean(data.xrange[[var]])
+    ## Mean chart
+    vp.ccMean <- grid::viewport(name = "ccMean", layout.pos.row = 3, 
+                                layout.pos.col = 1)
+    grid::pushViewport(vp.ccMean)
+    xbar <- mean(data[[var]], na.rm = TRUE)
+    ucl <- xbar + (3/(ss.cc.getd2(n)*sqrt(n)))*ar
+    lcl <- xbar - (3/(ss.cc.getd2(n)*sqrt(n)))*ar
+    glimits <- c(min(range(data.xbar[[var]])[1], lcl),
+                 max(range(data.xbar[[var]])[2], ucl)) +
+      c(-1, 1)*0.1*diff(range(data.xbar[[var]]))
+    plot <- lattice::xyplot(as.formula(paste(var, "~", part, "|", appr)),
+                            data = data.xbar,
+                            pch = 16,
+                            par.settings = list(axis.text = list(cex = 0.6),
+                                                par.xlab.text=list(cex = 0.8),
+                                                par.ylab.text=list(cex = 0.8),
+                                                par.main.text=list(cex = 0.9)),
+                            par.strip.text = list(cex = 0.6),
+                            main = expression(bold(bar(x)*" Chart by "*appr)),
+                            grid = TRUE,
+                            layout = c(b, 1),
+                            type = "b",
+                            axs = "r",
+                            ylim = glimits,
+                            scales = list(alternating = FALSE, x = list(relation= 'free', rot=45)),
+                            panel = function(...) {
+                              lattice::panel.xyplot(...)
+                              lattice::panel.abline(h = xbar, lty = 2)
+                              lattice::panel.abline(h = ucl, col = "red3")
+                              lattice::panel.abline(h = lcl, col = "red3")
+                            }
+    )
     print(plot, newpage = FALSE)
     grid::popViewport()
+    
+    ## Range chart
+    vp.ccRange <- grid::viewport(name = "ccRange", layout.pos.row = 2, 
+                                 layout.pos.col = 1)
+    grid::pushViewport(vp.ccRange)
+    this.d3 <- ss.cc.getd3(n)
+    this.d2 <- ss.cc.getd2(n)
+    rlimits <- c(max(ar*(1 - 3*(this.d3/(this.d2))), 0), 
+                 ar*(1 + 3*(this.d3/(this.d2))))
+    glimits <- c(min(range(data.xrange[[var]])[1], rlimits[1]),
+                 max(range(data.xrange[[var]])[2], rlimits[2])) +
+      c(-1, 1)*0.1*diff(range(data.xrange[[var]]))
+    
+    
+    plot <- lattice::xyplot(as.formula(paste(var, "~", part, "|", appr)),
+                            data = data.xrange, pch = 16,
+                            par.settings = list(axis.text = list(cex = 0.6),
+                                                par.xlab.text = list(cex = 0.8),
+                                                par.ylab.text = list(cex = 0.8),
+                                                par.main.text = list(cex = 0.9),
+                                                layout.widths = list(axis.panel = c(1, 0, 0))),
+                            par.strip.text = list(cex = 0.6),
+                            main = paste("R Chart by", appr),
+                            grid = TRUE,
+                            layout = c(b, 1),
+                            type = "b",
+                            axs = "r",
+                            ylim = glimits,
+                            scales = list(alternating = FALSE, x = list(relation= 'free', rot=45)),
+                            panel = function(...) {
+                              lattice::panel.xyplot(...)
+                              lattice::panel.abline(h = ar, lty = 2)
+                              lattice::panel.abline(h = rlimits[1], col = "red3")
+                              lattice::panel.abline(h = rlimits[2], col = "red3")
+                            }
+                            
+    )
+    
+    print(plot,newpage = FALSE)
+    grid::popViewport()
   }
-  
-  data.xbar <- aggregate(as.formula(paste(var, "~", appr, "+", part)), 
-                         data = data, mean)
-  
-  ## Control Charts
-  data.xrange <- aggregate(as.formula(paste(var, "~", appr, "+", part)),
-                           data = data,
-                           function(x) {
-                             max(x) - min(x)
-                           })
-  ar <- mean(data.xrange[[var]])
-  ## Mean chart
-  vp.ccMean <- grid::viewport(name = "ccMean", layout.pos.row = 3, 
-                              layout.pos.col = 1)
-  grid::pushViewport(vp.ccMean)
-  xbar <- mean(data[[var]], na.rm = TRUE)
-  ucl <- xbar + (3/(ss.cc.getd2(n)*sqrt(n)))*ar
-  lcl <- xbar - (3/(ss.cc.getd2(n)*sqrt(n)))*ar
-  glimits <- c(min(range(data.xbar[[var]])[1], lcl),
-               max(range(data.xbar[[var]])[2], ucl)) +
-    c(-1, 1)*0.1*diff(range(data.xbar[[var]]))
-  plot <- lattice::xyplot(as.formula(paste(var, "~", part, "|", appr)),
-                          data = data.xbar,
-                          pch = 16,
-                          par.settings = list(axis.text = list(cex = 0.6),
-                                              par.xlab.text=list(cex = 0.8),
-                                              par.ylab.text=list(cex = 0.8),
-                                              par.main.text=list(cex = 0.9)),
-                          par.strip.text = list(cex = 0.6),
-                          main = expression(bold(bar(x)*" Chart by "*appr)),
-                          grid = TRUE,
-                          layout = c(b, 1),
-                          type = "b",
-                          axs = "r",
-                          ylim = glimits,
-                          scales = list(alternating = FALSE, x = list(relation= 'free', rot=45)),
-                          panel = function(...) {
-                            lattice::panel.xyplot(...)
-                            lattice::panel.abline(h = xbar, lty = 2)
-                            lattice::panel.abline(h = ucl, col = "red3")
-                            lattice::panel.abline(h = lcl, col = "red3")
-                          }
-  )
-  print(plot, newpage = FALSE)
-  grid::popViewport()
-  
-  ## Range chart
-  vp.ccRange <- grid::viewport(name = "ccRange", layout.pos.row = 2, 
-                               layout.pos.col = 1)
-  grid::pushViewport(vp.ccRange)
-  this.d3 <- ss.cc.getd3(n)
-  this.d2 <- ss.cc.getd2(n)
-  rlimits <- c(max(ar*(1 - 3*(this.d3/(this.d2))), 0), 
-               ar*(1 + 3*(this.d3/(this.d2))))
-  glimits <- c(min(range(data.xrange[[var]])[1], rlimits[1]),
-               max(range(data.xrange[[var]])[2], rlimits[2])) +
-    c(-1, 1)*0.1*diff(range(data.xrange[[var]]))
-
-
-  plot <- lattice::xyplot(as.formula(paste(var, "~", part, "|", appr)),
-                          data = data.xrange, pch = 16,
-                          par.settings = list(axis.text = list(cex = 0.6),
-                                              par.xlab.text = list(cex = 0.8),
-                                              par.ylab.text = list(cex = 0.8),
-                                              par.main.text = list(cex = 0.9),
-                                              layout.widths = list(axis.panel = c(1, 0, 0))),
-                          par.strip.text = list(cex = 0.6),
-                          main = paste("R Chart by", appr),
-                          grid = TRUE,
-                          layout = c(b, 1),
-                          type = "b",
-                          axs = "r",
-                          ylim = glimits,
-                          scales = list(alternating = FALSE, x = list(relation= 'free', rot=45)),
-                          panel = function(...) {
-                            lattice::panel.xyplot(...)
-                            lattice::panel.abline(h = ar, lty = 2)
-                            lattice::panel.abline(h = rlimits[1], col = "red3")
-                            lattice::panel.abline(h = rlimits[2], col = "red3")
-                          }
-                          
-  )
-  
-  print(plot,newpage = FALSE)
-  grid::popViewport()
   
   invisible(list(anovaTable = modelm,
                  anovaRed = modelrm,
