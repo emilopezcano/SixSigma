@@ -297,26 +297,28 @@ xST_density <- density(xST, bw = binwST)
 if (!is.na(LSL)){
 	hist <- hist +
 		annotate(geom = "text", 
-				x = LSL, 
+				x = LSL - abs(max(xST_density$x) - min(xST_density$x)) * 0.02, 
 				y = max(xST_density$y), 
 				label = "LSL", 
-				hjust = -0.1, 
-				size = 5) 
+				hjust = 'right',
+				size = 4)
+	hist <- hist + expand_limits(x = LSL - (abs(max(xST_density$x) - min(xST_density$x)) * 0.04))
 } 
 hist <- hist +	annotate(geom = "text",
-				x = Target, 
-				y = max(xST_density$y), 
+				x = Target + abs(max(xST_density$x) - min(xST_density$x)) * 0.03, 
+				y = max(xST_density$y) + abs(max(xST_density$y) * 0.3),
 				label = "Target",
-				hjust = -0.1,
-				size = 5)
+				hjust = 'left',
+				size = 4)
 if (!is.na(USL)){
 	hist <- hist + 
 		annotate(geom = "text",
-				x = USL, 
+				x = USL + abs(max(xST_density$x) - min(xST_density$x)) * 0.02,
 				y = max(xST_density$y), 
 				label = "USL",
-				hjust = 1.1, 
-				size = 5) 
+				hjust = 'left',
+				size = 4)
+	hist <- hist + expand_limits(x = USL + (abs(max(xST_density$x) - min(xST_density$x)) * 0.04))
 }
 	hist <- hist + xlab(NULL) + 
 		ylab(NULL) + 
@@ -587,7 +589,7 @@ grid::grid.lines(x=c(0,1), y=c(1,1), gp=grid::gpar(col="#BBBBBB",lwd=2))
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(3,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.7))
-	if(!is.na(cpiLT)){
+	if(!is.na(cpiLT[1])){
 	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpiLT[1]), sep = ""),
 	                        ",", sprintf("%.1f", cpiLT[2]),"]", sep = ""), 
 	                  y = unit(.95,"npc") - unit(3, "lines"), 
@@ -606,7 +608,7 @@ grid::grid.lines(x=c(0,1), y=c(1,1), gp=grid::gpar(col="#BBBBBB",lwd=2))
 			just=c("right","top"),
 			gp=grid::gpar(cex=.7))
 	## TODO: see one-side specs
-	if(!is.na(cpkiLT)){
+	if(!is.na(cpkiLT[1])){
 	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpkiLT[1]), sep = ""),
 	                        ",", sprintf("%.1f", cpkiLT[2]), "]", sep = ""), 
 	                  y = unit(.95,"npc") - unit(6.5, "lines"), 
