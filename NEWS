@@ -1,3 +1,8 @@
+SixSigma 0.9-56
+---------------
+* Fix bug on ss.cc when plotting MR control chart
+
+
 SixSigma 0.9-55
 --------------
 * Allow not to print plots (ss.rr)

@@ -190,10 +190,12 @@ ss.cc <- function(type, data, cdata, CTQ = names(data)[1], groups,
         ggtitle("Moving Range Control Chart") +
         scale_y_continuous(name = "Moving Range")
     if (nrow(outData) > 0){
-      ccPlot <- ccPlot + geom_point(x = outData$item, 
-          y = outData$MR, 
-          col = "red",
-          size = 2.5)
+      ccPlot <- ccPlot + 
+        geom_point(data = outData,
+                   aes(x = item, 
+                       y = MR), 
+                   col = "red",
+                   size = 2.5)
     }
     
   } else{
