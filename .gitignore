@@ -1,0 +1,8 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+_feedback
+elc_utils
+.Rbuildignore
+.DS_Store
