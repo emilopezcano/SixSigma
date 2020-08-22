@@ -1,6 +1,6 @@
 SixSigma 0.9-56
 ---------------
-* Fix bug on ss.cc when plotting MR control chart
+* Fix bug on ss.cc when plotting MR control chart (with thanks to Jl Z)
 
 
 SixSigma 0.9-55
