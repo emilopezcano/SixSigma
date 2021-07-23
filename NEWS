@@ -1,3 +1,8 @@
+
+SixSigma 0.9-57
+---------------
+* Fix bug on ss.rr when no variation (with thanks to Gilles Chassat)
+
 SixSigma 0.9-56
 ---------------
 * Fix bug on ss.cc when plotting MR control chart (with thanks to Jl Z)
