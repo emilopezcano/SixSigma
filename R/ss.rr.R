@@ -582,6 +582,9 @@ ss.rr <- function(var, part, appr,
     glimits <- c(min(range(data.xrange[[var]])[1], rlimits[1]),
                  max(range(data.xrange[[var]])[2], rlimits[2])) +
       c(-1, 1)*0.1*diff(range(data.xrange[[var]]))
+    if(all(glimits == 0)) {
+      glimits <- c(0, max(data[[var]]))
+    }
     
     
     plot <- lattice::xyplot(as.formula(paste(var, "~", part, "|", appr)),
