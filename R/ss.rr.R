@@ -24,6 +24,7 @@
 #' @param digits Number of decimal digits for output
 #' @param method Character to specify the type of analysis to perform, \code{"crossed"} (default) or \code{"nested"} 
 #' @param print_plot if TRUE (default) the plots are printed. Change to FALSE to avoid printing plots.
+#' @param signifstars if FALSE (default) the significance stars are ommitted. Change to TRUE to allow printing stars.
 #' 
 #' @return 
 #' Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.
@@ -97,7 +98,14 @@ ss.rr <- function(var, part, appr,
                   errorTerm = "interaction",
                   digits = 4, 
                   method = "crossed",
-                  print_plot = TRUE){
+                  print_plot = TRUE,
+                  signifstars = FALSE){
+  curr_stars <- getOption("show.signif.stars")
+  if(signifstars){
+    options(show.signif.stars = TRUE)
+  } else{
+    options(show.signif.stars = FALSE)
+  }
   ## Figures and facts
   ## Get character strings for column names
   if (is.data.frame(data)){
@@ -141,9 +149,6 @@ ss.rr <- function(var, part, appr,
   } else {
     n <- nrow(data)/a
   }
-  
-  
-  options(show.signif.stars = FALSE)
   
   ## Checks design balance, if not balanced abort
   if(abs(n-round(n)) != 0 && method == "crossed") {
@@ -614,6 +619,9 @@ ss.rr <- function(var, part, appr,
     print(plot,newpage = FALSE)
     grid::popViewport()
   }
+  
+  ## Restore option for significance stars
+  options(show.signif.stars = curr_stars)
   
   invisible(list(anovaTable = modelm,
                  anovaRed = modelrm,
