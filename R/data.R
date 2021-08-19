@@ -256,11 +256,6 @@ NULL
 #' @examples
 #' data(ss.data.pb1)
 #' summary(ss.data.pb1)
-#' library(qcc)
-#' pb.groups.one <- with(ss.data.pb1, qcc.groups(pb.humidity, pb.group))
-#' pb.xbar.one <- qcc(pb.groups.one, type="xbar.one")
-#' summary(pb.xbar.one)
-#' plot(pb.xbar.one)
 #' 
 NULL
 
@@ -294,13 +289,6 @@ NULL
 #' @examples
 #' data(ss.data.pb2)
 #' summary(ss.data.pb2)
-#' if (require(qcc)){
-#'   pb.groups.xbar <- with(ss.data.pb2, qcc.groups(pb.humidity, pb.group))
-#'   pb.xbar <- qcc(pb.groups.xbar, type="xbar")
-#'   summary(pb.xbar)
-#' } else {
-#' message("qcc package is needed to run this example")
-#' }
 #' 
 NULL
 
@@ -335,13 +323,6 @@ NULL
 #' @examples
 #' data(ss.data.pb3)
 #' summary(ss.data.pb3)
-#' if (require(qcc)){
-#' with(ss.data.pb3,
-#' 		plot(qcc(stockouts, orders, type ="p"))
-#' 	)
-#' } else {
-#' message("qcc package is needed to run this example")
-#' }
 #' 
 NULL
 
@@ -612,9 +593,7 @@ NULL
 #' 
 #' data(ss.data.density)
 #' str(ss.data.density) 
-#' library(qcc)
-#' qcc(ss.data.density,
-#'     type = "xbar.one")
+#' summary(ss.data.density) 
 #' 
 NULL
 #' Metal Plates Thickness

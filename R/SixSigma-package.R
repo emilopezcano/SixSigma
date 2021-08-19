@@ -65,7 +65,7 @@ NULL
 #' 
 #' Wikipedia, \url{http://en.wikipedia.org/wiki/Six_Sigma}
 #'
-#' @import grDevices stats graphics lattice ggplot2 qcc testthat xtable
+#' @import grDevices stats graphics lattice ggplot2 testthat xtable
 NULL
 
 
