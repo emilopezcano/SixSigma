@@ -1,7 +1,7 @@
 Package: SixSigma
 Type: Package
 Title: Six Sigma Tools for Quality Control and Improvement
-Version: 0.9-58
+Version: 0.10.0
 Encoding: UTF-8
 Authors@R: c(person("Emilio L.", "Cano", email = "emilio.lcano@uclm.es", 
                   role = c("aut", "cre"),

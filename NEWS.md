@@ -1,3 +1,11 @@
+SixSigma
+========
+
+SixSigma 0.10.0 (under development)
+---------------
+* Fix [#9](https://github.com/emilopezcano/SixSigma/issues/9)
+* NEWS -> NEWS.md
+* Documentation with pkgdown at http://emilopezcano.github.io/SixSigma/
 
 SixSigma 0.9-58
 ---------------
