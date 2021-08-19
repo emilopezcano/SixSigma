@@ -19,7 +19,8 @@ ss.rr(
   errorTerm = "interaction",
   digits = 4,
   method = "crossed",
-  print_plot = TRUE
+  print_plot = TRUE,
+  signifstars = FALSE
 )
 }
 \arguments{
@@ -52,6 +53,8 @@ ss.rr(
 \item{method}{Character to specify the type of analysis to perform, \code{"crossed"} (default) or \code{"nested"}}
 
 \item{print_plot}{if TRUE (default) the plots are printed. Change to FALSE to avoid printing plots.}
+
+\item{signifstars}{if FALSE (default) the significance stars are ommitted. Change to TRUE to allow printing stars.}
 }
 \value{
 Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.
