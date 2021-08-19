@@ -1,7 +1,7 @@
 SixSigma
 ========
 
-SixSigma 0.10.0 (under development)
+SixSigma 0.10.0
 ---------------
 * Fix [#9](https://github.com/emilopezcano/SixSigma/issues/9)
 * Fix [#10](https://github.com/emilopezcano/SixSigma/issues/10). `ss.rr` gains an argument `signifstars` that avoids overwriting the global option. FALSE by default.
