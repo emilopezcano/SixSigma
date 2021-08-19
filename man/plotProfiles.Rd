@@ -4,8 +4,13 @@
 \alias{plotProfiles}
 \title{Plot Profiles}
 \usage{
-plotProfiles(profiles, x = 1:nrow(profiles), cLimits = NULL,
-  outControl = NULL, onlyout = FALSE)
+plotProfiles(
+  profiles,
+  x = 1:nrow(profiles),
+  cLimits = NULL,
+  outControl = NULL,
+  onlyout = FALSE
+)
 }
 \arguments{
 \item{profiles}{matrix with profiles in columns}

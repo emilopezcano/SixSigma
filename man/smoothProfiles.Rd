@@ -4,8 +4,14 @@
 \alias{smoothProfiles}
 \title{Regularise set of profiles}
 \usage{
-smoothProfiles(profiles, x = 1:nrow(profiles), svm.c = NULL,
-  svm.eps = NULL, svm.gamma = NULL, parsvm.unique = TRUE)
+smoothProfiles(
+  profiles,
+  x = 1:nrow(profiles),
+  svm.c = NULL,
+  svm.eps = NULL,
+  svm.gamma = NULL,
+  parsvm.unique = TRUE
+)
 }
 \arguments{
 \item{profiles}{Matrix of y values, one column per profile}

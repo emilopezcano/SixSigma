@@ -4,9 +4,14 @@
 \alias{ss.ceDiag}
 \title{Cause and Effect Diagram}
 \usage{
-ss.ceDiag(effect, causes.gr, causes,
-  main = "Six Sigma Cause-and-effect Diagram", sub, ss.col = c("#666666",
-  "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE"))
+ss.ceDiag(
+  effect,
+  causes.gr,
+  causes,
+  main = "Six Sigma Cause-and-effect Diagram",
+  sub,
+  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")
+)
 }
 \arguments{
 \item{effect}{A short character string that represents the effect we want to analyse.}

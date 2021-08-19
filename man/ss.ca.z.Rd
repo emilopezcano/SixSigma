@@ -8,6 +8,11 @@
 \usage{
 ss.ca.cp(x, LSL = NA, USL = NA, LT = FALSE, f.na.rm = TRUE, 
   ci = FALSE, alpha = 0.05)
+
+ss.ca.cpk(x, LSL = NA, USL = NA, LT = FALSE, f.na.rm = TRUE, 
+  ci = FALSE, alpha = 0.05)
+
+ss.ca.z(x, LSL = NA, USL = NA, LT = FALSE, f.na.rm = TRUE)
 }
 \arguments{
 \item{x}{A vector with the data of the process performance}

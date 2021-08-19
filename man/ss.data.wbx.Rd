@@ -4,7 +4,9 @@
 \name{ss.data.wbx}
 \alias{ss.data.wbx}
 \title{Woodboard location for profiles}
-\format{A vector with 500 items for the locations (\emph{in}).}
+\format{
+A vector with 500 items for the locations (\emph{in}).
+}
 \source{
 Example 10.1 in the reference below. It is a variation of the one
 introduced by Walker (2002).

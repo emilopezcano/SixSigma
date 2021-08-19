@@ -4,11 +4,13 @@
 \name{ss.data.bills}
 \alias{ss.data.bills}
 \title{Errors in bills data set}
-\format{A data frame with 32 observations on the following 3 variables.
+\format{
+A data frame with 32 observations on the following 3 variables.
 \describe{ \item{nbill}{a numeric vector identifying a given bill}
 \item{clerk}{a character vector for the clerk responsible for the
 bill} \item{errors}{a character vector with the number of errors in
-the bill} }}
+the bill} }
+}
 \source{
 Table 6.1 in the reference below.
 }

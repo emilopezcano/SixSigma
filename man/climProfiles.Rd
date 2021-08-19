@@ -4,8 +4,13 @@
 \alias{climProfiles}
 \title{Compute profiles limits}
 \usage{
-climProfiles(profiles, x = 1:nrow(profiles), smoothprof = FALSE,
-  smoothlim = FALSE, alpha = 0.01)
+climProfiles(
+  profiles,
+  x = 1:nrow(profiles),
+  smoothprof = FALSE,
+  smoothlim = FALSE,
+  alpha = 0.01
+)
 }
 \arguments{
 \item{profiles}{Matrix with profiles in columns}

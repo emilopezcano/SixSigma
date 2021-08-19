@@ -4,10 +4,12 @@
 \name{ss.data.bolts}
 \alias{ss.data.bolts}
 \title{Data for the bolts example}
-\format{A data frame with 50 observations on the following variable.
+\format{
+A data frame with 50 observations on the following variable.
   \describe{
     \item{\code{diameter}}{a numeric vector with the diameter of the bolts}
-  }}
+  }
+}
 \source{
 See references.
 }

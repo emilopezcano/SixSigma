@@ -4,13 +4,15 @@
 \name{ss.data.thickness}
 \alias{ss.data.thickness}
 \title{Metal Plates Thickness}
-\format{A data frame with 24 observations on the following 5 variables.
+\format{
+A data frame with 24 observations on the following 5 variables.
 \describe{ \item{thickness}{a numeric vector with the thickness
 (\emph{in})} \item{day}{a factor with the day (two days)}
 \item{shift}{a factor with the shift (two shifts)}
 \item{dayshift}{a factor with the day-shift combination}
 \item{position}{a factor with the position of the thickness with
-respect to the nominal value of 0.75 \emph{in}} }}
+respect to the nominal value of 0.75 \emph{in}} }
+}
 \source{
 Table 5.1 in the reference below.
 }

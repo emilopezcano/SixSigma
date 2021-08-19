@@ -4,14 +4,16 @@
 \name{ss.data.pc.big}
 \alias{ss.data.pc.big}
 \title{Larger data set for the printer cartridges example}
-\format{A data frame with 72 observations on the following 5 variables, 
+\format{
+A data frame with 72 observations on the following 5 variables, 
   \describe{
     \item{\code{filler}}{a factor with levels \code{1} \code{2} \code{3}}
     \item{\code{batch}}{a factor with levels \code{1} \code{2} \code{3} \code{4}}
     \item{\code{col}}{a factor with levels \code{B} \code{C}}
     \item{\code{operator}}{a factor with levels \code{1} \code{2} \code{3}}
     \item{\code{volume}}{a numeric vector}
-  }}
+  }
+}
 \source{
 See references.
 }

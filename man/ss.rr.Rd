@@ -4,9 +4,23 @@
 \alias{ss.rr}
 \title{Gage R & R (Measurement System Assessment)}
 \usage{
-ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 6, tolerance = usl -
-  lsl, data, main = "Six Sigma Gage R&R Study", sub = "", alphaLim = 0.05,
-  errorTerm = "interaction", digits = 4, method = "crossed")
+ss.rr(
+  var,
+  part,
+  appr,
+  lsl = NA,
+  usl = NA,
+  sigma = 6,
+  tolerance = usl - lsl,
+  data,
+  main = "Six Sigma Gage R&R Study",
+  sub = "",
+  alphaLim = 0.05,
+  errorTerm = "interaction",
+  digits = 4,
+  method = "crossed",
+  print_plot = TRUE
+)
 }
 \arguments{
 \item{var}{Measured variable}
@@ -36,6 +50,8 @@ ss.rr(var, part, appr, lsl = NA, usl = NA, sigma = 6, tolerance = usl -
 \item{digits}{Number of decimal digits for output}
 
 \item{method}{Character to specify the type of analysis to perform, \code{"crossed"} (default) or \code{"nested"}}
+
+\item{print_plot}{if TRUE (default) the plots are printed. Change to FALSE to avoid printing plots.}
 }
 \value{
 Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.

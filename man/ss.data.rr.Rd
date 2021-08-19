@@ -4,7 +4,8 @@
 \name{ss.data.rr}
 \alias{ss.data.rr}
 \title{Gage R&R data}
-\format{A data frame with 27 observations on the following 5 variables.
+\format{
+A data frame with 27 observations on the following 5 variables.
   \describe{
        \item{\code{prototype}}{a factor with levels \code{prot #1}
 	 \code{prot #2} \code{prot #3}}
@@ -13,7 +14,8 @@
     \item{\code{run}}{a factor with levels \code{run #1} \code{run #2} \code{run #3}}
     \item{\code{time1}}{a numeric vector}
     \item{\code{time2}}{a numeric vector}
-  }}
+  }
+}
 \source{
 See references.
 }

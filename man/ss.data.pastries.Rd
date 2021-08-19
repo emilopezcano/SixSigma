@@ -4,13 +4,15 @@
 \name{ss.data.pastries}
 \alias{ss.data.pastries}
 \title{Pastries data}
-\format{A data frame with 18 observations on the following 4 variables.
+\format{
+A data frame with 18 observations on the following 4 variables.
   \describe{
     \item{\code{lab}}{laboratory: a factor with levels \code{1} \code{2} \code{3}}
     \item{\code{batch}}{batch: a factor with levels \code{1} \code{2} \code{3}}
     \item{\code{run}}{identifies the run: a factor with levels \code{1} \code{2}}
     \item{\code{comp}}{proportion of the compound in the pastry: a numeric vector}
-  }}
+  }
+}
 \source{
 See references.
 }

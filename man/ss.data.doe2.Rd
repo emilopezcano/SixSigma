@@ -4,7 +4,8 @@
 \name{ss.data.doe2}
 \alias{ss.data.doe2}
 \title{Data for the pizza dough example (robust design)}
-\format{A data frame with 64 observations on the following 7 variables.
+\format{
+A data frame with 64 observations on the following 7 variables.
   \describe{
     \item{\code{repl}}{Replication id}
     \item{\code{flour}}{Level of flour in the recipe (\code{-} \code{+})}
@@ -13,7 +14,8 @@
     \item{\code{temp}}{Level of temperature in preparation (\code{-} \code{+})}
     \item{\code{time}}{Level of time in preparation (\code{-} \code{+})}
     \item{\code{score}}{Scored assigned to the recipe}
-  }}
+  }
+}
 \source{
 See references.
 }

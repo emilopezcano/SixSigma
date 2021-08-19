@@ -3,7 +3,6 @@
 \docType{package}
 \name{SixSigma}
 \alias{SixSigma}
-\alias{SixSigma-package}
 \title{Six Sigma Tools for Quality and Process Improvement}
 \description{
 Six Sigma Tools for Quality and Process Improvement

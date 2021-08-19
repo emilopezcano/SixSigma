@@ -4,10 +4,18 @@
 \alias{ss.ci}
 \title{Confidence Interval for the mean}
 \usage{
-ss.ci(x, sigma2 = NA, alpha = 0.05, data = NA, xname = "x",
-  approx.z = FALSE, main = "Confidence Interval for the Mean", digits = 3,
-  sub = "", ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD",
-  "#EEEEEE"))
+ss.ci(
+  x,
+  sigma2 = NA,
+  alpha = 0.05,
+  data = NA,
+  xname = "x",
+  approx.z = FALSE,
+  main = "Confidence Interval for the Mean",
+  digits = 3,
+  sub = "",
+  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")
+)
 }
 \arguments{
 \item{x}{A numeric vector with the variable data}

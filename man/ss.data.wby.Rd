@@ -4,7 +4,9 @@
 \name{ss.data.wby}
 \alias{ss.data.wby}
 \title{Woodboard profiles}
-\format{A matrix with 500 rows (locations) and 50 columns (woodboard).}
+\format{
+A matrix with 500 rows (locations) and 50 columns (woodboard).
+}
 \source{
 Example 10.1 in the reference below. It is a variation of the one
 introduced by Walker (2002).

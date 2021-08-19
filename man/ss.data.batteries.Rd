@@ -4,13 +4,15 @@
 \name{ss.data.batteries}
 \alias{ss.data.batteries}
 \title{Data for the batteries example}
-\format{A data frame with 18 observations on the following 4 variables.
+\format{
+A data frame with 18 observations on the following 4 variables.
  \describe{
    \item{\code{voltmeter}}{a factor with levels \code{1} \code{2}}
    \item{\code{battery}}{a factor with levels \code{1} \code{2} \code{3}}
    \item{\code{run}}{a factor with levels \code{1} \code{2} \code{3}}
    \item{\code{voltage}}{a numeric vector}
- }}
+ }
+}
 \source{
 See references.
 }

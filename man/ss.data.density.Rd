@@ -4,8 +4,10 @@
 \name{ss.data.density}
 \alias{ss.data.density}
 \title{Pellets density}
-\format{A vector with 24 items for the density of a set of pellets
-(\emph{gr/cm}$^3$).}
+\format{
+A vector with 24 items for the density of a set of pellets
+(\emph{gr/cm}$^3$).
+}
 \source{
 Table 1.2 in the reference below.
 }
@@ -24,9 +26,7 @@ and then used in the examples.
 
 data(ss.data.density)
 str(ss.data.density) 
-library(qcc)
-qcc(ss.data.density,
-    type = "xbar.one")
+summary(ss.data.density) 
 
 }
 \references{

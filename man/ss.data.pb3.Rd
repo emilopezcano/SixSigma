@@ -4,12 +4,14 @@
 \name{ss.data.pb3}
 \alias{ss.data.pb3}
 \title{Particle Boards Example - Attribute data}
-\format{A data frame with 22 observations on the following 3 variables.
+\format{
+A data frame with 22 observations on the following 3 variables.
   \describe{
     \item{\code{day}}{Day id}
     \item{\code{stockouts}}{Number of stockouts}
     \item{\code{orders}}{Number of orders}
-  }}
+  }
+}
 \source{
 See references.
 }
@@ -26,13 +28,6 @@ References).
 \examples{
 data(ss.data.pb3)
 summary(ss.data.pb3)
-if (require(qcc)){
-with(ss.data.pb3,
-		plot(qcc(stockouts, orders, type ="p"))
-	)
-} else {
-message("qcc package is needed to run this example")
-}
 
 }
 \references{

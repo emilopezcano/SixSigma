@@ -4,9 +4,17 @@
 \alias{ss.pMap}
 \title{Process Map}
 \usage{
-ss.pMap(steps, inputs.overall, outputs.overall, input.output, x.parameters,
-  y.features, main = "Six Sigma Process Map", sub, ss.col = c("#666666",
-  "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE"))
+ss.pMap(
+  steps,
+  inputs.overall,
+  outputs.overall,
+  input.output,
+  x.parameters,
+  y.features,
+  main = "Six Sigma Process Map",
+  sub,
+  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")
+)
 }
 \arguments{
 \item{steps}{A vector of characters with the name of the 'n' steps}

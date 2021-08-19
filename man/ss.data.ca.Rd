@@ -4,10 +4,12 @@
 \name{ss.data.ca}
 \alias{ss.data.ca}
 \title{Data for a filling process in a winery}
-\format{A data frame with 20 observations on the following variable.
+\format{
+A data frame with 20 observations on the following variable.
   \describe{
     \item{\code{Volume}}{a numeric vector (volume in cl}
-  }}
+  }
+}
 \source{
 See references.
 }

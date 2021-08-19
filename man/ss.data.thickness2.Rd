@@ -4,13 +4,15 @@
 \name{ss.data.thickness2}
 \alias{ss.data.thickness2}
 \title{Metal Plates thickness (extended)}
-\format{A data frame with 84 observations on the following 5 variables.
+\format{
+A data frame with 84 observations on the following 5 variables.
 \describe{ \item{day}{a factor with the day (seven days)}
 \item{shift}{a factor with the shift (two shifts)}
 \item{thickness}{a numeric vector with the thickness (\emph{in})}
 \item{ushift}{a factor with the day-shift combination}
 \item{flaws}{an integer vector with the number of flaws on the
-surface of sampled plates} }}
+surface of sampled plates} }
+}
 \source{
 Examples 8.1 and 9.9 in the reference below.
 }

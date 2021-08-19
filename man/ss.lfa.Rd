@@ -4,8 +4,16 @@
 \alias{ss.lfa}
 \title{Loss Function Analysis}
 \usage{
-ss.lfa(lfa.data, lfa.ctq, lfa.Delta, lfa.Y0, lfa.L0, lfa.size = NA,
-  lfa.output = "both", lfa.sub = "Six Sigma Project")
+ss.lfa(
+  lfa.data,
+  lfa.ctq,
+  lfa.Delta,
+  lfa.Y0,
+  lfa.L0,
+  lfa.size = NA,
+  lfa.output = "both",
+  lfa.sub = "Six Sigma Project"
+)
 }
 \arguments{
 \item{lfa.data}{Data frame with the sample to get the average loss.}

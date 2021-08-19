@@ -4,7 +4,8 @@
 \name{ss.data.doe1}
 \alias{ss.data.doe1}
 \title{Pizza dough example data}
-\format{A data frame with 16 observations on the following 6 variables.
+\format{
+A data frame with 16 observations on the following 6 variables.
   \describe{
     \item{\code{repl}}{Replication id}
     \item{\code{flour}}{Level of flour in the recipe (\code{-} \code{+})}
@@ -12,7 +13,8 @@
     \item{\code{bakPow}}{Level of Baking Powder in the recipe (\code{-} \code{+})}
     \item{\code{score}}{Scored assigned to the recipe}
     \item{\code{ord}}{Randomized order}
-  }}
+  }
+}
 \source{
 See references.
 }

@@ -4,11 +4,13 @@
 \name{ss.data.pb4}
 \alias{ss.data.pb4}
 \title{Data for Practicle Boards Example - number of defects}
-\format{A data frame with 80 observations on the following 2 variables.
+\format{
+A data frame with 80 observations on the following 2 variables.
   \describe{
     \item{\code{order}}{Order id}
     \item{\code{defects}}{Number of defects}
-  }}
+  }
+}
 \source{
 See references.
 }

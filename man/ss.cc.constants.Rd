@@ -8,6 +8,10 @@
 \title{Functions to find out constants of the relative range distribution.}
 \usage{
 ss.cc.getd2(n = NA)
+
+ss.cc.getd3(n = NA)
+
+ss.cc.getc4(n = NA)
 }
 \arguments{
 \item{n}{Sample size}

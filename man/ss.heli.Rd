@@ -20,8 +20,10 @@ The pdf file must be printed in A4 paper, without adjusting size to paper.
 See the \code{vignette("HelicopterInstructions")} to see assembling instructions.
 }
 \examples{
+\dontrun{
 ss.heli()
 vignette("HelicopterInstructions")
+}
 }
 \references{
 George Box.

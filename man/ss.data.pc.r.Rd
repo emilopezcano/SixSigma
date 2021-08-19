@@ -4,13 +4,15 @@
 \name{ss.data.pc.r}
 \alias{ss.data.pc.r}
 \title{Data set for the printer cartridge example, by region}
-\format{A data frame with 5 observations on the following 4 variables.
+\format{
+A data frame with 5 observations on the following 4 variables.
   \describe{
     \item{\code{pc.regions}}{a factor with levels \code{region.1} \code{region.2} \code{region.3} \code{region.4} \code{region.5}}
     \item{\code{pc.def.a}}{a numeric vector for defects type A}
     \item{\code{pc.def.b}}{a numeric vector for defects type B}
     \item{\code{pc.def}}{a numeric vector for total defects}
-  }}
+  }
+}
 \source{
 See references.
 }
