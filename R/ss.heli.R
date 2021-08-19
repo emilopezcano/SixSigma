@@ -24,8 +24,10 @@
 #' @author EL Cano
 #' 
 #' @examples 
+#' \dontrun{
 #' ss.heli()
 #' vignette("HelicopterInstructions")
+#' }
 #' @export
 ss.heli <- function(){
 	pdf(file="helicopter.pdf", width=6, height=10)
