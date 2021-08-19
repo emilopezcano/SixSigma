@@ -1,3 +1,25 @@
+
+SixSigma 0.9-57
+---------------
+* Fix bug on ss.rr when no variation (with thanks to Gilles Chassat)
+
+SixSigma 0.9-56
+---------------
+* Fix bug on ss.cc when plotting MR control chart (with thanks to Jl Z)
+
+
+SixSigma 0.9-55
+--------------
+* Allow not to print plots (ss.rr)
+
+SixSigma 0.9-54
+--------------
+* Allow nested designs in R&R Gage studies (ss.rr)
+
+SixSigma 0.9-53
+--------------
+* Add option f.colours to ss.study.ca
+
 SixSigma 0.9-52
 --------------
 * Fix bug on computation of Z_lt

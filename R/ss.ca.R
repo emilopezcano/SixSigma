@@ -179,10 +179,16 @@ ss.ca.cpk <- function(x, LSL = NA, USL = NA,
 #' with qqplot and normality tests. Shows the Specification Limits and the 
 #' Capability Indices.
 #' 
+#' @note 
+#' The argument \code{f.colours} takes a vector of colours for the graphical outputs. The order of 
+#' the elements are, first the colour for histogram bars, then Density ST lines, Density LT 
+#' lines, Target, and Specification limits. It can be partially specified.
+#' 
+#' 
 #' @usage 
 #' ss.study.ca(xST, xLT = NA, LSL = NA, USL = NA, Target = NA, 
 #'   alpha = 0.05, f.na.rm = TRUE, f.main = "Six Sigma Capability Analysis Study", 
-#'   f.sub = "")
+#'   f.sub = "", f.colours = c("#4682B4","#d1d1e0","#000000","#00C800","#FF0000"))
 #' @param xST Short Term process performance data 
 #' @param xLT Long Term process performance data 
 #' @param LSL Lower Specification Limit of the process
@@ -192,6 +198,7 @@ ss.ca.cpk <- function(x, LSL = NA, USL = NA,
 #' @param f.na.rm If TRUE NA data will be removed
 #' @param f.main Main Title for the graphic output
 #' @param f.sub Subtitle for the graphic output
+#' @param f.colours Vector of colours fot the graphic output
 #' @return Figures and plot for Capability Analysis
 #' 
 #' @references 
@@ -204,17 +211,25 @@ ss.ca.cpk <- function(x, LSL = NA, USL = NA,
 #'   (Sixth Edition). New York: Wiley&Sons
 #' 
 #' @seealso \code{\link{ss.ca.cp}}
-#' @author EL Cano
+#' @author Main author: Emilio L. Cano. Contributions by Manu Alfaro.
 #' @export
-#' @examples 
-#' 	ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
+#' @examples
+#' 
+#'  ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
 #' 		LSL = 740, USL = 760, T = 750, alpha = 0.05, 
 #'  			f.sub = "Winery Project")
+#'  			
+#'  ss.study.ca(ss.data.ca$Volume, rnorm(40, 753, 3), 
+#' 		LSL = 740, USL = 760, T = 750, alpha = 0.05, 
+#'  			f.sub = "Winery Project", 
+#'  			f.colours = c("#990000", "#007700", "#002299"))
+#'  			
 ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA, 
 		Target = NA, alpha = 0.05, 
 		f.na.rm = TRUE,
 		f.main = "Six Sigma Capability Analysis Study", 
-		f.sub = ""){
+		f.sub = "",
+		f.colours = c("#4682B4","#d1d1e0","#000000","#00C800","#FF0000")){
 	if (is.na(Target)){
 		stop("Target is needed")
 	}
@@ -251,6 +266,11 @@ ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA,
 		cpkiLT=NA
 		zLT<-zST-1.5
 	}
+	#Order of colours c(Bars, Density ST, Density LT, Target, Specification limits)
+	if(length(f.colours) != 5) {
+	  default <- c("#4682B4","#868686","#000000","#00C800","#FF0000")
+	  f.colours <- c(f.colours, default[(length(f.colours) + 1):5])
+	}
 
 ######
 	.ss.prepCanvas(f.main, f.sub)
@@ -271,32 +291,34 @@ ggdata <- reshape2::melt(xST)
 qqp <- ggplot(ggdata, aes(x=value))
 hist <- qqp + geom_histogram(aes(y = ..density..), 
 				binwidth = binwST,
-				fill = "steelblue", 
+				fill = f.colours[1], 
 				stat = "bin")
 xST_density <- density(xST, bw = binwST)
 if (!is.na(LSL)){
 	hist <- hist +
 		annotate(geom = "text", 
-				x = LSL, 
+				x = LSL - abs(max(xST_density$x) - min(xST_density$x)) * 0.02, 
 				y = max(xST_density$y), 
 				label = "LSL", 
-				hjust = -0.1, 
-				size = 5) 
+				hjust = 'right',
+				size = 4)
+	hist <- hist + expand_limits(x = LSL - (abs(max(xST_density$x) - min(xST_density$x)) * 0.04))
 } 
 hist <- hist +	annotate(geom = "text",
-				x = Target, 
-				y = max(xST_density$y), 
+				x = Target + abs(max(xST_density$x) - min(xST_density$x)) * 0.03, 
+				y = max(xST_density$y) + abs(max(xST_density$y) * 0.3),
 				label = "Target",
-				hjust = -0.1,
-				size = 5)
+				hjust = 'left',
+				size = 4)
 if (!is.na(USL)){
 	hist <- hist + 
 		annotate(geom = "text",
-				x = USL, 
+				x = USL + abs(max(xST_density$x) - min(xST_density$x)) * 0.02,
 				y = max(xST_density$y), 
 				label = "USL",
-				hjust = 1.1, 
-				size = 5) 
+				hjust = 'left',
+				size = 4)
+	hist <- hist + expand_limits(x = USL + (abs(max(xST_density$x) - min(xST_density$x)) * 0.04))
 }
 	hist <- hist + xlab(NULL) + 
 		ylab(NULL) + 
@@ -304,24 +326,29 @@ if (!is.na(USL)){
 if (!is.na(LSL)){
 		hist <- hist + geom_vline(xintercept = LSL,
 				linetype = 2,
-				size = 1) 
+				size = 1,
+				colour = f.colours[5]) 
 	}
 if (!is.na(USL)){
 	hist <- hist + geom_vline(xintercept = USL,
 			linetype = 2,
-			size = 1) 
+			size = 1,
+			colour = f.colours[5]) 
 }
 	hist <- hist + geom_vline(xintercept = Target,
 				linetype = 3, 
-				size = 1) +
+				size = 1,
+				colour = f.colours[4]) +
 		stat_density(geom="path", 
 				position="identity", 
-				size = 1) +
+				size = 1,
+				colour = f.colours[2]) +
 		stat_function( 
 				fun = dnorm, 
 				args = with(ggdata,	c(mean(value), sd(value))),
 				linetype = 2, 
-				size = 1
+				size = 1,
+				colour = f.colours[2]
 		) 
 
 if (is.numeric(xLT)){
@@ -330,12 +357,14 @@ if (is.numeric(xLT)){
 	hist <- hist + 
 		stat_density(geom="path",
 				data = ggdataLT, 
-				position = "identity") + 
+				position = "identity",
+				colour = f.colours[3]) + 
 		stat_function(
 				fun = dnorm, 
 				args = with(ggdataLT, 
 						c(mean = mean(value), sd = sd(value))),
-				linetype=2
+				linetype=2,
+				colour = f.colours[3]
 		)
 } 
 
@@ -388,20 +417,20 @@ grid::grid.rect(gp=grid::gpar(col="#BBBBBB",lwd=2))##########
 grid::grid.rect(gp=grid::gpar(col="#BBBBBB",lwd=2))##########
 	grid::grid.text(expression(bold("Density Lines Legend")), 
 			y=0.95, just=c("center","top"))
-	grid::grid.lines(x=c(0.05,0.3), y=c(0.7,0.7), gp=grid::gpar(lty=1, lwd=3))
+	grid::grid.lines(x=c(0.05,0.3), y=c(0.7,0.7), gp=grid::gpar(lty=1, lwd=3, col=f.colours[2]))
 	grid::grid.text("Density ST", x=0.35, y=0.7,just=c("left","center"),
 			gp=grid::gpar(cex=0.8))
 	
-	grid::grid.lines(x=c(0.05,0.3), y=c(0.55,0.55), gp=grid::gpar(lty=2, lwd=3))
+	grid::grid.lines(x=c(0.05,0.3), y=c(0.55,0.55), gp=grid::gpar(lty=2, lwd=3, col=f.colours[2]))
 	grid::grid.text("Theoretical Dens. ST", x=0.35, y=0.55,just=c("left","center"), 
 			gp=grid::gpar(cex=0.8))
 
 if (is.numeric(xLT)){	
-	grid::grid.lines(x=c(0.05,0.3), y=c(0.40,0.40), gp=grid::gpar(lty=1, lwd=1))
+	grid::grid.lines(x=c(0.05,0.3), y=c(0.40,0.40), gp=grid::gpar(lty=1, lwd=1, col=f.colours[3]))
 	grid::grid.text("Density LT", x=0.35, y=0.40,just=c("left","center"), 
 			gp=grid::gpar(cex=0.8))
 	
-	grid::grid.lines(x=c(0.05,0.3), y=c(0.25,0.25), gp=grid::gpar(lty=2, lwd=1))
+	grid::grid.lines(x=c(0.05,0.3), y=c(0.25,0.25), gp=grid::gpar(lty=2, lwd=1, col=f.colours[3]))
 	grid::grid.text("Theoretical Density LT", x=0.35, y=0.25,just=c("left","center"), 
 			gp=grid::gpar(cex=0.8))
 }	
@@ -560,7 +589,7 @@ grid::grid.lines(x=c(0,1), y=c(1,1), gp=grid::gpar(col="#BBBBBB",lwd=2))
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(3,"lines"), 
 			just=c("right","top"),
 			gp=grid::gpar(cex=.7))
-	if(!is.na(cpiLT)){
+	if(!is.na(cpiLT[1])){
 	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpiLT[1]), sep = ""),
 	                        ",", sprintf("%.1f", cpiLT[2]),"]", sep = ""), 
 	                  y = unit(.95,"npc") - unit(3, "lines"), 
@@ -579,7 +608,7 @@ grid::grid.lines(x=c(0,1), y=c(1,1), gp=grid::gpar(col="#BBBBBB",lwd=2))
 			just=c("right","top"),
 			gp=grid::gpar(cex=.7))
 	## TODO: see one-side specs
-	if(!is.na(cpkiLT)){
+	if(!is.na(cpkiLT[1])){
 	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpkiLT[1]), sep = ""),
 	                        ",", sprintf("%.1f", cpkiLT[2]), "]", sep = ""), 
 	                  y = unit(.95,"npc") - unit(6.5, "lines"), 

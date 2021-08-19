@@ -6,3 +6,4 @@ _feedback
 elc_utils
 .Rbuildignore
 .DS_Store
+SixSigma.Rproj
