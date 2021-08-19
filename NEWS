@@ -1,4 +1,10 @@
 
+SixSigma 0.9-58
+---------------
+* Remove dependency on qcc
+* Update documentation
+* Fix testing issues
+
 SixSigma 0.9-57
 ---------------
 * Fix bug on ss.rr when no variation (with thanks to Gilles Chassat)
