@@ -22,7 +22,7 @@ Description: Functions and utilities to perform
 URL: https://www.sixsigmawithr.com
 License: GPL (>= 2)
 Depends:
-    R (>= 2.14.0)
+    R (>= 3.5.0)
 Imports:
     grDevices,
     stats,
