@@ -21,7 +21,7 @@ See the \code{vignette("HelicopterInstructions")} to see assembling instructions
 }
 \examples{
 \dontrun{
-ss.heli()
+## ss.heli()
 vignette("HelicopterInstructions")
 }
 }
@@ -33,7 +33,7 @@ Teaching engineers experimental design with a paper helicopter.
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
   Improvement}, Use R!, vol. 36. Springer, New York.
-  \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
+  \url{https://www.springer.com/gp/book/9781461436515}.
 }
 \author{
 EL Cano
