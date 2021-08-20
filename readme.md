@@ -7,6 +7,8 @@ This is the github repository for the SixSigma R package.
 
 See the documentation at: http://emilopezcano.github.io/SixSigma/
 
+See the code at: https://github.com/emilopezcano/SixSigma
+
 Visit https://www.sixsigmawithr.com
 
 You can install the version at GitHub using the remotes package:
