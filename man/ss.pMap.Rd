@@ -95,12 +95,12 @@ ss.pMap(steps, inputs.overall, outputs.overall,
 
 }
 \references{
-\url{http://en.wikipedia.org/wiki/Business_Process_Mapping}\cr
+\url{https://en.wikipedia.org/wiki/Business_Process_Mapping}\cr
  
   Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
   Improvement}, Use R!, vol. 36. Springer, New York.
-  \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
+  \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
 }
 \seealso{
 \code{\link{ss.ceDiag}}

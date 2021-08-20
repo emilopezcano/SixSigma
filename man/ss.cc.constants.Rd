@@ -32,7 +32,7 @@ ss.cc.getc4(20)
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
   Improvement}, Use R!, vol. 36. Springer, New York.
-  \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+  \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
 }
 \seealso{
 ss.cc

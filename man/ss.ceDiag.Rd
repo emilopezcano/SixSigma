@@ -60,9 +60,9 @@ ss.ceDiag(effect, causes.gr, causes, sub = "Paper Helicopter Project")
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
   Improvement}, Use R!, vol. 36. Springer, New York.
-  \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
+  \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
 
-Wikipedia, \url{http://en.wikipedia.org/wiki/Ishikawa_diagram}
+Wikipedia, \url{https://en.wikipedia.org/wiki/Ishikawa_diagram}
 }
 \seealso{
 \code{\link{ss.pMap}}
