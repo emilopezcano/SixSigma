@@ -19,7 +19,7 @@ Description: Functions and utilities to perform
     etc. Data frames used in the books "Six Sigma with R" [ISBN 978-1-4614-3652-2]
     and "Quality Control with R" [ISBN 978-3-319-24046-6], 
     are also included in the package.
-URL: http://www.sixsigmawithr.com
+URL: https://www.sixsigmawithr.com
 License: GPL (>= 2)
 Depends:
     R (>= 2.14.0)

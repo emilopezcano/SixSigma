@@ -52,7 +52,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #' 
 #' Cano, Emilio L., Moguerza, Javier M. and Prieto Corcoba, Andrés. 2015.
 #' \emph{Quality Control with {R}. An ISO Standards approach}, Use R!, Springer, New York.
@@ -63,7 +63,7 @@ NULL
 #' Montgomery, DC (2008) \emph{Introduction to Statistical Quality Control}
 #'   (Sixth Edition). New York: Wiley&Sons\cr
 #' 
-#' Wikipedia, \url{http://en.wikipedia.org/wiki/Six_Sigma}
+#' Wikipedia, \url{https://en.wikipedia.org/wiki/Six_Sigma}
 #'
 #' @import grDevices stats graphics lattice ggplot2 testthat xtable
 NULL

@@ -32,7 +32,7 @@ if(getRversion() >= '2.15.1') utils::globalVariables(c("..density..", "value"))
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
 #' 
 #' @note 
 #' For smaller-the-better characteristics, the target should be zero (\code{lfa.Y0 = 0}). 
@@ -255,7 +255,7 @@ ss.lfa <- function(lfa.data, lfa.ctq, lfa.Delta, lfa.Y0, lfa.L0,
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #' 
 #' @seealso \code{\link{ss.lfa}}
 #' @author EL Cano

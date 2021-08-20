@@ -25,7 +25,7 @@ if(getRversion() >= '2.15.1') utils::globalVariables(c("..density..", "value"))
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #' 
 #' Gygi C, DeCarlo N, Williams B (2005) \emph{Six sigma for dummies}. --For dummies,
 #'   Wiley Pub.
@@ -76,7 +76,7 @@ ss.ca.yield <- function(defects = 0, rework = 0, opportunities = 1){
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #' 
 #' Montgomery, DC (2008) \emph{Introduction to Statistical Quality Control}
 #'   (Sixth Edition). New York: Wiley&Sons\cr
@@ -205,7 +205,7 @@ ss.ca.cpk <- function(x, LSL = NA, USL = NA,
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #'   
 #' Montgomery, DC (2008) \emph{Introduction to Statistical Quality Control}
 #'   (Sixth Edition). New York: Wiley&Sons

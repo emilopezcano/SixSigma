@@ -17,7 +17,7 @@ if(getRversion() >= '2.15.1') utils::globalVariables(c("item"))
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #' 
 #' @seealso ss.cc
 #' 
@@ -112,7 +112,7 @@ ss.cc.getd3 <- function (n = NA){
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.
 #' 
 #' @seealso \code{\link{ss.cc.constants}}
 #' @author EL Cano

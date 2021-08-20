@@ -18,9 +18,9 @@
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{http://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
+#'   \url{https://www.springer.com/statistics/book/978-1-4614-3651-5}.\cr
 #' 
-#' Wikipedia, \url{http://en.wikipedia.org/wiki/Ishikawa_diagram}
+#' Wikipedia, \url{https://en.wikipedia.org/wiki/Ishikawa_diagram}
 #' @note 
 #' The cause and effect diagram is also known as "Ishikawa diagram", and
 #'   has been widely used in Quality Management. It is one of the Seven
