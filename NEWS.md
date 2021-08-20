@@ -1,6 +1,10 @@
 SixSigma
 ========
 
+SixSigma 0.10.1
+---------------
+* Fix broken urls in documentation
+
 SixSigma 0.10.0
 ---------------
 * Fix [#9](https://github.com/emilopezcano/SixSigma/issues/9)
