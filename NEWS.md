@@ -1,9 +1,14 @@
 SixSigma
 ========
 
+SixSigma 0.10.2
+---------------
+* Fix moved urls in documentation (.rd files)
+* Fix example of ss.heli() (avoid generate pdf on checks)
+
 SixSigma 0.10.1
 ---------------
-* Fix broken urls in documentation
+* Fix moved urls in documentation
 
 SixSigma 0.10.0
 ---------------
