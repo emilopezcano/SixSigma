@@ -25,7 +25,7 @@
 #' 
 #' @examples 
 #' \dontrun{
-#' ss.heli()
+#' ## ss.heli()
 #' vignette("HelicopterInstructions")
 #' }
 #' @export
