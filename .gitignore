@@ -7,3 +7,4 @@ elc_utils
 .Rbuildignore
 .DS_Store
 SixSigma.Rproj
+revdep
