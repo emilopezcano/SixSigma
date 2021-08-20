@@ -1,6 +1,10 @@
 SixSigma
 ========
 
+SixSigma 0.10.3
+---------------
+* Fix more moved urls in documentation
+
 SixSigma 0.10.2
 ---------------
 * Fix moved urls in documentation (.rd files)
