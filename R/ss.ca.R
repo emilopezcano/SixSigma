@@ -11,7 +11,7 @@ if(getRversion() >= '2.15.1') utils::globalVariables(c("..density..", "value"))
 #' Computes the Yield, First Time Yield, Rolled Throughput Yield and Defects
 #' per Million Opportunities of a process.
 #' 
-#' The three arguments must have the same length.
+#' The arguments defects and rework must have the same length.
 #' 
 #' @param defects A vector with the number of defects in each product/batch, ...
 #' @param rework A vector with the number of items/parts reworked
