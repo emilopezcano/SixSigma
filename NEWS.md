@@ -1,5 +1,7 @@
 # SixSigma (development version)
 
+* Add codecov
+
 * Add urls to DESCRIPTION
 
 * Stick News.md to tidyverse style guide
