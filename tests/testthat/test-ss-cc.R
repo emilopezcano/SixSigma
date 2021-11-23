@@ -18,6 +18,50 @@ z <- ss.cc("mr", ss.data.pb1, CTQ = "pb.humidity", climits=climits)
 #Author: Paula Martinez Vaquero
 ####################################################################
 
+test_that("expected data type",{
+  expect_type(x,"list")
+})
+
+test_that("length of x",{
+  expect_length(x,5)
+})
+
+test_that("expected data type",{
+  expect_type(y,"list")
+})
+
+test_that("length of y",{
+  expect_length(y,5)
+})
+
+test_that("expected data type",{
+  expect_type(z,"list")
+})
+
+test_that("length of z",{
+  expect_length(z,5)
+})
+
+test_that("expected data type",{
+  expect_type(x$LCL,"double")
+})
+
+test_that("expected data type",{
+  expect_type(x$CL,"double")
+})
+
+test_that("expected data type",{
+  expect_type(x$UCL,"double")
+})
+
+test_that("expected data type",{
+  expect_type(x$phase,"character")
+})
+
+test_that("expected data type",{
+  expect_type(x$out,"integer")
+})
+
 test_that("LCL, CL and UCL values from x", {
   expect_equal(x$LCL,0)
   expect_equal(round(x$CL,6),1.569483)
