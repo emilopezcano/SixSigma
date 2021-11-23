@@ -13,12 +13,9 @@ cpk <- ss.ca.cpk(ss.data.ca$Volume,LSL, USL)
 ####################################################################
 
 test_that("expected data type",{
-  expect_type(LSL,"double")
+  expect_type(cpk,"double")
 })
 
-test_that("expected data type",{
-  expect_type(USL,"double")
-})
 test_that("numeric value for the index",{
   expect_equal(cpk,1.54651309711296)
 })
