@@ -24,27 +24,5 @@ test_that("value of LL",{
 })
 
 test_that("expect data type",{
-  expect_type(data,"list")
+  expect_type(result,"double")
 })
-
-test_that("expect data type",{
-  expect_type(alpha,"double")
-})
-
-test_that("expect data type",{
-  expect_type(sub,"character")
-})
-
-test_that("expect data type",{
-  expect_type(xname,"character")
-})
-
-test_that("expect data type",{
-  expect_type(main,"character")
-})
-
-test_that("expect data type",{
-  expect_type(digits,"double")
-})
-
-
