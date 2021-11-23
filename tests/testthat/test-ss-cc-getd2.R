@@ -12,7 +12,7 @@ d2 <- ss.cc.getd2(n)
 ####################################################################
 
 test_that("espected data type",{
-  expect_type(n,"integer")
+  expect_type(d2,"double")
 })
 
 X <- unname(d2)
