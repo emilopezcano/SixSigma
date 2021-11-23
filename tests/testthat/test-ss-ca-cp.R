@@ -13,15 +13,9 @@ cp <- ss.ca.cp(ss.data.ca$Volume,LSL, USL)
 ####################################################################
 
 test_that("expected data type",{
-  expect_type(LSL,"double")
-})
-
-test_that("expected data type",{
-  expect_type(USL,"double")
+  expect_type(cp,"double")
 })
 
 test_that("numeric value for the index",{
   expect_equal(cp,1.58413633507089)
 })
-
-
