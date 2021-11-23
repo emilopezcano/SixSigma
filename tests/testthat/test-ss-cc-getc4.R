@@ -12,7 +12,7 @@ c4 <- ss.cc.getc4(n)
 ####################################################################
 
 test_that("espected data type",{
-  expect_type(n,"integer")
+  expect_type(c4,"double")
 })
 
 X <- unname(c4)
