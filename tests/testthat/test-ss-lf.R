@@ -21,17 +21,5 @@ test_that("Number with the evaluated function at 10.5",{
 })
 
 test_that("expect type",{
-  expect_type(lfa.Y1,"double")
-})
-
-test_that("expect type",{
-  expect_type(lfa.Delta,"double")
-})
-
-test_that("expect type",{
-  expect_type(lfa.Y0,"double")
-})
-
-test_that("expect type",{
-  expect_type(lfa.L0,"double")
+  expect_type(lf,"double")
 })
