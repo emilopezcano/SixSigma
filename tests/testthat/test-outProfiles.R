@@ -25,10 +25,25 @@ plot <- plotProfiles(wby.phase2,
 #Author: Paula Martinez Vaquero
 ####################################################################
 
+test_that("expected data type",{
+   expect_type(wb.out.phase2,"list")
+})
 
-# test_that("testing plot profiles",{
-#   expect_snapshot(plot)
-# })
+test_that("length of wb.out.phase2",{
+  expect_length(wb.out.phase2,3)
+})
+
+test_that("expected data type",{
+  expect_type(wb.out.phase2$labOut,"character")
+})
+
+test_that("expected data type",{
+  expect_type(wb.out.phase2$idOut,"integer")
+})
+
+test_that("expected data type",{
+  expect_type(wb.out.phase2$pOut,"double")
+})
 
 test_that("labels of the out-of-control profiles",{
   expect_equal(wb.out.phase2$labOut,"P47")
