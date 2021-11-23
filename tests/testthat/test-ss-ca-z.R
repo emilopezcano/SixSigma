@@ -13,11 +13,7 @@ z <- ss.ca.z(ss.data.ca$Volume,LSL,USL)
 ####################################################################
 
 test_that("expected data type",{
-  expect_type(LSL,"double")
-})
-
-test_that("expected data type",{
-  expect_type(USL,"double")
+  expect_type(z,"double")
 })
 
 test_that("numeric value for the index",{
