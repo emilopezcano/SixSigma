@@ -29,30 +29,41 @@ test_that("Constant k is correctly computed",{
 #Author: Paula Martinez Vaquero
 ####################################################################
 
-test_that("expected data type",{
-  expect_type(data,"list")
+test_that("expected data type of lfaNominal",{
+  expect_type(lfaNominal,"list")
+  expect_type(lfaNominal$lfa.k,"double")
+  expect_type(lfaNominal$lfa.lf,"expression")
+  expect_type(lfaNominal$lfa.MSD,"double")
+  expect_type(lfaNominal$lfa.avLoss,"double")
+  expect_type(lfaNominal$lfa.Loss,"logical")
+})
+
+test_that("length of lfaNominal",{
+  expect_length(lfaNominal,5)
+})
+
+test_that("expected data type of lfaSmaller",{
+  expect_type(lfaSmaller,"list")
+  expect_type(lfaSmaller$lfa.k,"double")
+  expect_type(lfaSmaller$lfa.lf,"expression")
+  expect_type(lfaSmaller$lfa.MSD,"double")
+  expect_type(lfaSmaller$lfa.avLoss,"double")
+  expect_type(lfaSmaller$lfa.Loss,"logical")
+})
+
+test_that("length of lfaSmaller",{
+  expect_length(lfaSmaller,5)
 })
 
 test_that("expected data type",{
-  expect_type(cqt,"character")
+  expect_type(lfaLarger,"list")
+  expect_type(lfaLarger$lfa.k,"double")
+  expect_type(lfaLarger$lfa.lf,"expression")
+  expect_type(lfaLarger$lfa.MSD,"double")
+  expect_type(lfaLarger$lfa.avLoss,"double")
+  expect_type(lfaLarger$lfa.Loss,"logical")
 })
 
-test_that("expected data type",{
-  expect_type(delta,"double")
-})
-
-test_that("expected data type",{
-  expect_type(L0,"double")
-})
-
-test_that("expected data type",{
-  expect_type(Y0,"double")
-})
-
-test_that("expected data type",{
-  expect_type(output,"character")
-})
-
-test_that("expected data type",{
-  expect_type(sub,"character")
+test_that("length of lfaLarger",{
+  expect_length(lfaLarger,5)
 })
