@@ -2,7 +2,6 @@ library(SixSigma)
 library(testthat)
 
 #Process Map
-
 inputs.overall<-c("operators", "tools", "raw material", "facilities")
 outputs.overall<-c("helicopter")
 steps<-c("INSPECTION", "ASSEMBLY", "TEST", "LABELING")
@@ -33,39 +32,40 @@ y.features[3]<-list(c(list(c("time", "Cr"))))
 y.features[4]<-list(c(list(c("label", "Cr"))))
 y.features
 
-ss.pMap(steps, inputs.overall, outputs.overall,
-        input.output, x.parameters, y.features,
-        sub ="Paper Helicopter Project")
+result <- ss.pMap(steps, inputs.overall, outputs.overall,
+                  input.output, x.parameters, y.features,
+                  sub="Paper Helicopter Project")
+
 
 ####################################################################
 #Unit tests
 #Author: Paula Martinez Vaquero
 ####################################################################
 
-test_that("expect data type",{
-  expect_type(steps,"character")
+test_that("expected data type",{
+  expect_type(result,"list")
 })
 
-test_that("expect data type",{
-  expect_type(inputs.overall,"character")
+test_that("length of result",{
+  expect_length(result,3)
 })
 
-test_that("expect data type",{
-  expect_type(outputs.overall,"character")
+test_that("expected data type",{
+  expect_null(result$path)
 })
 
-test_that("expect data type",{
-  expect_type(input.output,"list")
+test_that("expected data type",{
+  expect_type(result$name,"character")
 })
 
-test_that("expect data type",{
-  expect_type(x.parameters,"list")
+test_that("expected data type",{
+  expect_type(result$n,"integer")
 })
 
-test_that("expect data type",{
-  expect_type(y.features,"list")
+test_that("value of name",{
+  expect_equal(result$name,"outputst")
 })
 
-test_that("expect data type",{
-  expect_type(sub,"closure")
+test_that("value of name",{
+  expect_equal(result$n,1)
 })
