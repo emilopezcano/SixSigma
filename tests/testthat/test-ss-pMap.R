@@ -32,9 +32,9 @@ y.features[3]<-list(c(list(c("time", "Cr"))))
 y.features[4]<-list(c(list(c("label", "Cr"))))
 y.features
 
-result <- ss.pMap(steps, inputs.overall, outputs.overall,
+result <- suppressWarnings(ss.pMap(steps, inputs.overall, outputs.overall,
                   input.output, x.parameters, y.features,
-                  sub="Paper Helicopter Project")
+                  sub="Paper Helicopter Project"))
 
 
 ####################################################################
