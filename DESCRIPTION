@@ -1,7 +1,7 @@
 Package: SixSigma
 Type: Package
 Title: Six Sigma Tools for Quality Control and Improvement
-Version: 0.10.3.9001
+Version: 0.10.3.9002
 Encoding: UTF-8
 Authors@R: c(person("Emilio L.", "Cano", email = "emilio@lcano.com", 
                   role = c("aut", "cre"),
@@ -9,6 +9,7 @@ Authors@R: c(person("Emilio L.", "Cano", email = "emilio@lcano.com",
              person("Javier M.", "Moguerza", role = c("aut")),
              person("Mariano", "Prieto", role = c("aut")),
              person("Andrés", "Redchuk", role = c("aut")),
+             person("Paula", "Martínez", role = c("ctb")),
              person("Manuel", "Alfaro", role = c("ctb")))
 Maintainer: Emilio L. Cano <emilio@lcano.com>
 BugReports: https://github.com/emilopezcano/SixSigma/issues

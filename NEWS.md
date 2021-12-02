@@ -1,11 +1,9 @@
 # SixSigma (development version)
 
+* Add unit testing (#15 @paulamarv8)
 * Add codecov
-
 * Add urls to DESCRIPTION
-
 * Stick News.md to tidyverse style guide
-
 * Improve pkgdown doc
 
 # SixSigma 0.10.3
