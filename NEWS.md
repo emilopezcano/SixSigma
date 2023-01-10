@@ -1,5 +1,6 @@
 # SixSigma (development version)
 
+* Fix deprecated ..density.. issue in ggplot2 
 * Add unit testing (#15 @paulamarv8)
 * Add codecov
 * Add urls to DESCRIPTION

@@ -2,7 +2,7 @@
 # 
 # Author: Emilio Lopez
 ###############################################################################
-if(getRversion() >= '2.15.1') utils::globalVariables(c("..density..", "value"))
+# if(getRversion() >= '2.15.1') utils::globalVariables(c("..density..", "value"))
 
 
 #' Main calculations regarding The Voice of the Process in SixSigma: Yield, FTY, RTY,
@@ -289,7 +289,7 @@ ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA,
 binwST <- diff(range(xST))/ sqrt(nST)
 ggdata <- reshape2::melt(xST)
 qqp <- ggplot(ggdata, aes(x=value))
-hist <- qqp + geom_histogram(aes(y = ..density..), 
+hist <- qqp + geom_histogram(aes(y = after_stat(density)), 
 				binwidth = binwST,
 				fill = f.colours[1], 
 				stat = "bin")

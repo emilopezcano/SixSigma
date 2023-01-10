@@ -1,4 +1,4 @@
-if(getRversion() >= '2.15.1') utils::globalVariables(c("..density.."))
+# if(getRversion() >= '2.15.1') utils::globalVariables(c("..density.."))
 #' Confidence Interval for the mean
 #' 
 #' Computes a confidence interval for the mean of the variable (parameter
@@ -184,7 +184,7 @@ ss.ci<-function(x, sigma2 = NA, alpha = 0.05, data = NA,
   nbins <- nclass.Sturges(x)
   qqp <- ggplot(ggdata, aes(x = value))
   myhist <- qqp + 
-    geom_histogram(aes(y = ..density..), 
+    geom_histogram(aes(y = after_stat(density)), 
                    bins = nbins,
                    # binwidth = binw,
                    fill = "white",
