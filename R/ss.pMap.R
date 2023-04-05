@@ -6,8 +6,8 @@
 #' 
 #' The type of the x parameters and y features can be: C(controllable), 
 #' N(noise), Cr(Critical), P(Procedure). The default value for ss.col is 
-#' c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE"), a grayscale style. 
-#' You can pass any accepted color string.
+#' c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE", "#FFFFFF",  
+#' "#000000", "#000000") a grayscale style.You can pass any accepted color string.
 #' 
 #' 
 #' @param steps A vector of characters with the name of the 'n' steps
@@ -86,7 +86,8 @@ ss.pMap <-
 function(steps, inputs.overall, outputs.overall,
                   input.output, x.parameters, y.features,
 		  main = "Six Sigma Process Map", sub,
-		  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")){
+		  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE", "#FFFFFF",
+			    "#000000", "#000000")){
 	nsteps <- length(steps)
 	.ss.prepCanvas(main,sub)
 	paintBox <- function(){
@@ -116,11 +117,11 @@ function(steps, inputs.overall, outputs.overall,
 			name = "inputs")
 	grid::pushViewport(vp.inputs)
 	paintBox()
-	grid::grid.text("INPUTS\nX")
+	grid::grid.text("INPUTS\nX", gp = grid::gpar(col = ss.col[7]))
 	grid::grid.move.to(x = 0.5, y = 0.1)
 	grid::upViewport()
 	vp.inputsText <- grid::viewport(layout.pos.col = 2:nsteps, 
-		layout.pos.row = 1, name = "inputst")
+		layout.pos.row = 1, name = "inputst", gp = grid::gpar(col = ss.col[8]))
 	grid::pushViewport(vp.inputsText)
 	for (i in 1:length(inputs.overall)){
 		grid::grid.text(x = unit(0.5, "cm"),
@@ -145,7 +146,7 @@ function(steps, inputs.overall, outputs.overall,
 			gp = grid::gpar(lwd = 3, col = ss.col[2]))
 		grid::grid.text(steps[i], 
 			y = 0.85, 
-			just = c("center", "top"))
+			just = c("center", "top"), gp = grid::gpar(col = ss.col[7]))
 		grid::grid.text("INPUTS", 
 			rot = 90, 
 			x = 0.20, 
@@ -154,7 +155,8 @@ function(steps, inputs.overall, outputs.overall,
 		for (j in 1:length(input.output[[i]])){
 			grid::grid.text(input.output[[i]][j], 
 				y = unit(0.7, "npc") - unit(j-1, "lines"),
-				just = c("center","top"))
+				just = c("center","top"),
+				       gp = grid::gpar(col = ss.col[7]))
 		}
 		if (i==1){
 			grid::grid.line.to(x = 0.5, y = 0.91,
@@ -180,21 +182,21 @@ function(steps, inputs.overall, outputs.overall,
 				just = c("center","top")))
 		grid::grid.text("Param.(x): ", 
 			y = unit(1,"npc") - unit(2,"mm"), 
-			gp = grid::gpar(fontsize = 8),
+			gp = grid::gpar(fontsize = 8, col = ss.col[8]),
 			x = unit(0,"npc") + unit(2,"mm"),
 			just = c("left", "top"))
 		for (j in 1:length(x.parameters[[i]])){
 			grid::grid.text(paste(x.parameters[[i]][[j]][1], x.parameters[[i]][[j]][2]),
 				y = unit(1,"npc") - unit(2,"mm") - unit(j-1,"lines"),
 				x = unit(1,"strwidth","Param.(x):   "),
-				gp = grid::gpar(fontsize = 8), just = c("left", "top"))
+				gp = grid::gpar(fontsize = 8, col = ss.col[8]), just = c("left", "top"))
 		}
 		grid::grid.text("Featur.(y): ",
 			y = unit(1, "npc") - 
 					unit(2, "mm") - 
 					unit(length(x.parameters[[i]]), "lines"),
 			x = unit(0, "npc") + unit(2, "mm"),
-			gp = grid::gpar(fontsize = 8),
+			gp = grid::gpar(fontsize = 8, col = ss.col[8]),
 			just = c("left", "top"))
 		for (j in 1:length(y.features[[i]])){
 			grid::grid.text(y.features[[i]][[j]],
@@ -202,7 +204,7 @@ function(steps, inputs.overall, outputs.overall,
 						unit(2,"mm") -
 						unit(j - 1 + length(x.parameters[[i]]),	"lines"),
 				x = unit(1, "strwidth", "Featur.(y):   "),
-				gp = grid::gpar(fontsize = 8), 
+				gp = grid::gpar(fontsize = 8, col = ss.col[8]), 
 				just = c("left", "top"))
 		}
 		grid::upViewport()
@@ -214,7 +216,7 @@ function(steps, inputs.overall, outputs.overall,
 			layout.pos.row = 3, name = "outputs")
 	grid::pushViewport(vp.outputs)
 	paintBox()
-	grid::grid.text("OUTPUTS\nY")
+	grid::grid.text("OUTPUTS\nY", gp = grid::gpar(col = ss.col[7]))
 	grid::grid.line.to(x = 0.7, 
 		y = 0.91, 
 		arrow = arrow(angle = 30, length = unit(0.15, "inches"),
@@ -223,7 +225,7 @@ function(steps, inputs.overall, outputs.overall,
 	grid::upViewport()
 	vp.outputsText <- grid::viewport(layout.pos.col = 1:(nsteps-1), 
 		layout.pos.row = 3, 
-		name="outputst")
+		name="outputst", gp = grid::gpar(col = ss.col[8]))
 	grid::pushViewport(vp.outputsText)
 	for (i in 1:length(outputs.overall)){
 		grid::grid.text(x = unit(1, "npc") - unit(0.5, "cm"),
@@ -243,7 +245,7 @@ function(steps, inputs.overall, outputs.overall,
 		y = unit(1, "npc") - unit(0.2, "cm") , 
 		x = unit(0, "npc") + unit(0.2,"cm"),
 		just = c("left", "top"),
-		gp = grid::gpar(fontsize = 8))
+		gp = grid::gpar(fontsize = 8, col = ss.col[7]))
 	grid::upViewport()
 	grid::upViewport()
 }
