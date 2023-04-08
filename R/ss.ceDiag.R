@@ -3,8 +3,8 @@
 #' Represents a Cause and Effect Diagram by cause group.
 #' 
 #' The default value for ss.col is c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD",
-#'   "#EEEEEE"), a grayscale style. You can pass any accepted colour string.
-#' 
+#'   "#EEEEEE", "#FFFFFF", "#000000", "#000000"), a grayscale style. 
+#' You can pass any accepted colour string.
 #' @param effect    A short character string that represents the effect we want to analyse.
 #' @param causes.gr A vector of characters that represents the causes groups.
 #' @param causes    A vector with lists that represents the individual causes for each
@@ -47,7 +47,7 @@ ss.ceDiag <- function(effect, causes.gr, causes,
 		sub, ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")){
     
 	n.causes<-length(causes.gr)
-	.ss.prepCanvas(main,sub)
+	.ss.prepCanvas(main,sub, ss.col)
 
 #Fish head
 	w.head <- unit(1, "strwidth", effect) + unit(4, "mm")
@@ -65,7 +65,7 @@ ss.ceDiag <- function(effect, causes.gr, causes,
 		open = FALSE,
 	gp = grid::gpar(col = ss.col[2], 
 			lwd = 2, fill = ss.col[5]))
-	grid::grid.text(effect)
+	grid::grid.text(effect, gp = grid::gpar(fontsize = 8, col = ss.col[7]))
 	grid:: popViewport()
 
 #Fish tail
@@ -101,12 +101,13 @@ ss.ceDiag <- function(effect, causes.gr, causes,
 		grid::grid.text(causes.gr[i], 
 			x = pUp[i] - 0.15,
 			y = 0.81, 
-			just = c("center", "bottom"))
+			just = c("center", "bottom"),
+			       gp = grid::gpar(fontsize = 8, col = ss.col[7]))
 		for (j in 1:length(causes[[i]])){
 			grid::grid.text(causes[[i]][j], 
 				x = unit(pUp[i] - 0.15, "npc") + unit(j, "lines"),
 				y = unit(0.80, "npc") - unit(j, "lines"), 
-				gp = grid::gpar(fontsize = 8),
+				gp = grid::gpar(fontsize = 8, col = ss.col[8]),
 				just = c("left", "center"))
 			}
 		}
@@ -121,12 +122,13 @@ ss.ceDiag <- function(effect, causes.gr, causes,
 		grid::grid.text(causes.gr[i], 
 			x = pDown[k] - 0.15, 
 			y = 0.19, 
-			just = c("center", "top"))
+			just = c("center", "top"),
+			       gp = grid::gpar(fontsize = 8, col = ss.col[7]))
 		for (j in 1:length(causes[[i]])){
 			grid::grid.text(causes[[i]][j],
 				x = unit((pDown[k] - 0.15), "npc") + unit(j, "lines"),
 				y = unit(0.20, "npc") + unit(j, "lines"), 
-				gp = grid::gpar(fontsize = 8),
+				gp = grid::gpar(fontsize = 8, col = ss.col[8]),
 				just=c("left", "center"))
 		}
 		k <- (k - 1)
