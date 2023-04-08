@@ -229,7 +229,8 @@ ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA,
 		f.na.rm = TRUE,
 		f.main = "Six Sigma Capability Analysis Study", 
 		f.sub = "",
-		f.colours = c("#4682B4","#d1d1e0","#000000","#00C800","#FF0000")){
+		f.colours = c("#4682B4","#d1d1e0","#000000","#00C800","#FF0000",
+			     "#FFFFFF", "#000000", "#000000")){
 	if (is.na(Target)){
 		stop("Target is needed")
 	}
@@ -266,17 +267,20 @@ ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA,
 		cpkiLT=NA
 		zLT<-zST-1.5
 	}
-	#Order of colours c(Bars, Density ST, Density LT, Target, Specification limits)
-	if(length(f.colours) != 5) {
-	  default <- c("#4682B4","#868686","#000000","#00C800","#FF0000")
-	  f.colours <- c(f.colours, default[(length(f.colours) + 1):5])
+	#Order of colours c((Bars & Subtitle), Density ST, Density LT, Target, (Specification 
+	# limits & Title & Frame), Background, Labels, Values)
+	if(length(f.colours) != 8) {
+	  default <- c("#4682B4","#868686","#000000","#00C800","#FF0000",
+		      "#FFFFFF", "#000000", "#000000")
+	  f.colours <- c(f.colours, default[(length(f.colours) + 1):8])
 	}
 
 ######
-	.ss.prepCanvas(f.main, f.sub)
+	.ss.prepCanvas(f.main, f.sub, f.colours)
 #grid::grid.rect()##########
 	vp.plots<-grid::viewport(name="plots",
-			layout=grid::grid.layout(2,2,c(0.6,0.4),c(0.6,0.4)))
+			layout=grid::grid.layout(2,2,c(0.6,0.4),c(0.6,0.4)),
+				gp = grid::gpar(col = f.colours[7]))
 	grid::pushViewport(vp.plots)
 
 	vp.hist <- grid::viewport(name="hist", layout.pos.row=1, layout.pos.col=1)
@@ -374,7 +378,8 @@ if (is.numeric(xLT)){
 	vp.norm<-grid::viewport(name="normal",layout.pos.row=2, layout.pos.col=1,
 			layout=grid::grid.layout(2,2,c(0.6,0.4),c(0.1, 0.9)))
 	grid::pushViewport(vp.norm)
-	grid::grid.text("Check Normality", y=1,just=c("center","top"))
+	grid::grid.text("Check Normality", y=1,just=c("center","top"),
+		       gp = grid::gpar(col = f.colours[7]))
 #grid::grid.rect()##########
 	vp.qq<-grid::viewport(name="qqp",layout.pos.row=2,layout.pos.col=1, 
 			height=unit(0.5,"npc"))
@@ -395,15 +400,15 @@ if (is.numeric(xLT)){
 		warning("Normality test/s failed")
 	} 
 	grid::grid.text("Shapiro-Wilk Test", y=.9,just=c("center","top"), 
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(paste("p-value: ",format(ss.ts$p.value,digits=4)),
-			gp=grid::gpar(cex=.8), y=.8)
-	grid::grid.text("Lilliefors (K-S) Test", gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]), y=.8)
+	grid::grid.text("Lilliefors (K-S) Test", gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(paste("p-value: ", format(ss.tl$p.value,digits=4)),
-			gp=grid::gpar(cex=.8),y=.4)
+			gp=grid::gpar(cex=.8, col =f.colours[8]),y=.4)
 	grid::popViewport()
 	grid::grid.text("Normality accepted when p-value > 0.05",y=0.02, 
-			just=c("center","bottom"), gp=grid::gpar(cex=.8))
+			just=c("center","bottom"), gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::popViewport()
 	vpNumbers<-grid::viewport(name="numbers", 
 			layout.pos.row=c(1,2), layout.pos.col=2,
@@ -416,124 +421,127 @@ grid::grid.rect(gp=grid::gpar(col="#BBBBBB",lwd=2))##########
 
 grid::grid.rect(gp=grid::gpar(col="#BBBBBB",lwd=2))##########
 	grid::grid.text(expression(bold("Density Lines Legend")), 
-			y=0.95, just=c("center","top"))
+			y=0.95, just=c("center","top"),
+		       gp = grid::gpar(col = f.colours[7]))
 	grid::grid.lines(x=c(0.05,0.3), y=c(0.7,0.7), gp=grid::gpar(lty=1, lwd=3, col=f.colours[2]))
 	grid::grid.text("Density ST", x=0.35, y=0.7,just=c("left","center"),
-			gp=grid::gpar(cex=0.8))
+			gp=grid::gpar(cex=0.8, col =f.colours[7]))
 	
 	grid::grid.lines(x=c(0.05,0.3), y=c(0.55,0.55), gp=grid::gpar(lty=2, lwd=3, col=f.colours[2]))
 	grid::grid.text("Theoretical Dens. ST", x=0.35, y=0.55,just=c("left","center"), 
-			gp=grid::gpar(cex=0.8))
+			gp=grid::gpar(cex=0.8, col =f.colours[7]))
 
 if (is.numeric(xLT)){	
 	grid::grid.lines(x=c(0.05,0.3), y=c(0.40,0.40), gp=grid::gpar(lty=1, lwd=1, col=f.colours[3]))
 	grid::grid.text("Density LT", x=0.35, y=0.40,just=c("left","center"), 
-			gp=grid::gpar(cex=0.8))
+			gp=grid::gpar(cex=0.8, col =f.colours[7]))
 	
 	grid::grid.lines(x=c(0.05,0.3), y=c(0.25,0.25), gp=grid::gpar(lty=2, lwd=1, col=f.colours[3]))
 	grid::grid.text("Theoretical Density LT", x=0.35, y=0.25,just=c("left","center"), 
-			gp=grid::gpar(cex=0.8))
+			gp=grid::gpar(cex=0.8, col =f.colours[7]))
 }	
 	grid::popViewport()
 	vpSpec<-grid::viewport(name="spec", layout.pos.row=2)
 	grid::pushViewport(vpSpec)
 #grid::grid.rect()#############
-	grid::grid.text(expression(bold("Specifications")), y=.95, just=c("center","top"))
+	grid::grid.text(expression(bold("Specifications")), y=.95, just=c("center","top"),
+		       gp = grid::gpar(col = f.colours[7]))
 	grid::grid.text(expression(bold("LSL: ")), 
 			y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(LSL, y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold("Target: ")), 
 			y=unit(.95,"npc")-unit(2.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(Target, y=unit(.95,"npc")-unit(2.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold("USL: ")), 
 			y=unit(.95,"npc")-unit(3.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(USL, y=unit(.95,"npc")-unit(3.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::popViewport()
 	vpProcess<-grid::viewport(name="proc", layout.pos.row=3,
 			layout=grid::grid.layout(1,2))
 	grid::pushViewport(vpProcess)
 #grid::grid.rect()##############
 	grid::grid.lines(x=c(0,1),y=c(1,1), gp=grid::gpar(col="#BBBBBB", lwd=3))
-	grid::grid.text(expression(bold("Process")), y=.95, just=c("center","top"))
+	grid::grid.text(expression(bold("Process")), y=.95, just=c("center","top"),
+		       gp = grid::gpar(col = f.colours[7]))
 	vpSTp<-grid::viewport(layout.pos.col=1)
 	grid::pushViewport(vpSTp)
 	grid::grid.text("Short Term",x=0.05, y=.95, just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(expression(bold("Mean: ")), y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(sprintf("%.4f",mST), y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold("SD: ")), y=unit(.95,"npc")-unit(2.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(sprintf("%.4f",sST), y=unit(.95,"npc")-unit(2.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold("n: ")), y=unit(.95,"npc")-unit(3.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(nST, y=unit(.95,"npc")-unit(3.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold(Z[s]*": ")), y=unit(.95,"npc")-unit(4.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(sprintf("%.2f",zST), y=unit(.95,"npc")-unit(4.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	
 	grid::popViewport()
 	vpLTp<-grid::viewport(layout.pos.col=2)
 	grid::pushViewport(vpLTp)
-	grid::grid.text("Long Term",x=.95, y=.95, just=c("right","top"), gp=grid::gpar(cex=.8))
+	grid::grid.text("Long Term",x=.95, y=.95, just=c("right","top"), gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(expression(bold("Mean: ")), y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	if(!is.na(mLT)){
 	  grid::grid.text(sprintf("%.4f",mLT), y=unit(.95,"npc")-unit(1.5,"lines"), 
 	                  just=c("left","top"),
-	                  gp=grid::gpar(cex=.8))
+	                  gp=grid::gpar(cex=.8, col =f.colours[8]))
 	}
 	grid::grid.text(expression(bold("SD: ")), y=unit(.95,"npc")-unit(2.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	if(!is.na(sLT)){
 	  grid::grid.text(sprintf("%.4f",sLT), y = unit(.95,"npc") - unit(2.5, "lines"), 
 	                  just = c("left", "top"),
-	                  gp = grid::gpar(cex = .8))
+	                  gp = grid::gpar(cex = .8, col =f.colours[8]))
 	}
 	grid::grid.text(expression(bold("n: ")), y=unit(.95,"npc")-unit(3.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(nLT, y=unit(.95,"npc")-unit(3.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold(Z[s]*": ")), y=unit(.95,"npc")-unit(4.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(sprintf("%.2f",zLT), y=unit(.95,"npc")-unit(4.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold("DPMO: ")), y=unit(.95,"npc")-unit(5.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(round(DPMO,1), y=unit(.95,"npc")-unit(5.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::popViewport()
 	grid::popViewport()
 	vpIndices<-grid::viewport(name="ind", layout.pos.row=4,
@@ -541,79 +549,80 @@ if (is.numeric(xLT)){
 	grid::pushViewport(vpIndices)
 #grid::grid.rect()###############
 grid::grid.lines(x=c(0,1), y=c(1,1), gp=grid::gpar(col="#BBBBBB",lwd=2))
-	grid::grid.text(expression(bold("Indices")),y=.95,just=c("center","top"))
+	grid::grid.text(expression(bold("Indices")),y=.95,just=c("center","top"),
+		       gp = grid::gpar(col = f.colours[7]))
 	vpSTi<-grid::viewport(layout.pos.col=1)
 	grid::pushViewport(vpSTi)
-	grid::grid.text("Short Term",x=0.05, y=.95, just=c("left","top"),gp=grid::gpar(cex=.8))
+	grid::grid.text("Short Term",x=0.05, y=.95, just=c("left","top"),gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(expression(bold(C[p]*": ")), y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(sprintf("%.4f",cpST), y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(3,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.7))
+			gp=grid::gpar(cex=.7, col =f.colours[7]))
 	grid::grid.text(paste("[",paste(sprintf("%.1f",cpiST[1]),sep=""),
 					",",sprintf("%.1f",cpiST[2]),"]",sep=""), 
 					y=unit(.95,"npc")-unit(3,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.7))
+			gp=grid::gpar(cex=.7, col =f.colours[8]))
 	grid::grid.text(expression(bold(C[pk]*": ")), y=unit(.95,"npc")-unit(4.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(sprintf("%.4f",cpkST), y=unit(.95,"npc")-unit(4.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[8]))
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(6.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.7))
+			gp=grid::gpar(cex=.7, col =f.colours[7]))
 	grid::grid.text(paste("[",paste(sprintf("%.1f",cpkiST[1]),sep=""),
 					",",sprintf("%.1f",cpkiST[2]),"]",sep=""), 
 			y=unit(.95,"npc")-unit(6.5,"lines"), 
 			just=c("left","top"),
-			gp=grid::gpar(cex=.7))
+			gp=grid::gpar(cex=.7, col =f.colours[8]))
 
 	grid::popViewport()
 	vpLTi<-grid::viewport(layout.pos.col=2)
 	grid::pushViewport(vpLTi)
-	grid::grid.text("Long Term",x=.95, y=.95, just=c("right","top"), gp=grid::gpar(cex=.8))
+	grid::grid.text("Long Term",x=.95, y=.95, just=c("right","top"), gp=grid::gpar(cex=.8, col =f.colours[7]))
 	grid::grid.text(expression(bold(P[p]*": ")), y=unit(.95,"npc")-unit(1.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	if(!is.na(cpLT)){
 	  grid::grid.text(sprintf("%.4f", cpLT), y = unit(.95, "npc") - unit(1.5, "lines"), 
 	                  just = c("left", "top"),
-	                  gp = grid::gpar(cex = .8))
+	                  gp = grid::gpar(cex = .8, col =f.colours[8]))
 	}
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(3,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.7))
+			gp=grid::gpar(cex=.7, col =f.colours[7]))
 	if(!is.na(cpiLT[1])){
 	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpiLT[1]), sep = ""),
 	                        ",", sprintf("%.1f", cpiLT[2]),"]", sep = ""), 
 	                  y = unit(.95,"npc") - unit(3, "lines"), 
 	                  just = c("left", "top"),
-	                  gp = grid::gpar(cex = .7))
+	                  gp = grid::gpar(cex = .7, col =f.colours[8]))
 	}
 	grid::grid.text(expression(bold(P[pk]*": ")), y=unit(.95,"npc")-unit(4.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.8))
+			gp=grid::gpar(cex=.8, col =f.colours[7]))
 	if(!is.na(cpkLT)){
 	  grid::grid.text(sprintf("%.4f", cpkLT), y = unit(.95, "npc") - unit(4.5, "lines"), 
 	                  just = c("left", "top"),
-	                  gp = grid::gpar(cex = .8))
+	                  gp = grid::gpar(cex = .8, col =f.colours[8]))
 	}
 	grid::grid.text(expression(bold("CI: ")), y=unit(.95,"npc")-unit(6.5,"lines"), 
 			just=c("right","top"),
-			gp=grid::gpar(cex=.7))
+			gp=grid::gpar(cex=.7, col =f.colours[7]))
 	## TODO: see one-side specs
 	if(!is.na(cpkiLT[1])){
 	  grid::grid.text(paste("[", paste(sprintf("%.1f", cpkiLT[1]), sep = ""),
 	                        ",", sprintf("%.1f", cpkiLT[2]), "]", sep = ""), 
 	                  y = unit(.95,"npc") - unit(6.5, "lines"), 
 	                  just = c("left", "top"),
-	                  gp = grid::gpar(cex = .7))
+	                  gp = grid::gpar(cex = .7, col =f.colours[8]))
 	}
 	grid::popViewport()
 	grid::popViewport()
