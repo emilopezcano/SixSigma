@@ -1,5 +1,3 @@
-if(getRversion() >= '2.15.1') utils::globalVariables(c("item"))
-
 #' Functions to find out constants of the relative range distribution.
 #' 
 #' These functions compute the constants d2, d3 and c4 to get estimators of the
@@ -182,7 +180,7 @@ ss.cc <- function(type, data, cdata, CTQ = names(data)[1], groups,
     outData <- subset(gdata, out == TRUE)
     # Plot chart using ggplot2 library
     ccPlot <- ggplot(data = gdata, 
-            aes(x = item, y = MR)) + 
+            aes(x = .data$item, y = MR)) + 
         geom_point() +
         geom_line() +
         geom_hline(yintercept = c(LCL, UCL), size = 1) +
@@ -192,7 +190,7 @@ ss.cc <- function(type, data, cdata, CTQ = names(data)[1], groups,
     if (nrow(outData) > 0){
       ccPlot <- ccPlot + 
         geom_point(data = outData,
-                   aes(x = item, 
+                   aes(x = .data$item, 
                        y = MR), 
                    col = "red",
                    size = 2.5)

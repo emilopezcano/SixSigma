@@ -288,7 +288,7 @@ ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA,
 
 binwST <- diff(range(xST))/ sqrt(nST)
 ggdata <- reshape2::melt(xST)
-qqp <- ggplot(ggdata, aes(x=value))
+qqp <- ggplot(ggdata, aes(x = .data$value))
 hist <- qqp + geom_histogram(aes(y = after_stat(density)), 
 				binwidth = binwST,
 				fill = f.colours[1], 

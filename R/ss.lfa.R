@@ -1,6 +1,3 @@
-# Allow compatibility with previous R versions
-# if(getRversion() >= '2.15.1') utils::globalVariables(c("..density..", "value"))
-
 #' Loss Function Analysis
 #' 
 #' This function performs a Quality Loss Function Analysis, based in the Taguchi
@@ -19,7 +16,7 @@
 #' @param lfa.sub Subtitle for the graphic output.
 #' 
 #' @return
-#'    \item{lfa.k }{Constant k for the loss function}
+#'   \item{lfa.k }{Constant k for the loss function}
 #'   \item{lfa,lf }{Expression with the loss function}
 #'   \item{lfa.MSD}{Mean Squared Differences from the target}
 #'   \item{lfa.avLoss}{Average Loss per unit of the process}
@@ -94,7 +91,7 @@ ss.lfa <- function(lfa.data, lfa.ctq, lfa.Delta, lfa.Y0, lfa.L0,
     #plot
     grid::pushViewport(vp.plot)
     ggdata <- reshape2::melt(with(lfa.data, get(lfa.ctq)))
-    qqp <- ggplot(ggdata, aes(x = value))
+    qqp <- ggplot(ggdata, aes(x = .data$value))
     qqp <- qqp + stat_function(fun = function(x) {
           if (lfa.Y0 == 0){
             eval(lfa.k)*(x)^2
