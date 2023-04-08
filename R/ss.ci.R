@@ -1,4 +1,3 @@
-# if(getRversion() >= '2.15.1') utils::globalVariables(c("..density.."))
 #' Confidence Interval for the mean
 #' 
 #' Computes a confidence interval for the mean of the variable (parameter
@@ -30,7 +29,7 @@
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2/}.
 #' 
 #' @author EL Cano
 #' 
@@ -182,7 +181,7 @@ ss.ci<-function(x, sigma2 = NA, alpha = 0.05, data = NA,
   
   ggdata <- reshape2::melt(x)
   nbins <- nclass.Sturges(x)
-  qqp <- ggplot(ggdata, aes(x = value))
+  qqp <- ggplot(ggdata, aes(x = .data$value))
   myhist <- qqp + 
     geom_histogram(aes(y = after_stat(density)), 
                    bins = nbins,

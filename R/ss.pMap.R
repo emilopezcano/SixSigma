@@ -28,12 +28,12 @@
 #' A graphic representation of the Map Process.
 #' 
 #' @references 
-#'   \url{https://en.wikipedia.org/wiki/Business_Process_Mapping}\cr
+#'   \url{https://en.wikipedia.org/wiki/Business_Process_Mapping/}\cr
 #'  
 #'   Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2/}.\cr
 #' 
 #' @note 
 #' The process map is the starting point for a Six Sigma Project, and it is

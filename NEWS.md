@@ -1,11 +1,18 @@
-# SixSigma (development version)
+
+# SixSigma 0.11.0
 
 * Add colours to .ss.prepCanvas (#16 @k-tatgenhorst)
+
 * Fix deprecated ..density.. issue in ggplot2 
+
 * Add unit testing (#15 @paulamarv8)
+
 * Add codecov
+
 * Add urls to DESCRIPTION
+
 * Stick News.md to tidyverse style guide
+
 * Improve pkgdown doc
 
 # SixSigma 0.10.3

@@ -1,6 +1,3 @@
-# Allow compatibility with previous R versions
-# if(getRversion() >= '2.15.1') utils::globalVariables(c("..density..", "value"))
-
 #' Loss Function Analysis
 #' 
 #' This function performs a Quality Loss Function Analysis, based in the Taguchi
@@ -19,7 +16,7 @@
 #' @param lfa.sub Subtitle for the graphic output.
 #' 
 #' @return
-#'    \item{lfa.k }{Constant k for the loss function}
+#'   \item{lfa.k }{Constant k for the loss function}
 #'   \item{lfa,lf }{Expression with the loss function}
 #'   \item{lfa.MSD}{Mean Squared Differences from the target}
 #'   \item{lfa.avLoss}{Average Loss per unit of the process}
@@ -32,7 +29,7 @@
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2/}.\cr
 #' 
 #' @note 
 #' For smaller-the-better characteristics, the target should be zero (\code{lfa.Y0 = 0}). 
@@ -94,7 +91,7 @@ ss.lfa <- function(lfa.data, lfa.ctq, lfa.Delta, lfa.Y0, lfa.L0,
     #plot
     grid::pushViewport(vp.plot)
     ggdata <- reshape2::melt(with(lfa.data, get(lfa.ctq)))
-    qqp <- ggplot(ggdata, aes(x = value))
+    qqp <- ggplot(ggdata, aes(x = .data$value))
     qqp <- qqp + stat_function(fun = function(x) {
           if (lfa.Y0 == 0){
             eval(lfa.k)*(x)^2
@@ -255,7 +252,7 @@ ss.lfa <- function(lfa.data, lfa.ctq, lfa.Delta, lfa.Y0, lfa.L0,
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2/}.
 #' 
 #' @seealso \code{\link{ss.lfa}}
 #' @author EL Cano

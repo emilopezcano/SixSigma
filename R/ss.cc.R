@@ -1,5 +1,3 @@
-if(getRversion() >= '2.15.1') utils::globalVariables(c("item"))
-
 #' Functions to find out constants of the relative range distribution.
 #' 
 #' These functions compute the constants d2, d3 and c4 to get estimators of the
@@ -17,7 +15,7 @@ if(getRversion() >= '2.15.1') utils::globalVariables(c("item"))
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2/}.
 #' 
 #' @seealso ss.cc
 #' 
@@ -112,7 +110,7 @@ ss.cc.getd3 <- function (n = NA){
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2/}.
 #' 
 #' @seealso \code{\link{ss.cc.constants}}
 #' @author EL Cano
@@ -182,7 +180,7 @@ ss.cc <- function(type, data, cdata, CTQ = names(data)[1], groups,
     outData <- subset(gdata, out == TRUE)
     # Plot chart using ggplot2 library
     ccPlot <- ggplot(data = gdata, 
-            aes(x = item, y = MR)) + 
+            aes(x = .data$item, y = MR)) + 
         geom_point() +
         geom_line() +
         geom_hline(yintercept = c(LCL, UCL), size = 1) +
@@ -192,7 +190,7 @@ ss.cc <- function(type, data, cdata, CTQ = names(data)[1], groups,
     if (nrow(outData) > 0){
       ccPlot <- ccPlot + 
         geom_point(data = outData,
-                   aes(x = item, 
+                   aes(x = .data$item, 
                        y = MR), 
                    col = "red",
                    size = 2.5)
