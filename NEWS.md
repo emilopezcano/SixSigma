@@ -1,5 +1,6 @@
 # SixSigma (development version)
 
+* Add colours to .ss.prepCanvas (#16 @k-tatgenhorst)
 * Fix deprecated ..density.. issue in ggplot2 
 * Add unit testing (#15 @paulamarv8)
 * Add codecov
