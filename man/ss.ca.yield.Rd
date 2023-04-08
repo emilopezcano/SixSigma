@@ -25,7 +25,7 @@ Computes the Yield, First Time Yield, Rolled Throughput Yield and Defects
 per Million Opportunities of a process.
 }
 \details{
-The three arguments must have the same length.
+The arguments defects and rework must have the same length.
 }
 \examples{
 ss.ca.yield(c(3,5,12),c(1,2,4),1915)

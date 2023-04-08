@@ -10,7 +10,8 @@ ss.ceDiag(
   causes,
   main = "Six Sigma Cause-and-effect Diagram",
   sub,
-  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")
+  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE", "#FFFFFF", "#000000",
+    "#000000")
 )
 }
 \arguments{
@@ -35,7 +36,8 @@ Represents a Cause and Effect Diagram by cause group.
 }
 \details{
 The default value for ss.col is c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD",
-  "#EEEEEE"), a grayscale style. You can pass any accepted colour string.
+  "#EEEEEE", "#FFFFFF", "#000000", "#000000"), a grayscale style. 
+You can pass any accepted colour string.
 }
 \note{
 The cause and effect diagram is also known as "Ishikawa diagram", and
