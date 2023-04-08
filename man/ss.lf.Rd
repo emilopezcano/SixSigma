@@ -35,7 +35,7 @@ Wiley
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
   Improvement}, Use R!, vol. 36. Springer, New York.
-  \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.
+  \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2/}.
 }
 \seealso{
 \code{\link{ss.lfa}}

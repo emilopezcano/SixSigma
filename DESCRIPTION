@@ -14,7 +14,7 @@ Authors@R: c(person("Emilio L.", "Cano", email = "emilio@lcano.com",
              person("Paula", "Martínez", role = c("ctb")),
              person("Manuel", "Alfaro", role = c("ctb")))
 Maintainer: Emilio L. Cano <emilio@lcano.com>
-BugReports: https://github.com/emilopezcano/SixSigma/issues
+BugReports: https://github.com/emilopezcano/SixSigma/issues/
 Description: Functions and utilities to perform
     Statistical Analyses in the Six Sigma way.
     Through the DMAIC cycle (Define, Measure, Analyze, Improve, Control),
@@ -23,7 +23,7 @@ Description: Functions and utilities to perform
     etc. Data frames used in the books "Six Sigma with R" [ISBN 978-1-4614-3652-2]
     and "Quality Control with R" [ISBN 978-3-319-24046-6], 
     are also included in the package.
-URL: https://www.sixsigmawithr.com, http://emilopezcano.github.io/SixSigma/, https://github.com/emilopezcano/SixSigma
+URL: https://www.sixsigmawithr.com/, http://emilopezcano.github.io/SixSigma/, https://github.com/emilopezcano/SixSigma/
 License: GPL (>= 2)
 Depends:
     R (>= 3.5.0)
