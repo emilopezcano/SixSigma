@@ -44,7 +44,8 @@
 #' @keywords cause-and-effect
 ss.ceDiag <- function(effect, causes.gr, causes, 
 		main = "Six Sigma Cause-and-effect Diagram", 
-		sub, ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")){
+		sub, ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE"
+			       ,"#FFFFFF", "#000000", "#000000")){
     
 	n.causes<-length(causes.gr)
 	.ss.prepCanvas(main,sub, ss.col)
