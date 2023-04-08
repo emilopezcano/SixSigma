@@ -8,3 +8,4 @@ elc_utils
 .DS_Store
 SixSigma.Rproj
 revdep
+.Rprofile

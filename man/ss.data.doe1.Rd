@@ -41,7 +41,7 @@ lattice::bwplot(score ~ flour | salt + bakPow ,
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
   Improvement}, Use R!, vol. 36. Springer, New York.
-  \url{https://www.springer.com/gp/book/9781461436515}.\cr
+  \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2/}.\cr
 }
 \keyword{data}
 \keyword{doe}

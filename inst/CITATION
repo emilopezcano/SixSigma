@@ -1,30 +1,38 @@
-citHeader("To cite package 'SixSigma' in publications use:")
+## R package reference generated from DESCRIPTION metadata
 
-     ## R >= 2.8.0 passes package metadata to citation().
-     if(!exists("meta") || is.null(meta)) meta <- packageDescription("SixSigma")
-     year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date)
-     vers <- paste("R package version", meta$Version)
+# citation(auto = meta) # Warning if Date is missing in DESCRIPTION, discouraged by Hadley
 
-     citEntry(entry="Book",
-              title = "Six Sigma with R",
-              author = "Emilio L. Cano and Javier M. Moguerza and Andres Redchuk",
-              year = "2012",
-              publisher = "Springer",
-              address = "New York",
-              volume = "36",
-              series = "Use R!",
-              textVersion =
-              paste("Emilio L. Cano, Javier M. Moguerza and Andres Redchuk (2012)",
-                    "Six Sigma with R. Springer, New York", sep=""))
-     
-     citEntry(entry="Book",
-              title = "Quality Control with R",
-              author = "Emilio L. Cano and Javier M. Moguerza and Mariano Prieto Corcoba",
-              year = "2015",
-              publisher = "Springer",
-              address = "New York",
-              series = "Use R!",
-              textVersion =
-              paste("Emilio L. Cano, Javier M. Moguerza and Mariano Prieto Corcoba (2015)",
-                    "Quality Control with R. Springer, New York", sep=""))
-                    
+## Six Sigma book
+
+bibentry(bibtype = "Book",
+    key = "cano2012sixsigma",
+           author = c(person("Emilio L.", "Cano"),
+                      person("Javier M.", "Moguerza"), 
+                      person("Andrés", "Redchuk")),
+    title = 	 "Six Sigma with R. Statistical Engineering for Process Improvement",
+    publisher = 	 "Springer",
+    year = 	 "2012",
+    volume = 	 "36",
+    series = 	 "Use R!",
+    address = 	 "New York",
+    doi = 	 "10.1007/978-1-4614-3652-2",
+    isbn = "978-1-4614-3651-5",
+    pages = "323",
+    date = "2012-07-01")
+  
+# Quality Control book
+
+  bibentry(bibtype = "Book",
+           key = "cano2015qcr",
+           author = c(person("Emilio L.", "Cano"),
+                      person("Javier M.", "Moguerza"), 
+                      person("Mariano", "Prieto Corcoba")),
+           title = 	 "Quality Control with R. An ISO Standards Approach",
+           publisher = 	 "Springer",
+           address = "Switzerland",
+           year = 	 "2015",
+           series = 	 "Use R!",
+           doi = 	 "10.1007/978-3-319-24046-6",
+           isbn = "978-3-319-24044-2",
+           pages = "349",
+           date = "2015-12-01")
