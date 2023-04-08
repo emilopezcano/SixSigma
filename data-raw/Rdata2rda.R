@@ -24,7 +24,6 @@ ss.data.wbx
 ss.data.wby", what = character())
 
 for (df in dfs){
-  use_data(assign(df, eval(parse(text = df)), overwrite = TRUE))
+  do.call("use_data", list(as.name(df), overwrite = TRUE))
 }
 
-use_data(ss.data.bills)
