@@ -58,7 +58,7 @@ lines, Target, and Specification limits. It can be partially specified.
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
   Improvement}, Use R!, vol. 36. Springer, New York.
-  \url{https://www.springer.com/gp/book/9781461436515}.
+  \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.
   
 Montgomery, DC (2008) \emph{Introduction to Statistical Quality Control}
   (Sixth Edition). New York: Wiley&Sons

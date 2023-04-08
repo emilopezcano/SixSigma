@@ -13,7 +13,8 @@ ss.pMap(
   y.features,
   main = "Six Sigma Process Map",
   sub,
-  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")
+  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE", "#FFFFFF", "#000000",
+    "#000000")
 )
 }
 \arguments{
@@ -50,8 +51,8 @@ This function takes information about the process we want
 \details{
 The type of the x parameters and y features can be: C(controllable), 
 N(noise), Cr(Critical), P(Procedure). The default value for ss.col is 
-c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE"), a grayscale style. 
-You can pass any accepted color string.
+c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE", "#FFFFFF",  
+"#000000", "#000000") a grayscale style.You can pass any accepted color string.
 }
 \note{
 The process map is the starting point for a Six Sigma Project, and it is
@@ -100,7 +101,7 @@ ss.pMap(steps, inputs.overall, outputs.overall,
   Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.
 \emph{Six Sigma with {R}. Statistical Engineering for Process
   Improvement}, Use R!, vol. 36. Springer, New York.
-  \url{https://www.springer.com/gp/book/9781461436515}.\cr
+  \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 }
 \seealso{
 \code{\link{ss.ceDiag}}
