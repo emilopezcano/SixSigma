@@ -22,7 +22,7 @@
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #' 
 #' @source See references.
 #' @aliases ss.data.batteries
@@ -57,7 +57,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.bolts
@@ -91,7 +91,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.ca
@@ -130,7 +130,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.doe1
@@ -173,7 +173,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.doe2
@@ -211,7 +211,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.pastries
@@ -245,7 +245,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.pb1
@@ -278,7 +278,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.pb2
@@ -312,7 +312,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.pb3
@@ -345,7 +345,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.pb4
@@ -382,7 +382,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.pc.big
@@ -418,7 +418,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.pc.r
@@ -456,7 +456,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.pc
@@ -494,7 +494,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.rr
@@ -531,7 +531,7 @@ NULL
 #' Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andrés. 2012.
 #' \emph{Six Sigma with {R}. Statistical Engineering for Process
 #'   Improvement}, Use R!, vol. 36. Springer, New York.
-#'   \url{https://www.springer.com/gp/book/9781461436515}.\cr
+#'   \url{https://link.springer.com/book/10.1007/978-1-4614-3652-2}.\cr
 #'
 #' @source See references.
 #' @aliases ss.data.strings
