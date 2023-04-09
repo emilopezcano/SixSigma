@@ -48,7 +48,8 @@
 ss.ci<-function(x, sigma2 = NA, alpha = 0.05, data = NA, 
                 xname = "x", approx.z = FALSE, main = "Confidence Interval for the Mean", 
                 digits = 3,
-                sub = "", ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")){
+                sub = "", ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE",
+                                    "#FFFFFF", "#000000", "#000000")){
   if (is.data.frame(data)){
     x <- data[[deparse(substitute(x))]]
   }
@@ -99,9 +100,10 @@ ss.ci<-function(x, sigma2 = NA, alpha = 0.05, data = NA,
                         gp = grid::gpar(fill = ss.col[5], col = ss.col[2], lwd=2))
   grid:: grid.text("Mean:\nStdDev:\nn:\nMissing:", just = "left",
                    x = unit(1, "npc") - unit(5.5, "cm"), 
-                   gp = grid::gpar(fontface = c("bold")))
+                   gp = grid::gpar(fontface = c("bold"), col = ss.col[7]))
   grid:: grid.text(paste(round(m, digits), "\n", round(s, digits), "\n", n,
-                         "\n", na, sep = ""), just = "right", 
+                         "\n", na, sep = ""), just = "right",
+                   gp = grid::gpar(col = ss.col[8]),
                    x = unit(1, "npc") - unit(1, "cm"))
   
   
@@ -117,11 +119,12 @@ ss.ci<-function(x, sigma2 = NA, alpha = 0.05, data = NA,
                          st.dist, ":", sep = ""),
                    just = "left",
                    x = unit(0,"npc") + unit(1,"cm"), 
-                   gp = grid::gpar(fontface=c("bold")))
+                   gp = grid::gpar(fontface=c("bold"), col = ss.col[7]))
   grid:: grid.text(paste("[", round(ci[1], digits), ", ", round(ci[2], digits),
                          "]\n", ifelse(is.numeric(sigma2), sigma2, "unknown"),
                          "\n", round(st, digits),
-                         sep = ""), just = "right", 
+                         sep = ""), just = "right",
+                   gp = grid::gpar(col = ss.col[8]),
                    x = unit(0,"npc") + unit(7.5,"cm"))
   grid::popViewport()
   grid::popViewport()
@@ -147,14 +150,16 @@ ss.ci<-function(x, sigma2 = NA, alpha = 0.05, data = NA,
   
   grid:: grid.text("Shapiro-Wilks\nNormality Test\n", 
                    y = unit(1, "npc") - unit(3, "lines"),
-                   gp = grid::gpar(fontface = c("bold")))
+                   gp = grid::gpar(fontface = c("bold"), col = ss.col[7]))
   pval <- shapiro.test(x)[2]$p.value 
   if (pval < 0.05){
     warning("Sample data is non-normal.")
   }
   grid:: grid.text(paste(round(shapiro.test(x)[1]$statistic, digits), "\n"),
+                   gp = grid::gpar(col = ss.col[8]),
                    y = unit(1, "npc") - unit(5, "lines"))
   grid:: grid.text(paste("p-value:", round(pval, digits), "\n"),
+                   gp = grid::gpar(col = ss.col[8]),
                    y = unit(1, "npc") - unit(6, "lines"))
   
   vp.qq <- grid::viewport(name="qqp", 
