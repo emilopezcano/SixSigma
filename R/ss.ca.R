@@ -229,9 +229,9 @@ ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA,
 		f.na.rm = TRUE,
 		f.main = "Six Sigma Capability Analysis Study", 
 		f.sub = "",
-		f.colours = c("#4682B4","#d1d1e0","#000000","#00C800","#FF0000",
+		f.colours = c("#4682B4","#d1d1e0","#000000","#A2CD5A","#D1EEEE",
 			     "#FFFFFF", "#000000", "#000000")){
-	if (is.na(Target)){
+  	if (is.na(Target)){
 		stop("Target is needed")
 	}
 	if (is.na(LSL) & is.na(USL)){
@@ -270,8 +270,8 @@ ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA,
 	#Order of colours c((Bars & Subtitle), Density ST, Density LT, Target, (Specification 
 	# limits & Title & Frame), Background, Labels, Values)
 	if(length(f.colours) != 8) {
-	  default <- c("#4682B4","#868686","#000000","#00C800","#FF0000",
-		      "#FFFFFF", "#000000", "#000000")
+	  default <- c("#4682B4","#d1d1e0","#000000","#A2CD5A","#D1EEEE",
+	               "#FFFFFF", "#000000", "#000000")
 	  f.colours <- c(f.colours, default[(length(f.colours) + 1):8])
 	}
 
