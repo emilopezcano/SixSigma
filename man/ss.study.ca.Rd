@@ -4,9 +4,19 @@
 \alias{ss.study.ca}
 \title{Graphs and figures for a Capability Study}
 \usage{
-ss.study.ca(xST, xLT = NA, LSL = NA, USL = NA, Target = NA, 
-  alpha = 0.05, f.na.rm = TRUE, f.main = "Six Sigma Capability Analysis Study", 
-  f.sub = "", f.colours = c("#4682B4","#d1d1e0","#000000","#00C800","#FF0000"))
+ss.study.ca(
+  xST,
+  xLT = NA,
+  LSL = NA,
+  USL = NA,
+  Target = NA,
+  alpha = 0.05,
+  f.na.rm = TRUE,
+  f.main = "Six Sigma Capability Analysis Study",
+  f.sub = "",
+  f.colours = c("#4682B4", "#d1d1e0", "#000000", "#A2CD5A", "#D1EEEE", "#FFFFFF",
+    "#000000", "#000000")
+)
 }
 \arguments{
 \item{xST}{Short Term process performance data}
@@ -52,7 +62,7 @@ lines, Target, and Specification limits. It can be partially specified.
 		LSL = 740, USL = 760, T = 750, alpha = 0.05, 
  			f.sub = "Winery Project", 
  			f.colours = c("#990000", "#007700", "#002299"))
- 			
+
 }
 \references{
 Cano, Emilio L., Moguerza, Javier M. and Redchuk, Andres. 2012.

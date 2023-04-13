@@ -14,7 +14,8 @@ ss.ci(
   main = "Confidence Interval for the Mean",
   digits = 3,
   sub = "",
-  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE")
+  ss.col = c("#666666", "#BBBBBB", "#CCCCCC", "#DDDDDD", "#EEEEEE", "#FFFFFF", "#000000",
+    "#000000")
 )
 }
 \arguments{
