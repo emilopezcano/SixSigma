@@ -195,7 +195,7 @@ ss.ci<-function(x, sigma2 = NA, alpha = 0.05, data = NA,
                    col = "gray"
                    # , stat = "bin"
     ) +
-    xlab(paste("Value of", deparse(substitute(x)))) +
+    xlab(paste("Value of", xname)) +
     ggtitle("Histogram & Density Plot") +
     stat_density(geom = "path", 
                  position = "identity", 

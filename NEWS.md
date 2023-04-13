@@ -1,3 +1,9 @@
+# SixSigma under development
+
+* Add colours to ss.ca.study and ss.ci (#35 @tatgenhorst)
+
+* hotfix: Fix xlab in ss.ci
+
 
 # SixSigma 0.11.0
 
