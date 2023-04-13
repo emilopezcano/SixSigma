@@ -185,10 +185,6 @@ ss.ca.cpk <- function(x, LSL = NA, USL = NA,
 #' lines, Target, and Specification limits. It can be partially specified.
 #' 
 #' 
-#' @usage 
-#' ss.study.ca(xST, xLT = NA, LSL = NA, USL = NA, Target = NA, 
-#'   alpha = 0.05, f.na.rm = TRUE, f.main = "Six Sigma Capability Analysis Study", 
-#'   f.sub = "", f.colours = c("#4682B4","#d1d1e0","#000000","#00C800","#FF0000"))
 #' @param xST Short Term process performance data 
 #' @param xLT Long Term process performance data 
 #' @param LSL Lower Specification Limit of the process
@@ -223,14 +219,14 @@ ss.ca.cpk <- function(x, LSL = NA, USL = NA,
 #' 		LSL = 740, USL = 760, T = 750, alpha = 0.05, 
 #'  			f.sub = "Winery Project", 
 #'  			f.colours = c("#990000", "#007700", "#002299"))
-#'  			
-ss.study.ca<-function (xST, xLT = NA, LSL = NA, USL = NA, 
+#'
+ss.study.ca <- function (xST, xLT = NA, LSL = NA, USL = NA, 
 		Target = NA, alpha = 0.05, 
 		f.na.rm = TRUE,
 		f.main = "Six Sigma Capability Analysis Study", 
 		f.sub = "",
 		f.colours = c("#4682B4","#d1d1e0","#000000","#A2CD5A","#D1EEEE",
-			     "#FFFFFF", "#000000", "#000000")){
+			     "#FFFFFF", "#000000", "#000000")){ 
   	if (is.na(Target)){
 		stop("Target is needed")
 	}
