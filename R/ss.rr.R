@@ -25,6 +25,19 @@
 #' @param method Character to specify the type of analysis to perform, \code{"crossed"} (default) or \code{"nested"} 
 #' @param print_plot if TRUE (default) the plots are printed. Change to FALSE to avoid printing plots.
 #' @param signifstars if FALSE (default) the significance stars are ommitted. Change to TRUE to allow printing stars.
+#' @param clayout this argument can be used to change the titles and display location of the charts. The argument 
+#' @param expects a matrix 6 rows by 3 columns the first column being a string to title the chart, the second being
+#' @param the row to display that chart and the final being the column. The variables are defined in the default order
+#' @param in which they are displayed:
+#' @param bp <- c("Summarized Variation", 3, 2)
+#' @param cr <- c("Variance Between Appraisers", 2, 2)
+#' @param cm <- c("Mean of x Between Operators", 1, 2)
+#' @param vbp <- c("Variation Between Parts", 3, 1)
+#' @param vba <- c("Variation Between Appraisers", 2, 1)
+#' @param pai <- c("Part and Appraiser Interaction", 1, 1)
+#' @param
+#' @param layout <- rbind(bp,cr, cm, vbp, vba, pai)
+#' @param rownames(layout) <- c("bp","cr", "cm", "vbp", "vba", "pai")
 #' 
 #' @return 
 #' Analysis of Variance Table/s. Variance composition and \%Study Var. Graphics.
@@ -85,7 +98,8 @@
 #' 	errorTerm = "interaction",
 #' 	lsl = 0.7,
 #' 	usl = 1.8,
-#' 	method = "crossed")
+#' 	method = "crossed",
+#'  clayout = matrix(nrow=6, ncol=2))
 #' 
 #' @export
 #' @keywords reproducibility repeatability Gauge R&R MSA
@@ -99,7 +113,14 @@ ss.rr <- function(var, part, appr,
                   digits = 4, 
                   method = "crossed",
                   print_plot = TRUE,
-                  signifstars = FALSE){
+                  signifstars = FALSE,
+                  clayout = matrix(nrow=6, ncol=2)){
+  if(is.na(clayout[1,1])) {
+    cus_layout = FALSE
+    print("Default layout")
+  } else {
+    cus_layout = TRUE
+  }
   curr_stars <- getOption("show.signif.stars")
   if(signifstars){
     options(show.signif.stars = TRUE)
@@ -410,9 +431,18 @@ ss.rr <- function(var, part, appr,
     grid::pushViewport(vp.plots)
     
     ## Barplot components of variation
+    if(cus_layout) {
+      barplot_caption = clayout[1,1]
+      barplot_x = as.numeric(clayout[1,2])
+      barplot_y = as.numeric(clayout[1,3])
+    } else {
+      barplot_caption = "Components of Variation"
+      barplot_x = 1
+      barplot_y = 1
+    }
     vp.bar <- grid::viewport(name = "barplot", 
-                             layout.pos.row = 1, 
-                             layout.pos.col = 1)
+                             layout.pos.row = barplot_x, 
+                             layout.pos.col = barplot_y)
     grid::pushViewport(vp.bar)
     
     ## Data for the chart ----
@@ -467,15 +497,24 @@ ss.rr <- function(var, part, appr,
                                               rep = FALSE),
                               stack = FALSE,
                               horizontal = FALSE, 
-                              main = list("Components of Variation", fontsize = 14))
+                              main = list(barplot_caption, fontsize = 14))
     
     
     print(plot, newpage = FALSE)
     grid::popViewport()
     
     ## Variable by part
-    vp.varByPart <- grid::viewport(name = "varByPart", layout.pos.row = 1, 
-                                   layout.pos.col = 2)
+    if(cus_layout) {
+      vbp_caption = clayout[4,1]
+      vbp_x = as.numeric(clayout[4,2])
+      vbp_y = as.numeric(clayout[4,3])
+    } else {
+      vbp_caption = paste(var, "by", part)
+      vbp_x = 1
+      vbp_y = 2
+    }
+    vp.varByPart <- grid::viewport(name = "varByPart", layout.pos.row = vbp_x, 
+                                   layout.pos.col = vbp_y)
     grid::pushViewport(vp.varByPart)
     plot <- lattice::stripplot(as.formula(paste(var, "~", part)),
                                data = data,
@@ -485,13 +524,22 @@ ss.rr <- function(var, part, appr,
                                                    par.xlab.text = list(cex = 0.8),
                                                    par.ylab.text = list(cex = 0.8),
                                                    par.main.text = list(cex = 0.9)),
-                               main = paste(var, "by", part),
+                               main = vbp_caption,
                                type = c("p", "a"))
     print(plot, newpage = FALSE)
     grid::popViewport()
     ## Variable by appraiser
-    vp.varByAppr <- grid::viewport(name = "varByAppr", layout.pos.row = 2, 
-                                   layout.pos.col = 2)
+    if(cus_layout) {
+      vba_caption = clayout[5,1]
+      vba_x = as.numeric(clayout[5,2])
+      vba_y = as.numeric(clayout[5,3])
+    } else {
+      vba_caption = paste(var, "by", appr)
+      vba_x = 2
+      vba_y = 2
+    }
+    vp.varByAppr <- grid::viewport(name = "varByAppr", layout.pos.row = vba_x, 
+                                   layout.pos.col = vba_y)
     grid::pushViewport(vp.varByAppr)
     plot <- lattice::stripplot(as.formula(paste(var, "~", appr)),
                                data = data,
@@ -501,15 +549,24 @@ ss.rr <- function(var, part, appr,
                                                    par.xlab.text = list(cex = 0.8),
                                                    par.ylab.text = list(cex = 0.8),
                                                    par.main.text = list(cex = 0.9)),
-                               main = paste(var, "by", appr),
+                               main = vba_caption,
                                type = c("p", "a"))
     print(plot, newpage = FALSE)
     grid::popViewport()
     
     ## Interaction
     if (method == "crossed") {
-      vp.Interact <- grid::viewport(name = "Interact", layout.pos.row = 3, 
-                                    layout.pos.col = 2)
+      if(cus_layout) {
+        pva_caption = clayout[6,1]
+        pva_x = as.numeric(clayout[6,2])
+        pva_y = as.numeric(clayout[6,3])
+      } else {
+        pva_caption = paste0(part, ":", appr, " Interaction")
+        pva_x = 3
+        pva_y = 2
+      }
+      vp.Interact <- grid::viewport(name = "Interact", layout.pos.row = pva_x, 
+                                    layout.pos.col = pva_y)
       grid::pushViewport(vp.Interact)
       
       data.xbar <- aggregate(as.formula(paste(var, "~", appr, "+", part)), 
@@ -542,8 +599,17 @@ ss.rr <- function(var, part, appr,
                              })
     ar <- mean(data.xrange[[var]])
     ## Mean chart
-    vp.ccMean <- grid::viewport(name = "ccMean", layout.pos.row = 3, 
-                                layout.pos.col = 1)
+    if(cus_layout) {
+      cc_mean_caption = clayout[3,1]
+      cc_mean_x = as.numeric(clayout[3,2])
+      cc_mean_y = as.numeric(clayout[3,3])
+    } else {
+      cc_mean_caption = bquote(paste(bold(bar(x)*" Chart by "*.(appr))))
+      cc_mean_x = 3
+      cc_mean_y = 1
+    }
+    vp.ccMean <- grid::viewport(name = "ccMean", layout.pos.row = cc_mean_x, 
+                                layout.pos.col = cc_mean_y)
     grid::pushViewport(vp.ccMean)
     xbar <- mean(data[[var]], na.rm = TRUE)
     ucl <- xbar + (3/(ss.cc.getd2(n)*sqrt(n)))*ar
@@ -559,7 +625,7 @@ ss.rr <- function(var, part, appr,
                                                 par.ylab.text=list(cex = 0.8),
                                                 par.main.text=list(cex = 0.9)),
                             par.strip.text = list(cex = 0.6),
-                            main = bquote(bold(bar(x)*" Chart by "*.(appr))),
+                            main = cc_mean_caption,
                             grid = TRUE,
                             layout = c(b, 1),
                             type = "b",
@@ -577,8 +643,17 @@ ss.rr <- function(var, part, appr,
     grid::popViewport()
     
     ## Range chart
-    vp.ccRange <- grid::viewport(name = "ccRange", layout.pos.row = 2, 
-                                 layout.pos.col = 1)
+    if(cus_layout) {
+      rchart_caption = clayout[2,1]
+      rchart_x = as.numeric(clayout[2,2])
+      rchart_y = as.numeric(clayout[2,3])
+    } else {
+      rchart_caption = paste("R Chart by ", appr)
+      rchart_x = 2
+      rchart_y = 1
+    }
+    vp.ccRange <- grid::viewport(name = "ccRange", layout.pos.row = rchart_x, 
+                                 layout.pos.col = rchart_y)
     grid::pushViewport(vp.ccRange)
     this.d3 <- ss.cc.getd3(n)
     this.d2 <- ss.cc.getd2(n)
@@ -600,7 +675,7 @@ ss.rr <- function(var, part, appr,
                                                 par.main.text = list(cex = 0.9),
                                                 layout.widths = list(axis.panel = c(1, 0, 0))),
                             par.strip.text = list(cex = 0.6),
-                            main = paste("R Chart by", appr),
+                            main = rchart_caption,
                             grid = TRUE,
                             layout = c(b, 1),
                             type = "b",
