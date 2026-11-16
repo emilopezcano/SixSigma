@@ -23,7 +23,7 @@ ss.ci(
 
 \item{sigma2}{The population variance, if known}
 
-\item{alpha}{The eqn{\\alpha} error used to compute the \eqn{100*(1-\\alpha)\%} confidence interval}
+\item{alpha}{The \eqn{\\alpha} error used to compute the \eqn{100*(1-\\alpha)\%} confidence interval}
 
 \item{data}{The data frame containing the vector}
 

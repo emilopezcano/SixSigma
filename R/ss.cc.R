@@ -79,7 +79,7 @@ ss.cc.getd3 <- function (n = NA){
 #' computed using \code{data}.
 #' \cr
 #' Supported types of control charts:
-#' \itemize{
+#' \describe{
 #' \item{mr}{Moving Range}
 #' }
 #' @note 

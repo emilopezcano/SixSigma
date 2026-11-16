@@ -11,7 +11,7 @@
 #' 
 #' @param x         A numeric vector with the variable data
 #' @param sigma2    The population variance, if known
-#' @param alpha     The eqn{\\alpha} error used to compute the \eqn{100*(1-\\alpha)\%} confidence interval
+#' @param alpha     The \eqn{\\alpha} error used to compute the \eqn{100*(1-\\alpha)\%} confidence interval
 #' @param data      The data frame containing the vector
 #' @param xname     The name of the variable to be shown in the graph
 #' @param approx.z  If TRUE it uses z statistic instead of t when sigma is unknown and sample size 
