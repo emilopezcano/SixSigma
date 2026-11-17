@@ -40,10 +40,10 @@
 #' The F test for the main effects in the ANOVA table is usually made 
 #' taken the operator/appraisal
 #' interaction as the error term (repeated measures model), thereby computing F as
-#' $MS_{factor}/MS_{interaction}$, e.g. in appendix A of AIAG MSA manual, 
+#' \eqn{MS_{factor}/MS_{interaction}}{MS(factor)/MS(interaction)}, e.g. in appendix A of AIAG MSA manual, 
 #' in Montgomery (2009) and by statistical software such as Minitab.
 #' However, in the example provided in page 127 of the AIAG MSA Manual, the
-#' F test is performed as $MS_{factor}/MS_{equipment}$, i.e., repeatability.
+#' F test is performed as \eqn{MS_{factor}/MS_{equipment}}{MS(factor)/MS(equipment)}, i.e., repeatability.
 #' Thus, since version 0.9-3 of the SixSigma package, a new argument
 #' \code{errorTerm} controls which term should be used as error Term, one of 
 #' "interaction", "repeatability". 

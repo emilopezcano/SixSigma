@@ -40,7 +40,7 @@ shown. If there are no control limits nor controlled data, the limits are
 computed using \code{data}.
 \cr
 Supported types of control charts:
-\itemize{
+\describe{
 \item{mr}{Moving Range}
 }
 }
