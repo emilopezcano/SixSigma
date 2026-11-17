@@ -1,5 +1,7 @@
 # SixSigma under development
 
+* Fix lost braces (PR #42 @luisDVA)
+
 * Add colours to ss.ca.study and ss.ci (#35 @tatgenhorst)
 
 * hotfix: Fix xlab in ss.ci
